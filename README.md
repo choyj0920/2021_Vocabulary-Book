@@ -63,3 +63,10 @@
 
 - 
 
+
+
+
+
+DB구조
+
+![db초안](_markdown/db초안.png)
