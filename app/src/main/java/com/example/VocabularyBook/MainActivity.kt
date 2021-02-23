@@ -13,16 +13,16 @@ class MainActivity :AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         tv_mywordbook.setOnClickListener {
+            val intent= Intent(this, MywordbooklistActivity::class.java)
+            startActivity(intent)
+        }
+        tv_wordfind.setOnClickListener {
 //            val intent= Intent(this,MainActivity::class.java)
 //            startActivity(intent)
         }
-        tv_wordfind.setOnClickListener {
-            //val intent= Intent(this,MainActivity::class.java)
-            //startActivity(intent)
-        }
         tv_study.setOnClickListener {
-            //val intent= Intent(this,MainActivity::class.java)
-            //startActivity(intent)
+//            val intent= Intent(this,MainActivity::class.java)
+//            startActivity(intent)
         }
 
 

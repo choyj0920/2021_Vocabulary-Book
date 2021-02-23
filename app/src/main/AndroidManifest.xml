@@ -14,6 +14,14 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity android:name=".JoinActivity"></activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MywordbooklistActivity"></activity>
+
+        <activity android:name=".WordbookActivity"></activity>
+
+        <activity android:name=".WordlistActivity"></activity>
+        <activity android:name=".WordtestActivity"></activity>
+
+
 
 
         <activity android:name=".LoginActivity">

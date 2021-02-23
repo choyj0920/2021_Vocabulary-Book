@@ -22,9 +22,7 @@ class LoginResponse {
 
 }
 
-data class UserData(
-    @field:SerializedName("useruid") private val useruid: Int
-)
+
 
 data class JoinData(
     @field:SerializedName("username") private val username: String,
@@ -40,6 +38,31 @@ class JoinResponse {
     val message: String? = null
 }
 
+data class UserData(
+    @field:SerializedName("UserUid") private val UserUid: Int
+)
+
+class wordbookdata{
+    @field:SerializedName("bookid")
+    val bookid: Int=0
+    @field:SerializedName("Rid")
+    val Rid: Int?=null
+    @field:SerializedName("Uid")
+    val Uid: Int?=null
+    @field:SerializedName("bookname")
+    val bookname: String=""
+
+}
+
+class wordbooklistResponse{
+    @SerializedName("code")
+    val code = 0
+    @SerializedName("message")
+    val message: String? = null
+    @SerializedName("booklist")
+    val booklist : Array<wordbookdata>? =null
+}
+
 interface ServiceApi {
     @POST("/user/login")
     fun userLogin(@Body data: LoginData?): Call<LoginResponse?>?
@@ -47,7 +70,7 @@ interface ServiceApi {
     @POST("/user/join")
     fun userJoin(@Body data: JoinData?): Call<JoinResponse?>?
 
-    @POST("/user/friends")
-    fun findFriend(@Body data: UserData): Call<FriendlistResponse?>?
+    @POST("/user/wordbook")
+    fun findFriend(@Body data: UserData): Call<wordbooklistResponse?>?
 
 }
