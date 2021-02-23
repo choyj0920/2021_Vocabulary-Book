@@ -27,16 +27,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="vocabook 로그인,회원가입">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/font-v26/font.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/font/font.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -59,6 +67,16 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -71,6 +89,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="27b05680380d7ece" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-02-23T06:00:20.683Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -148,6 +168,14 @@
       <option name="presentableId" value="Default" />
       <updated>1613980545568</updated>
     </task>
+    <task id="LOCAL-00001" summary="vocabook 로그인,회원가입">
+      <created>1614052645009</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614052645009</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +190,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="vocabook 로그인,회원가입" />
+    <option name="LAST_COMMIT_MESSAGE" value="vocabook 로그인,회원가입" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="265" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614044997986">
       <screen x="0" y="0" width="1620" height="1040" />
@@ -171,26 +203,30 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="541" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614048000715" />
+    <state x="391" y="275" key="AndroidCreateResourceFileDialog" timestamp="1614056545008">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="391" y="275" key="AndroidCreateResourceFileDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614056545008" />
     <state x="590" y="274" key="FileChooserDialogImpl" timestamp="1614044198212">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614044198212" />
-    <state width="787" height="281" key="GridCell.Tab.0.bottom" timestamp="1614047068045">
+    <state width="787" height="281" key="GridCell.Tab.0.bottom" timestamp="1614061423965">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614047068045" />
-    <state width="787" height="281" key="GridCell.Tab.0.center" timestamp="1614047068045">
+    <state width="787" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614061423965" />
+    <state width="787" height="281" key="GridCell.Tab.0.center" timestamp="1614061423965">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614047068045" />
-    <state width="787" height="281" key="GridCell.Tab.0.left" timestamp="1614047068044">
+    <state width="787" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614061423965" />
+    <state width="787" height="281" key="GridCell.Tab.0.left" timestamp="1614061423965">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614047068044" />
-    <state width="787" height="281" key="GridCell.Tab.0.right" timestamp="1614047068045">
+    <state width="787" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614061423965" />
+    <state width="787" height="281" key="GridCell.Tab.0.right" timestamp="1614061423965">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614047068045" />
+    <state width="787" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614061423965" />
     <state x="616" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613359015159">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>

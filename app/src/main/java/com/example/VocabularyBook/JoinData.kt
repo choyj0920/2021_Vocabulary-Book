@@ -12,13 +12,13 @@ data class LoginData(
 
 class LoginResponse {
     @SerializedName("code")
-    val code = 0
+    var code =0
 
     @SerializedName("message")
-    val message: String? = null
+    var message: String? = null
 
     @SerializedName("Uid")
-    val Uid = 0
+    var Uid = 0
 
 }
 

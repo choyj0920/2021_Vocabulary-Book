@@ -35,7 +35,7 @@ class JoinActivity : AppCompatActivity() {
 
         joincontext=this
 
-        // ec2 가져오기
+        // 가져오기
         val retrofit = RetrofitClient.client
         service = retrofit.create(ServiceApi::class.java);
 

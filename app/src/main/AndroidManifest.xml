@@ -13,6 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity android:name=".JoinActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+
 
         <activity android:name=".LoginActivity">
             <intent-filter>

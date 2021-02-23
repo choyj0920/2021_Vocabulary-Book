@@ -83,8 +83,8 @@ class LoginActivity : AppCompatActivity() {
             focusView!!.requestFocus()
         } else {
             Log.d("debug","$email, $password 로그인 시도")
-            startLogin(LoginData(email, password))
             showProgress(true)
+            startLogin(LoginData(email, password))
         }
     }
 
@@ -102,13 +102,15 @@ class LoginActivity : AppCompatActivity() {
 
                     if (result.code == 200){
                         LoginActivity.Useruid=result.Uid
-                        Log.d("debub","${result.Uid}")
-                        //val intent= Intent(loginactivity,::class.java)
-                        //startActivity(intent)
+                        Log.d("debug","${result.Uid}")
+                        val intent= Intent(loginactivity,MainActivity::class.java)
+                        startActivity(intent)
+                    }
+                    else{
+                        Toast.makeText(LoginActivity.maincontext, "이메일 혹은 비밀번호가 잘못 입력되었습니다.", Toast.LENGTH_SHORT).show()
+
                     }
                 }
-
-
 
             }
 
@@ -117,7 +119,6 @@ class LoginActivity : AppCompatActivity() {
                 t: Throwable
             ) {
                 Toast.makeText(LoginActivity.maincontext, "로그인 에러 발생", Toast.LENGTH_SHORT).show()
-
                 Log.e("로그인 에러 발생", t.message!!)
                 showProgress(false)
             }
