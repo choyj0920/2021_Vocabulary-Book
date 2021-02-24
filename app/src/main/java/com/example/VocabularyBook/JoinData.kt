@@ -51,7 +51,6 @@ class wordbookdata{
     val Uid: Int?=null
     @field:SerializedName("bookname")
     val bookname: String=""
-
 }
 
 class wordbooklistResponse{
@@ -63,6 +62,28 @@ class wordbooklistResponse{
     val booklist : Array<wordbookdata>? =null
 }
 
+data class wordbookiddata(
+        @field:SerializedName("bookId") private val bookId: Int?
+)
+
+class worddata{
+    @field:SerializedName("Wordid")
+    val Wordid: Int=0
+    @field:SerializedName("word_eng")
+    val word_eng: String?=null
+    @field:SerializedName("mean")
+    val mean: String?=null
+}
+
+class wordlistResponse{
+    @SerializedName("code")
+    val code = 0
+    @SerializedName("message")
+    val message: String? = null
+    @SerializedName("wordlist")
+    val wordlist : Array<worddata>? =null
+}
+
 interface ServiceApi {
     @POST("/user/login")
     fun userLogin(@Body data: LoginData?): Call<LoginResponse?>?
@@ -72,5 +93,8 @@ interface ServiceApi {
 
     @POST("/user/wordbook")
     fun findFriend(@Body data: UserData): Call<wordbooklistResponse?>?
+
+    @POST("/user/wordbook/word")
+    fun getWordlist(@Body data: wordbookiddata): Call<wordlistResponse?>?
 
 }

@@ -27,24 +27,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="MainActivity 추가">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/MywordbooklistActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordlistActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordmemoryActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordtestActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mywordbooklist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordbook.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordlist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordmemory.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordtest.xml" afterDir="false" />
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="MywordbooklistActivity 추가(내 단어장 출력 액티비티)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/friends_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/wordbook_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordbook.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordbook.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614061483093</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="MywordbooklistActivity 추가(내 단어장 출력 액티비티)">
+      <created>1614068417991</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614068417991</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,7 +201,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="vocabook 로그인,회원가입" />
     <MESSAGE value="MainActivity 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="MainActivity 추가" />
+    <MESSAGE value="MywordbooklistActivity 추가(내 단어장 출력 액티비티)" />
+    <option name="LAST_COMMIT_MESSAGE" value="MywordbooklistActivity 추가(내 단어장 출력 액티비티)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="265" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614044997986">
@@ -226,22 +221,26 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614044198212" />
-    <state width="1575" height="281" key="GridCell.Tab.0.bottom" timestamp="1614067348688">
+    <state width="1575" height="281" key="GridCell.Tab.0.bottom" timestamp="1614069192191">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614067348688" />
-    <state width="1575" height="281" key="GridCell.Tab.0.center" timestamp="1614067348688">
+    <state width="1575" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614069192191" />
+    <state width="1575" height="281" key="GridCell.Tab.0.center" timestamp="1614069192191">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614067348688" />
-    <state width="1575" height="281" key="GridCell.Tab.0.left" timestamp="1614067348688">
+    <state width="1575" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614069192191" />
+    <state width="1575" height="281" key="GridCell.Tab.0.left" timestamp="1614069192191">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614067348688" />
-    <state width="1575" height="281" key="GridCell.Tab.0.right" timestamp="1614067348688">
+    <state width="1575" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614069192191" />
+    <state width="1575" height="281" key="GridCell.Tab.0.right" timestamp="1614069192191">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614067348688" />
+    <state width="1575" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614069192191" />
+    <state x="403" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614069564550">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="403" y="253" key="Vcs.Push.Dialog.v2/0.0.1620.1040@0.0.1620.1040" timestamp="1614069564550" />
     <state x="616" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613359015159">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
