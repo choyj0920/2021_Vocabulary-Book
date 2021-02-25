@@ -14,13 +14,11 @@ import com.example.VocabularyBook.R
 import com.example.VocabularyBook.WordbookActivity
 
 
-
-
-class MemorizedwordAdapter(var context: Context, val wordlist: ArrayList<worddata>,val checkwordset: HashSet<Int>) : RecyclerView.Adapter<MemorizedwordAdapter.CustomViewHolder>(){
+class MemorizedwordAdapter(var isshowchecked: Boolean,var context: Context, val wordlist: ArrayList<worddata>,val checkwordset: HashSet<Int>) : RecyclerView.Adapter<MemorizedwordAdapter.CustomViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.allword_item,parent,false)
+        val view = LayoutInflater.from(context).inflate(if (viewType==1)  R.layout.allword_item else R.layout.voidword_item ,parent,false)
         return CustomViewHolder(
                 view
         ) // inflater -> 부착
@@ -32,24 +30,30 @@ class MemorizedwordAdapter(var context: Context, val wordlist: ArrayList<worddat
     //
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
 
+        if (getItemViewType(position)==1){
+            holder.word_eng.text = wordlist.get(position).word_eng
+            holder.word_mean.text = wordlist.get(position).mean
+            holder.cb_wordmemorize.setVisibility(View.GONE)
 
-        holder.word_eng.text = wordlist.get(position).word_eng
-        holder.word_mean.text = wordlist.get(position).mean
-        holder.cb_wordmemorize.isChecked=checkwordset.contains(wordlist.get(position).Wordid)
-
-
-        holder.cb_wordmemorize.setOnClickListener{
-            if (holder.cb_wordmemorize.isChecked()){  //외운 단어 였으면
+        }else{
 
 
-            }else{
-
-            }
         }
+
 
     }
 
+    override fun getItemViewType(position: Int): Int {
+        if(isshowchecked){
+            return if(checkwordset.contains(wordlist[position].Wordid)) 1 else 2
+        }
+        else{
+            return if(checkwordset.contains(wordlist[position].Wordid)) 2 else 1
+        }
+    }
+
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         val word_eng =itemView.findViewById<TextView>(R.id.tv_allword_eng)
         val word_mean=itemView.findViewById<TextView>(R.id.tv_allword_mean)
         val cb_wordmemorize = itemView.findViewById<CheckBox>(R.id.cb_memorize)

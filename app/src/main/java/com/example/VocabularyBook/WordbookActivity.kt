@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.VocabularyBook.Fragment.MemorizedwordFragment
+import com.example.VocabularyBook.Fragment.MemorizedwordFragment.Companion.memorizedwordfragment
+import com.example.VocabularyBook.Fragment.WordFragment.Companion.wordFragment
 import kotlinx.android.synthetic.main.activity_wordbook.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -167,6 +170,8 @@ class WordbookActivity:AppCompatActivity() {
 
             }
         })
+        updatedata()
+
         return isSucess
     }
     fun uncheckword(index :Int):Boolean {
@@ -202,7 +207,13 @@ class WordbookActivity:AppCompatActivity() {
 
             }
         })
+        updatedata()
+
         return isSucess
+    }
+    private fun updatedata(){
+        memorizedwordfragment.loaddata()
+        wordFragment.loaddata()
     }
 
 
