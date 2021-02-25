@@ -18,7 +18,9 @@ class WordbookActivity:AppCompatActivity() {
     var wordbookact:WordbookActivity?=null
     private var service: ServiceApi? = null
     companion object{
-        var wordlistarray:ArrayList<worddata>?=null
+        var wordlistarray:ArrayList<worddata> = arrayListOf<worddata>()
+
+        var memorizedwordlist: HashSet<Int> = hashSetOf()
 
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +32,9 @@ class WordbookActivity:AppCompatActivity() {
         val retrofit = RetrofitClient.client
         service = retrofit.create(ServiceApi::class.java);
 
-        bookid= intent.getStringExtra("bookid")?.toInt()
-        Rid= intent.getStringExtra("Rid")?.toInt()
-        Uid= intent.getStringExtra("Uid")?.toInt()
+        bookid= intent.getIntExtra("bookid",0)
+        // Rid= intent.getIntExtra("Rid",1)
+        Uid= intent.getIntExtra("Uid",1)
         wordbookname= intent.getStringExtra("wordbookname")?.toString()
 
         loaddata(bookid)
@@ -45,7 +47,7 @@ class WordbookActivity:AppCompatActivity() {
             startActivity(intent)
         }
         tv_wordmemorize.setOnClickListener {
-            val intent= Intent(this, tv_wordmemorize::class.java)
+            val intent= Intent(this, WordmemoryActivity::class.java)
             startActivity(intent)
         }
         tv_wordtest.setOnClickListener {
@@ -58,11 +60,9 @@ class WordbookActivity:AppCompatActivity() {
 //            startActivity(intent)
             }
         }
-
-
     }
 
-    private fun loaddata(bookid : Int?) { // 채팅방 메시지 값 로드 함수
+    private fun loaddata(bookid : Int?) { // 단어장 단어리스트 , 외운 단어 가져오는 함수
         var wordlist = arrayListOf<worddata>()
         service!!.getWordlist(wordbookiddata(bookid))!!.enqueue(object : Callback<wordlistResponse?> {
             override fun onResponse(
@@ -95,6 +95,45 @@ class WordbookActivity:AppCompatActivity() {
 
             }
         })
+        // set 초기화 -DD 외운 단어 가져오기
+        //memorizedwordlist
+
+        var checkset= hashSetOf<Int>()
+        
+        service!!.getCheckword(checkwordinputdata(LoginActivity.Useruid,bookid))!!.enqueue(object : Callback<checkwordResponse?> {
+            override fun onResponse(
+                    call: Call<checkwordResponse?>,
+                    response: Response<checkwordResponse?>
+            ) {
+                val result = response.body()
+
+                if (result != null) {
+                    // Toast.makeText(MainActivity.maincontext, "${result.message}", Toast.LENGTH_SHORT).show()
+                    Log.d("debug","${result.message}")
+
+                    if (result.code == 200){
+                        result.memoword as Array<checkworddata>
+                        for (i in result.memoword ) {
+                            checkset.add(i.Wordid)
+
+                        }
+                        memorizedwordlist= checkset
+                    }
+                }
+            }
+            override fun onFailure(
+                    call: Call<checkwordResponse?>,
+                    t: Throwable
+            ) {
+                Toast.makeText(wordbookact, "암기한 단어를 불러오던중 에러 발생", Toast.LENGTH_SHORT).show()
+
+                Log.e("암기 단어리스트를 가져오던 중 에러 발생", t.message!!)
+
+            }
+        })
+
+
+
     }
 
 

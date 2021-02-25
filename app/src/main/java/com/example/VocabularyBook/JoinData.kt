@@ -84,6 +84,23 @@ class wordlistResponse{
     val wordlist : Array<worddata>? =null
 }
 
+data class checkwordinputdata(
+        @field:SerializedName("Uid") private val Uid: Int?,
+        @field:SerializedName("bookId") private val bookId: Int?
+)
+class checkworddata{
+    @field:SerializedName("Wordid")
+    val Wordid: Int=0
+}
+class checkwordResponse{
+    @SerializedName("code")
+    val code = 0
+    @SerializedName("message")
+    val message: String? = null
+    @SerializedName("memoword")
+    val memoword : Array<checkworddata>? =null
+}
+
 interface ServiceApi {
     @POST("/user/login")
     fun userLogin(@Body data: LoginData?): Call<LoginResponse?>?
@@ -96,5 +113,8 @@ interface ServiceApi {
 
     @POST("/user/wordbook/word")
     fun getWordlist(@Body data: wordbookiddata): Call<wordlistResponse?>?
+
+    @POST("/user/wordbook/checkword")
+    fun getCheckword(@Body data: checkwordinputdata): Call<checkwordResponse?>?
 
 }

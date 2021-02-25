@@ -9,7 +9,8 @@ import retrofit2.Response
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.VocabularyBook.LoginActivity.Companion.maincontext
+import com.example.VocabularyBook.Adapter.Wordbook
+import com.example.VocabularyBook.Adapter.WordbookAdapter
 import kotlinx.android.synthetic.main.activity_mywordbooklist.*
 
 class MywordbooklistActivity:AppCompatActivity() {
@@ -38,6 +39,7 @@ class MywordbooklistActivity:AppCompatActivity() {
 
     private fun loadData(){ // 채팅방 메시지 값 로드 함수
         wordbooklist=arrayListOf<Wordbook>()
+
         service!!.findFriend(UserData(LoginActivity.Useruid))!!.enqueue(object : Callback<wordbooklistResponse?> {
             override fun onResponse(
                 call: Call<wordbooklistResponse?>,
@@ -53,10 +55,10 @@ class MywordbooklistActivity:AppCompatActivity() {
                         result.booklist as Array<wordbookdata>
                         for (i in result.booklist ){
 
-                            wordbooklist.add(Wordbook(i.bookid,i.Rid,i.Uid,i.bookname))
+                            wordbooklist.add(Wordbook(i.bookid, i.Rid, i.Uid, i.bookname))
 
                         }
-                        rvwordbooklist.adapter=WordbookAdapter(mywordbooklistact,wordbooklist)
+                        rvwordbooklist.adapter= WordbookAdapter(mywordbooklistact, wordbooklist)
 
                     }
                 }
@@ -71,6 +73,8 @@ class MywordbooklistActivity:AppCompatActivity() {
 
             }
         })
+
+
     }
 
 

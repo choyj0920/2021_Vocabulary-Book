@@ -1,4 +1,4 @@
-package com.example.VocabularyBook
+package com.example.VocabularyBook.Adapter
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Callback
+import com.example.VocabularyBook.R
+import com.example.VocabularyBook.WordbookActivity
 
 
 class Wordbook(val bookid : Int, val Rid :Int?, val Uid :Int?, val wordbookname:String)
@@ -18,7 +19,7 @@ class WordbookAdapter(var context: Context, val wordbooklist: ArrayList<Wordbook
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.wordbook_item,parent,false)
         return CustomViewHolder(
-            view
+                view
         ) // inflater -> 부착
     }
 
