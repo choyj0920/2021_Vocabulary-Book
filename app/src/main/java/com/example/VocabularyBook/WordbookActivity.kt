@@ -19,7 +19,7 @@ class WordbookActivity:AppCompatActivity() {
     private var service: ServiceApi? = null
     companion object{
         var wordlistarray:ArrayList<worddata> = arrayListOf<worddata>()
-
+        lateinit var wordbookact: WordbookActivity
         var memorizedwordlist: HashSet<Int> = hashSetOf()
 
     }
@@ -28,7 +28,7 @@ class WordbookActivity:AppCompatActivity() {
         setContentView(R.layout.activity_wordbook)
 
         wordbookact=this
-
+        WordbookActivity.wordbookact=this
         val retrofit = RetrofitClient.client
         service = retrofit.create(ServiceApi::class.java);
 
@@ -100,7 +100,7 @@ class WordbookActivity:AppCompatActivity() {
 
         var checkset= hashSetOf<Int>()
         
-        service!!.getCheckword(checkwordinputdata(LoginActivity.Useruid,bookid))!!.enqueue(object : Callback<checkwordResponse?> {
+        service!!.getCheckword(getcheckwordinputdata(LoginActivity.Useruid,bookid))!!.enqueue(object : Callback<checkwordResponse?> {
             override fun onResponse(
                     call: Call<checkwordResponse?>,
                     response: Response<checkwordResponse?>
@@ -134,6 +134,75 @@ class WordbookActivity:AppCompatActivity() {
 
 
 
+    }
+
+    fun checkword(index: Int): Boolean {
+        wordlistarray.get(index).Wordid
+        var isSucess: Boolean=false
+        service!!.Checkword(checkwordinputdata(LoginActivity.Useruid,wordlistarray.get(index).Wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
+            override fun onResponse(
+                    call: Call<NormalResponse?>,
+                    response: Response<NormalResponse?>
+            ) {
+                val result = response.body()
+
+                if (result != null) {
+                    // Toast.makeText(MainActivity.maincontext, "${result.message}", Toast.LENGTH_SHORT).show()
+                    Log.d("debug","${result.message}")
+
+                    if (result.code == 200){
+                        WordbookActivity.memorizedwordlist.add(wordlistarray.get(index).Wordid)
+                        isSucess=true
+                    }
+                }
+            }
+            override fun onFailure(
+                    call: Call<NormalResponse?>,
+                    t: Throwable
+            ) {
+                Toast.makeText(wordbookact, "암기한 단어를 체크하던 중 에러 발생", Toast.LENGTH_SHORT).show()
+
+                Log.e("암기한 단어를 체크하던 중 에러 발생", t.message!!)
+
+
+            }
+        })
+        return isSucess
+    }
+    fun uncheckword(index :Int):Boolean {
+        wordlistarray.get(index).Wordid
+        var isSucess: Boolean=false
+        service!!.Uncheckword(checkwordinputdata(LoginActivity.Useruid,wordlistarray.get(index).Wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
+            override fun onResponse(
+                    call: Call<NormalResponse?>,
+                    response: Response<NormalResponse?>
+            ) {
+                val result = response.body()
+
+                if (result != null) {
+                    // Toast.makeText(MainActivity.maincontext, "${result.message}", Toast.LENGTH_SHORT).show()
+                    Log.d("debug","${result.message}")
+
+                    if (result.code == 200){
+
+                        isSucess=true
+                        WordbookActivity.memorizedwordlist.remove(wordlistarray.get(index).Wordid)
+
+                    }
+                }
+            }
+            override fun onFailure(
+                    call: Call<NormalResponse?>,
+                    t: Throwable
+            ) {
+                Toast.makeText(wordbookact, "암기한 단어를 체크해제 하던 중 에러 발생", Toast.LENGTH_SHORT).show()
+
+                Log.e("암기한 단어를 체크해제하던 중 에러 발생", t.message!!)
+
+
+            }
+        })
+        return isSucess
     }
 
 

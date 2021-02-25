@@ -38,12 +38,12 @@ class AllwordAdpater(var context: Context, val wordlist: ArrayList<worddata>,val
         holder.word_mean.text = wordlist.get(position).mean
         holder.cb_wordmemorize.isChecked=checkwordset.contains(wordlist.get(position).Wordid)
 
-
-        holder.cb_wordmemorize.setOnClickListener{
-            if (holder.cb_wordmemorize.isChecked()){  //외운 단어 였으면
-                
+        holder.cb_wordmemorize.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (!isChecked){  //외운 단어 였으면
+                holder.cb_wordmemorize.isChecked = WordbookActivity.wordbookact.uncheckword(position)
 
             }else{
+                holder.cb_wordmemorize.isChecked = !WordbookActivity.wordbookact.checkword(position)
 
             }
         }

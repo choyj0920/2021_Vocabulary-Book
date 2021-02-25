@@ -21,6 +21,13 @@ class LoginResponse {
     var Uid = 0
 
 }
+class NormalResponse{
+    @SerializedName("code")
+    var code =0
+
+    @SerializedName("message")
+    var message: String? = null
+}
 
 
 
@@ -84,7 +91,7 @@ class wordlistResponse{
     val wordlist : Array<worddata>? =null
 }
 
-data class checkwordinputdata(
+data class getcheckwordinputdata(
         @field:SerializedName("Uid") private val Uid: Int?,
         @field:SerializedName("bookId") private val bookId: Int?
 )
@@ -101,6 +108,14 @@ class checkwordResponse{
     val memoword : Array<checkworddata>? =null
 }
 
+data class checkwordinputdata(
+        @field:SerializedName("Uid") private val Uid: Int?,
+        @field:SerializedName("Wordid") private val Wordid: Int?,
+        @field:SerializedName("bookId") private val bookId: Int?
+
+)
+
+
 interface ServiceApi {
     @POST("/user/login")
     fun userLogin(@Body data: LoginData?): Call<LoginResponse?>?
@@ -114,7 +129,15 @@ interface ServiceApi {
     @POST("/user/wordbook/word")
     fun getWordlist(@Body data: wordbookiddata): Call<wordlistResponse?>?
 
+    @POST("/user/wordbook/getcheckword")
+    fun getCheckword(@Body data: getcheckwordinputdata): Call<checkwordResponse?>?
+
     @POST("/user/wordbook/checkword")
-    fun getCheckword(@Body data: checkwordinputdata): Call<checkwordResponse?>?
+    fun Checkword(@Body data: checkwordinputdata): Call<NormalResponse?>?
+
+    @POST("/user/wordbook/uncheckword")
+    fun Uncheckword(@Body data: checkwordinputdata): Call<NormalResponse?>?
+
+
 
 }
