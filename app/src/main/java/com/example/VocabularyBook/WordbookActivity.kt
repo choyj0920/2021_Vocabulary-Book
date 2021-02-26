@@ -212,6 +212,7 @@ class WordbookActivity:AppCompatActivity() {
         return isSucess
     }
     private fun updatedata(){
+        loaddata(bookid)
         memorizedwordfragment.loaddata()
         wordFragment.loaddata()
     }

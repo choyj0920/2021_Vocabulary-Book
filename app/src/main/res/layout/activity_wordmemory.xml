@@ -7,8 +7,9 @@
 
 
 
+
     <com.magicgoop.tagsphere.TagSphereView
-        android:id="@+id/tagView"
+        android:id="@+id/tagSphereView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

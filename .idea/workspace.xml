@@ -27,22 +27,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="모르는단어, 외운단어 뷰 구현 , allist에서와 동기화 구현">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="import tag-sphere ,minsdk 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordmemoryActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordmemoryActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordmemory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordmemory.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -108,8 +106,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_API_30_x86" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-02-25T06:22:05.370Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="27b05680380d7ece" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-02-26T02:35:52.910Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -248,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614238793002</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="import tag-sphere ,minsdk 수정">
+      <created>1614299677080</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1614299677080</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,7 +276,8 @@
     <MESSAGE value="Allword출력 구현" />
     <MESSAGE value="allwordlist 단어 체크, 체크해제 db연동" />
     <MESSAGE value="모르는단어, 외운단어 뷰 구현 , allist에서와 동기화 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="모르는단어, 외운단어 뷰 구현 , allist에서와 동기화 구현" />
+    <MESSAGE value="import tag-sphere ,minsdk 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="import tag-sphere ,minsdk 수정" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="139" key="#PSD" timestamp="1614243238654">
@@ -306,22 +312,22 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614044198212" />
-    <state width="1137" height="341" key="GridCell.Tab.0.bottom" timestamp="1614240045366">
+    <state width="1135" height="341" key="GridCell.Tab.0.bottom" timestamp="1614306698527">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1137" height="341" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614240045366" />
-    <state width="1137" height="341" key="GridCell.Tab.0.center" timestamp="1614240045365">
+    <state width="1135" height="341" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614306698527" />
+    <state width="1135" height="341" key="GridCell.Tab.0.center" timestamp="1614306698527">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1137" height="341" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614240045365" />
-    <state width="1137" height="341" key="GridCell.Tab.0.left" timestamp="1614240045365">
+    <state width="1135" height="341" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614306698527" />
+    <state width="1135" height="341" key="GridCell.Tab.0.left" timestamp="1614306698527">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1137" height="341" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614240045365" />
-    <state width="1137" height="341" key="GridCell.Tab.0.right" timestamp="1614240045366">
+    <state width="1135" height="341" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614306698527" />
+    <state width="1135" height="341" key="GridCell.Tab.0.right" timestamp="1614306698527">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1137" height="341" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614240045366" />
+    <state width="1135" height="341" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614306698527" />
     <state x="312" y="165" key="SettingsEditor" timestamp="1614239368945">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
