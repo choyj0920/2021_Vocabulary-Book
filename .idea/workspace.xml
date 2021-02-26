@@ -27,21 +27,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="allwordlist 단어 체크, 체크해제 db연동">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/voidword_item.xml" afterDir="false" />
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="모르는단어, 외운단어 뷰 구현 , allist에서와 동기화 구현">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Adapter/MemorizedwordAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Adapter/MemorizedwordAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/AllwordFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/AllwordFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/MemorizedwordFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/MemorizedwordFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/WordFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/WordFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordmemoryActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordmemoryActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordmemory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordmemory.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -50,12 +51,32 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="VocabularyBook" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="VocabularyBook" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="VocabularyBook" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="android" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="VocabularyBook" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -71,6 +92,7 @@
         <option value="Kotlin File" />
         <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="valueResourceFile" />
       </list>
     </option>
   </component>
@@ -91,6 +113,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Dependencies" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Signing Configs" />
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -212,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614236096858</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="모르는단어, 외운단어 뷰 구현 , allist에서와 동기화 구현">
+      <created>1614238793002</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1614238793002</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -234,9 +270,14 @@
     <MESSAGE value="WordbookActivity 추가" />
     <MESSAGE value="Allword출력 구현" />
     <MESSAGE value="allwordlist 단어 체크, 체크해제 db연동" />
-    <option name="LAST_COMMIT_MESSAGE" value="allwordlist 단어 체크, 체크해제 db연동" />
+    <MESSAGE value="모르는단어, 외운단어 뷰 구현 , allist에서와 동기화 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="모르는단어, 외운단어 뷰 구현 , allist에서와 동기화 구현" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="345" y="139" key="#PSD" timestamp="1614243238654">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="345" y="139" key="#PSD/0.0.1620.1040@0.0.1620.1040" timestamp="1614243238654" />
     <state x="612" y="306" key="#Web_Browsers" timestamp="1614235444028">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
@@ -249,34 +290,46 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="541" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614048000715" />
+    <state x="100" y="112" width="1420" height="840" key="AVDManager" timestamp="1614299193709">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="100" y="112" width="1420" height="840" key="AVDManager/0.0.1620.1040@0.0.1620.1040" timestamp="1614299193709" />
     <state x="391" y="275" key="AndroidCreateResourceFileDialog" timestamp="1614236690186">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="391" y="275" key="AndroidCreateResourceFileDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614236690186" />
+    <state x="652" y="321" key="AndroidCreateXmlResourceDialog" timestamp="1614298948683">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="652" y="321" key="AndroidCreateXmlResourceDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614298948683" />
     <state x="590" y="274" key="FileChooserDialogImpl" timestamp="1614044198212">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614044198212" />
-    <state width="787" height="281" key="GridCell.Tab.0.bottom" timestamp="1614235887127">
+    <state width="1137" height="341" key="GridCell.Tab.0.bottom" timestamp="1614240045366">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614235887127" />
-    <state width="787" height="281" key="GridCell.Tab.0.center" timestamp="1614235887127">
+    <state width="1137" height="341" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614240045366" />
+    <state width="1137" height="341" key="GridCell.Tab.0.center" timestamp="1614240045365">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614235887127" />
-    <state width="787" height="281" key="GridCell.Tab.0.left" timestamp="1614235887127">
+    <state width="1137" height="341" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614240045365" />
+    <state width="1137" height="341" key="GridCell.Tab.0.left" timestamp="1614240045365">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614235887127" />
-    <state width="787" height="281" key="GridCell.Tab.0.right" timestamp="1614235887127">
+    <state width="1137" height="341" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614240045365" />
+    <state width="1137" height="341" key="GridCell.Tab.0.right" timestamp="1614240045366">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614235887127" />
-    <state x="403" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614069564550">
+    <state width="1137" height="341" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614240045366" />
+    <state x="312" y="165" key="SettingsEditor" timestamp="1614239368945">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="403" y="253" key="Vcs.Push.Dialog.v2/0.0.1620.1040@0.0.1620.1040" timestamp="1614069564550" />
+    <state x="312" y="165" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1614239368945" />
+    <state x="403" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614240332039">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="403" y="253" key="Vcs.Push.Dialog.v2/0.0.1620.1040@0.0.1620.1040" timestamp="1614240332039" />
     <state x="465" y="221" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1614228253394">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
@@ -285,13 +338,13 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="616" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1620.1040@0.0.1620.1040" timestamp="1613359015159" />
-    <state x="467" y="240" key="run.anything.popup" timestamp="1614065218402">
+    <state x="466" y="239" width="672" height="677" key="run.anything.popup" timestamp="1614241620996">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="467" y="240" key="run.anything.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1614065218402" />
-    <state x="470" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1614066488931">
+    <state x="466" y="239" width="672" height="677" key="run.anything.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1614241620996" />
+    <state x="469" y="222" width="672" height="678" key="search.everywhere.popup" timestamp="1614243272332">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="470" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1614066488931" />
+    <state x="469" y="222" width="672" height="678" key="search.everywhere.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1614243272332" />
   </component>
 </project>
