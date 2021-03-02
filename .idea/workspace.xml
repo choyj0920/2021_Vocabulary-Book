@@ -29,7 +29,6 @@
   <component name="ChangeListManager">
     <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordtestActivity.kt 구현, 결과를 간단하게 토스트메시지로만 구현 나중에 추가 예정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordtestActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordtestActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +36,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[27b05680380d7ece]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -264,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614646227629</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="WordtestActivity.kt 구현  현재는 결과를 토스트메시지로만 간단히 구현 나중에 인터페이스 제대로 추가 예정">
+      <created>1614655647446</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1614655647446</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,7 +297,8 @@
     <MESSAGE value="WordmemoryActivity 구현 , + wordlist 체크가 안되는 버그 발생" />
     <MESSAGE value="BUG: wordlist 체크가 안되는 버그, 리사이클러뷰+체크박스의 경우 스크롤시 체크가 풀리거나 되는 현상 리스너 null선언으로 해결" />
     <MESSAGE value="WordtestActivity.kt 구현, 결과를 간단하게 토스트메시지로만 구현 나중에 추가 예정" />
-    <option name="LAST_COMMIT_MESSAGE" value="WordtestActivity.kt 구현, 결과를 간단하게 토스트메시지로만 구현 나중에 추가 예정" />
+    <MESSAGE value="WordtestActivity.kt 구현  현재는 결과를 토스트메시지로만 간단히 구현 나중에 인터페이스 제대로 추가 예정" />
+    <option name="LAST_COMMIT_MESSAGE" value="WordtestActivity.kt 구현  현재는 결과를 토스트메시지로만 간단히 구현 나중에 인터페이스 제대로 추가 예정" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="139" key="#PSD" timestamp="1614243238654">
@@ -346,10 +353,10 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="312" y="165" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1614239368945" />
-    <state x="403" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614308802574">
+    <state x="403" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614655663246">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="403" y="253" key="Vcs.Push.Dialog.v2/0.0.1620.1040@0.0.1620.1040" timestamp="1614308802574" />
+    <state x="403" y="253" key="Vcs.Push.Dialog.v2/0.0.1620.1040@0.0.1620.1040" timestamp="1614655663246" />
     <state x="465" y="221" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1614228253394">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>

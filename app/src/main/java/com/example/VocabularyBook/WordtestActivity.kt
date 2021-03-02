@@ -33,10 +33,11 @@ class WordtestActivity:AppCompatActivity() {
             tvansviewarray[i].setOnClickListener {
                 if(curProblem==curAns[i]){ // 문제를 맞았으면
                     Toast.makeText(this, "정답!" ,Toast.LENGTH_SHORT).show()
+                    WordbookActivity.wordbookact.checkword(WordbookActivity.wordlistarray[curProblem].Wordid)
                     sucessCount+=1
                 }
                 else{
-                    Toast.makeText(this, "정답!" ,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "오답ㅠ" ,Toast.LENGTH_SHORT).show()
                 }
                 currentCount+=1
                 tv_wordtestscore.text="$sucessCount/$currentCount"
