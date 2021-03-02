@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
     var loginactivity :LoginActivity? =null
     companion object{
         lateinit var maincontext : LoginActivity
-        var Useruid by Delegates.notNull<Int>()
+        var Useruid :Int=-1
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

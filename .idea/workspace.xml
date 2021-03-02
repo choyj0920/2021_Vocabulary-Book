@@ -27,12 +27,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordmemoryActivity 구현 , + wordlist 체크가 안되는 버그 발생">
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordtestActivity.kt 구현, 결과를 간단하게 토스트메시지로만 구현 나중에 추가 예정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Adapter/AllwordAdpater.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Adapter/AllwordAdpater.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/MemorizedwordFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/MemorizedwordFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/WordFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/Fragment/WordFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordbookActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordtestActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordtestActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614308795292</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="BUG: wordlist 체크가 안되는 버그, 리사이클러뷰+체크박스의 경우 스크롤시 체크가 풀리거나 되는 현상 리스너 null선언으로 해결">
+      <created>1614646227629</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1614646227629</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,7 +289,9 @@
     <MESSAGE value="모르는단어, 외운단어 뷰 구현 , allist에서와 동기화 구현" />
     <MESSAGE value="import tag-sphere ,minsdk 수정" />
     <MESSAGE value="WordmemoryActivity 구현 , + wordlist 체크가 안되는 버그 발생" />
-    <option name="LAST_COMMIT_MESSAGE" value="WordmemoryActivity 구현 , + wordlist 체크가 안되는 버그 발생" />
+    <MESSAGE value="BUG: wordlist 체크가 안되는 버그, 리사이클러뷰+체크박스의 경우 스크롤시 체크가 풀리거나 되는 현상 리스너 null선언으로 해결" />
+    <MESSAGE value="WordtestActivity.kt 구현, 결과를 간단하게 토스트메시지로만 구현 나중에 추가 예정" />
+    <option name="LAST_COMMIT_MESSAGE" value="WordtestActivity.kt 구현, 결과를 간단하게 토스트메시지로만 구현 나중에 추가 예정" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="139" key="#PSD" timestamp="1614243238654">
@@ -319,22 +326,22 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614044198212" />
-    <state width="787" height="281" key="GridCell.Tab.0.bottom" timestamp="1614646025988">
+    <state width="1575" height="281" key="GridCell.Tab.0.bottom" timestamp="1614655563892">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614646025988" />
-    <state width="787" height="281" key="GridCell.Tab.0.center" timestamp="1614646025988">
+    <state width="1575" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614655563892" />
+    <state width="1575" height="281" key="GridCell.Tab.0.center" timestamp="1614655563892">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614646025988" />
-    <state width="787" height="281" key="GridCell.Tab.0.left" timestamp="1614646025988">
+    <state width="1575" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614655563892" />
+    <state width="1575" height="281" key="GridCell.Tab.0.left" timestamp="1614655563891">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614646025988" />
-    <state width="787" height="281" key="GridCell.Tab.0.right" timestamp="1614646025988">
+    <state width="1575" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614655563891" />
+    <state width="1575" height="281" key="GridCell.Tab.0.right" timestamp="1614655563892">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614646025988" />
+    <state width="1575" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614655563892" />
     <state x="312" y="165" key="SettingsEditor" timestamp="1614239368945">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
