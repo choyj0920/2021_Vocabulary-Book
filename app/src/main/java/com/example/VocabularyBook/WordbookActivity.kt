@@ -139,10 +139,10 @@ class WordbookActivity:AppCompatActivity() {
 
     }
 
-    fun checkword(index: Int): Boolean {
-        wordlistarray.get(index).Wordid
+    fun checkword(wordid: Int): Boolean {
+
         var isSucess: Boolean=false
-        service!!.Checkword(checkwordinputdata(LoginActivity.Useruid,wordlistarray.get(index).Wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
+        service!!.Checkword(checkwordinputdata(LoginActivity.Useruid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
             override fun onResponse(
                     call: Call<NormalResponse?>,
                     response: Response<NormalResponse?>
@@ -154,7 +154,7 @@ class WordbookActivity:AppCompatActivity() {
                     Log.d("debug","${result.message}")
 
                     if (result.code == 200){
-                        WordbookActivity.memorizedwordlist.add(wordlistarray.get(index).Wordid)
+                        WordbookActivity.memorizedwordlist.add(wordid)
                         isSucess=true
                     }
                 }
@@ -170,14 +170,15 @@ class WordbookActivity:AppCompatActivity() {
 
             }
         })
-        updatedata()
-
+        if(isSucess){
+            updatedata()
+        }
         return isSucess
     }
-    fun uncheckword(index :Int):Boolean {
-        wordlistarray.get(index).Wordid
+    fun uncheckword(wordid :Int):Boolean {
+
         var isSucess: Boolean=false
-        service!!.Uncheckword(checkwordinputdata(LoginActivity.Useruid,wordlistarray.get(index).Wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
+        service!!.Uncheckword(checkwordinputdata(LoginActivity.Useruid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
             override fun onResponse(
                     call: Call<NormalResponse?>,
                     response: Response<NormalResponse?>
@@ -191,7 +192,7 @@ class WordbookActivity:AppCompatActivity() {
                     if (result.code == 200){
 
                         isSucess=true
-                        WordbookActivity.memorizedwordlist.remove(wordlistarray.get(index).Wordid)
+                        WordbookActivity.memorizedwordlist.remove(wordid)
 
                     }
                 }
@@ -207,14 +208,16 @@ class WordbookActivity:AppCompatActivity() {
 
             }
         })
-        updatedata()
+        if(isSucess){
+            updatedata()
+        }
 
         return isSucess
     }
     private fun updatedata(){
         loaddata(bookid)
-        memorizedwordfragment.loaddata()
-        wordFragment.loaddata()
+        memorizedwordfragment?.loaddata()
+        wordFragment?.loaddata()
     }
 
 

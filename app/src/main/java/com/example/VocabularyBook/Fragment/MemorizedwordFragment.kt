@@ -16,7 +16,7 @@ class MemorizedwordFragment: Fragment() {
     lateinit var rv_checkedwordlist : RecyclerView
 
     companion object {
-        lateinit var memorizedwordfragment: MemorizedwordFragment
+        var memorizedwordfragment: MemorizedwordFragment?=null
     }
 
     override fun onCreateView(
@@ -24,10 +24,10 @@ class MemorizedwordFragment: Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        memorizedwordfragment=this
 
         var view = inflater.inflate(R.layout.fragment_memorized, container, false)
         rv_checkedwordlist=view.findViewById((R.id.rv_memorizedwordlist))as RecyclerView
-        memorizedwordfragment=this
         loaddata()
         return view
     }

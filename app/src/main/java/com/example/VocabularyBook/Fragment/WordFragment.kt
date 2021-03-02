@@ -16,7 +16,7 @@ class WordFragment: Fragment() {
     lateinit var rv_uncheckwordlist : RecyclerView
 
     companion object {
-        lateinit var wordFragment: WordFragment
+        var wordFragment: WordFragment? =null
     }
 
     override fun onCreateView(
