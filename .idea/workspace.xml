@@ -27,16 +27,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordtestActivity.kt 잘못 작성한 토스트 메시지 수정, 테스트 결과 db동기화 추가">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindSelectActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordfindsellect.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindSelectActivity.kt 팝업창 구현">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordfind_img.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordtestActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordtestActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordlist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordlist.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindSelectActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindSelectActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614655889173</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="WordfindSelectActivity.kt 팝업창 구현">
+      <created>1614756028711</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1614756028711</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,7 +320,8 @@
     <MESSAGE value="WordtestActivity.kt 구현, 결과를 간단하게 토스트메시지로만 구현 나중에 추가 예정" />
     <MESSAGE value="WordtestActivity.kt 구현  현재는 결과를 토스트메시지로만 간단히 구현 나중에 인터페이스 제대로 추가 예정" />
     <MESSAGE value="WordtestActivity.kt 잘못 작성한 토스트 메시지 수정, 테스트 결과 db동기화 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="WordtestActivity.kt 잘못 작성한 토스트 메시지 수정, 테스트 결과 db동기화 추가" />
+    <MESSAGE value="WordfindSelectActivity.kt 팝업창 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="WordfindSelectActivity.kt 팝업창 구현" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="139" key="#PSD" timestamp="1614243238654">
@@ -351,22 +356,22 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614044198212" />
-    <state width="1575" height="281" key="GridCell.Tab.0.bottom" timestamp="1614655563892">
+    <state width="1575" height="259" key="GridCell.Tab.0.bottom" timestamp="1614756082800">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614655563892" />
-    <state width="1575" height="281" key="GridCell.Tab.0.center" timestamp="1614655563892">
+    <state width="1575" height="259" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614756082800" />
+    <state width="1575" height="259" key="GridCell.Tab.0.center" timestamp="1614756082800">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614655563892" />
-    <state width="1575" height="281" key="GridCell.Tab.0.left" timestamp="1614655563891">
+    <state width="1575" height="259" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614756082800" />
+    <state width="1575" height="259" key="GridCell.Tab.0.left" timestamp="1614756082800">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614655563891" />
-    <state width="1575" height="281" key="GridCell.Tab.0.right" timestamp="1614655563892">
+    <state width="1575" height="259" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614756082800" />
+    <state width="1575" height="259" key="GridCell.Tab.0.right" timestamp="1614756082800">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614655563892" />
+    <state width="1575" height="259" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614756082800" />
     <state x="312" y="165" key="SettingsEditor" timestamp="1614239368945">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
