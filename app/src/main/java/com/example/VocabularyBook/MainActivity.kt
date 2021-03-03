@@ -17,8 +17,8 @@ class MainActivity :AppCompatActivity() {
             startActivity(intent)
         }
         tv_wordfind.setOnClickListener {
-//            val intent= Intent(this,MainActivity::class.java)
-//            startActivity(intent)
+            val intent= Intent(this,WordfindSelectActivity::class.java)
+            startActivity(intent)
         }
         tv_study.setOnClickListener {
 //            val intent= Intent(this,MainActivity::class.java)

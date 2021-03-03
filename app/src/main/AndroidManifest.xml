@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.VocabularyBook">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <application
-        android:usesCleartextTraffic="true"
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".JoinActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-
-        <activity android:name=".MywordbooklistActivity"></activity>
-
-        <activity android:name=".WordbookActivity"></activity>
-
-        <activity android:name=".WordlistActivity"></activity>
-        <activity android:name=".WordmemoryActivity"></activity>
-        <activity android:name=".WordtestActivity"></activity>
-
-
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".WordfindSelectActivity" android:theme="@style/MyTheme.noTitle.Dialog" ></activity>
+        <activity android:name=".JoinActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".MywordbooklistActivity" />
+        <activity android:name=".WordbookActivity" />
+        <activity android:name=".WordlistActivity" />
+        <activity android:name=".WordmemoryActivity" />
+        <activity android:name=".WordtestActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
+
 </manifest>

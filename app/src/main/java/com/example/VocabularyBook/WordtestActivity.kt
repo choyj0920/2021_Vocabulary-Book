@@ -69,7 +69,5 @@ class WordtestActivity:AppCompatActivity() {
             tvansviewarray[i].text=WordbookActivity.wordlistarray.get(curAns[i]).mean
 
         }
-
     }
-
 }

@@ -1,0 +1,12 @@
+<resources>
+    <!-- Base application theme. -> Theme.AppCompat.Light.DarkActionBar -->
+
+
+    <!--팝업창 코드 추가 -->
+    <style name="MyTheme.noTitle.Dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <!-- //팝업창 코드 추가 -->
+
+</resources>
