@@ -1,7 +1,9 @@
 package com.example.VocabularyBook
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.security.MessageDigest
 import kotlin.properties.Delegates
 
 
@@ -48,6 +51,8 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, JoinActivity::class.java)
             startActivity(intent)
         }
+        //카카오 api 키 해시 가져오기
+        // getAppKeyHash()
     }
 
     private fun attemptLogin() {
@@ -135,5 +140,20 @@ class LoginActivity : AppCompatActivity() {
 
     private fun showProgress(show: Boolean) {
         mProgressView!!.visibility = if (show) View.VISIBLE else View.GONE
+    }
+    // 카카오 api 키 해시 받아오기
+    fun getAppKeyHash() {
+        try {
+            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+            for(i in info.signatures) {
+                val md: MessageDigest = MessageDigest.getInstance("SHA")
+                md.update(i.toByteArray())
+
+                val something = String(Base64.encode(md.digest(), 0)!!)
+                Log.e("Debug key", something)
+            }
+        } catch(e: Exception) {
+            Log.e("Not found", e.toString())
+        }
     }
 }
