@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
         //카카오 api 키 해시 가져오기
-        // getAppKeyHash()
+        getAppKeyHash()
     }
 
     private fun attemptLogin() {

@@ -7,7 +7,7 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -28,22 +28,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity.kt 미완">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity kakako rest 되지않음">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/LoginActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordfind_img.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordfind_img.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordlistActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordlistActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -117,17 +114,21 @@
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Signing Configs" />
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.745205661">
-      <recent name="com.example.VocabularyBook" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\choyj\coding\2021_Vocabulary-Book\app\src\main\java\com\example\VocabularyBook\Adapter" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.VocabularyBook" />
+    </key>
+    <key name="android.template.745205661">
+      <recent name="com.example.VocabularyBook" />
     </key>
   </component>
   <component name="RunManager">
@@ -301,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614762077700</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="WordfindImgActivity kakako rest 되지않음">
+      <created>1614831635831</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1614831635831</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,7 +340,8 @@
     <MESSAGE value="WordtestActivity.kt 잘못 작성한 토스트 메시지 수정, 테스트 결과 db동기화 추가" />
     <MESSAGE value="WordfindSelectActivity.kt 팝업창 구현" />
     <MESSAGE value="WordfindImgActivity.kt 미완" />
-    <option name="LAST_COMMIT_MESSAGE" value="WordfindImgActivity.kt 미완" />
+    <MESSAGE value="WordfindImgActivity kakako rest 되지않음" />
+    <option name="LAST_COMMIT_MESSAGE" value="WordfindImgActivity kakako rest 되지않음" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="139" key="#PSD" timestamp="1614243238654">
@@ -351,6 +360,10 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="541" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614048000715" />
+    <state x="577" y="295" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1614834813186">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="577" y="295" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614834813186" />
     <state x="100" y="112" width="1420" height="840" key="AVDManager" timestamp="1614660383313">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
@@ -367,26 +380,26 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614818575533" />
-    <state width="787" height="281" key="GridCell.Tab.0.bottom" timestamp="1614828287421">
+    <state width="1575" height="323" key="GridCell.Tab.0.bottom" timestamp="1614834680201">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614828287421" />
-    <state width="787" height="281" key="GridCell.Tab.0.center" timestamp="1614828287421">
+    <state width="1575" height="323" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614834680201" />
+    <state width="1575" height="323" key="GridCell.Tab.0.center" timestamp="1614834680201">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614828287421" />
-    <state width="787" height="281" key="GridCell.Tab.0.left" timestamp="1614828287421">
+    <state width="1575" height="323" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614834680201" />
+    <state width="1575" height="323" key="GridCell.Tab.0.left" timestamp="1614834680201">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614828287421" />
-    <state width="787" height="281" key="GridCell.Tab.0.right" timestamp="1614828287421">
+    <state width="1575" height="323" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614834680201" />
+    <state width="1575" height="323" key="GridCell.Tab.0.right" timestamp="1614834680201">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614828287421" />
-    <state x="312" y="165" key="SettingsEditor" timestamp="1614239368945">
+    <state width="1575" height="323" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614834680201" />
+    <state x="312" y="165" key="SettingsEditor" timestamp="1614834722371">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="312" y="165" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1614239368945" />
+    <state x="312" y="165" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1614834722371" />
     <state x="403" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614655663246">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>

@@ -1,8 +1,10 @@
 package com.example.VocabularyBook
 
 import com.google.gson.annotations.SerializedName
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
+
 
 data class LoginData(
     @field:SerializedName("email") private val email: String,
@@ -159,10 +161,21 @@ class ImgtoTextResponse{
 
 interface ServiceKakaoApi {
     @FormUrlEncoded
-    @POST("/v2/vision/text/ocr")
-    fun ImagetoText(@Header("Authorization") KakaoRestApiKey: String,
-                    @Header("Content-Type") KakaoRestApiCt: String,
-                    @Field("image") image: ByteArray
-    ): Call<ImgtoTextResponse?>
+    @POST("v2/vision/text/ocr")
+    fun ImagetoText(
+        @Field("image") image: MultipartBody.Part,
+        @Header("Authorization") KakaoRestApiKey: String,
+        @Header("Content-Type") KakaoRestApiCt: String
+
+    ): Call<responseimgtotxt?>
 
 }
+
+
+data class Result(
+    val boxes: List<List<Int>>,
+    val recognition_words: List<String>
+)
+data class responseimgtotxt(
+    val result: List<Result>
+)

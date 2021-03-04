@@ -18,6 +18,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import kotlinx.android.synthetic.main.activity_wordfind_img.*
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+
 import retrofit2.Call
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -25,9 +29,9 @@ import java.lang.Exception
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class WordfindImgActivity : AppCompatActivity() {
     lateinit var api:ServiceKakaoApi
+    lateinit var filePartImage:  MultipartBody.Part
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordfind_img)
@@ -41,11 +45,14 @@ class WordfindImgActivity : AppCompatActivity() {
         }
 
         btn_wordfindimgselect.setOnClickListener {
-            Log.d("TAG",imageToBitmap(iv_wordfindimg).toString())
+
             var text=imgtoText(imageToBitmap(iv_wordfindimg))
             Log.d("TAG", "결과 : $text ")
 
+           // tv_wordfind_result.text=text
+
         }
+
 
     }
     private  val OPEN_GALLERY=1
@@ -69,25 +76,54 @@ class WordfindImgActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
             }
+
+            if (data != null) {
+
+                val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data.data)
+                iv_wordfindimg.setImageBitmap(bitmap)
+
+                val imageType = contentResolver.getType(data.data!!)
+
+                val extension = imageType!!.substring(imageType.indexOf("/") + 1)
+
+                data.data!!.let {
+                    application.contentResolver.openInputStream(it)?.use { inputStream ->
+                        var temparr=inputStream.readBytes()
+                        filePartImage = MultipartBody.Part.createFormData(
+                            "image",
+                            "image.$extension",
+                            RequestBody.create(MediaType.parse("imgage/*"),temparr)
+                                    //inputStream.readBytes().toRequestBody("*/*".toMediaType())
+                        )
+                    }
+                }
+
+            } else {
+
+            }
         }
+
+
     }
 
     private fun imageToBitmap(image: ImageView): ByteArray {
         val bitmap = (image.drawable as BitmapDrawable).bitmap
         val stream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 90, stream)
+        bitmap.compress(Bitmap.CompressFormat.PNG, 40, stream)
+
         return stream.toByteArray()
     }
 
     private fun imgtoText(imgbytearr: ByteArray): String{
-        var callPostkakaoocr = api.ImagetoText(RetrofitClientkakao.kakaoRestapiKey, RetrofitClientkakao.kakaoContentType, imgbytearr) // 각각
         var resulttext=""
-        Log.d("TAG", "imgtotext 실행")
+        Log.d("TAG", "img to text 실행")
 
 
-        callPostkakaoocr.enqueue(object : Callback<ImgtoTextResponse?> {
-            override fun onResponse(call: Call<ImgtoTextResponse?>, response: Response<ImgtoTextResponse?>) {
+        api.ImagetoText(KakaoRestApiKey= RetrofitClientkakao.kakaoRestapiKey, KakaoRestApiCt= RetrofitClientkakao.kakaoContentType,image =  filePartImage)
+            .enqueue(object : Callback<responseimgtotxt?> {
+            override fun onResponse(call: Call<responseimgtotxt?>, response: Response<responseimgtotxt?>) {
                 val result = response.body()
+                Log.d("TAG", "code : ${response.code().toString()} ,message : ${response.message()}, ${response.errorBody()} ")
                 if (result != null) {
                     var resultarr= result.result
                     if (resultarr != null) {
@@ -101,7 +137,8 @@ class WordfindImgActivity : AppCompatActivity() {
                     Log.d("TAG", "-----------------------성공!, 결과 : $resulttext ")
                 }
             }
-            override fun onFailure(call: Call<ImgtoTextResponse?>, t: Throwable) {
+            override fun onFailure(call: Call<responseimgtotxt?>, t: Throwable) {
+
                 Log.d("TAG", "-----------------------실패 : 이미지 -> text $t")
             }
         })
@@ -109,9 +146,4 @@ class WordfindImgActivity : AppCompatActivity() {
 
         return resulttext
     }
-
-
 }
-
-
-
