@@ -167,7 +167,7 @@ interface ServiceKakaoApi {
     fun ImagetoText(
             @Header("Authorization") KakaoRestApiKey: String,
             @Header("Content-Type") KakaoRestApiCt: String,
-            @Part image: MultipartBody.Part
+            @PartMap image: HashMap<String, RequestBody>
 
             ): Call<responseimgtotxt?>
 

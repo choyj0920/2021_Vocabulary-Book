@@ -28,14 +28,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity 미완 권한은 되나, 이미지 전송이 되지않는듯">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/UploadRequestBody.kt" afterDir="false" />
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity 아무리해도 안돼~~~~~~~~">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/UploadRequestBody.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -318,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614844479331</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="WordfindImgActivity 아무리해도 안돼~~~~~~~~">
+      <created>1614921943326</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1614921943328</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +355,9 @@
     <MESSAGE value="WordfindImgActivity.kt 미완" />
     <MESSAGE value="WordfindImgActivity kakako rest 되지않음" />
     <MESSAGE value="WordfindImgActivity 미완 권한은 되나, 이미지 전송이 되지않는듯" />
-    <option name="LAST_COMMIT_MESSAGE" value="WordfindImgActivity 미완 권한은 되나, 이미지 전송이 되지않는듯" />
+    <MESSAGE value="WordfindImgActivity 아무리해도 안되~~~~~~~~" />
+    <MESSAGE value="WordfindImgActivity 아무리해도 안돼~~~~~~~~" />
+    <option name="LAST_COMMIT_MESSAGE" value="WordfindImgActivity 아무리해도 안돼~~~~~~~~" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="139" key="#PSD" timestamp="1614243238654">
@@ -370,10 +376,10 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="601" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1620.1040@0.0.1620.1040" timestamp="1614921695413" />
-    <state x="541" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1614048000715">
+    <state x="541" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1614924875276">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="541" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614048000715" />
+    <state x="541" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614924875276" />
     <state x="577" y="295" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1614834813186">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
@@ -394,22 +400,22 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614818575533" />
-    <state width="1083" height="320" key="GridCell.Tab.0.bottom" timestamp="1614919531436">
+    <state width="787" height="281" key="GridCell.Tab.0.bottom" timestamp="1614930462860">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1083" height="320" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614919531436" />
-    <state width="1083" height="320" key="GridCell.Tab.0.center" timestamp="1614919531435">
+    <state width="787" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614930462860" />
+    <state width="787" height="281" key="GridCell.Tab.0.center" timestamp="1614930462860">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1083" height="320" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614919531435" />
-    <state width="1083" height="320" key="GridCell.Tab.0.left" timestamp="1614919531435">
+    <state width="787" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614930462860" />
+    <state width="787" height="281" key="GridCell.Tab.0.left" timestamp="1614930462859">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1083" height="320" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614919531435" />
-    <state width="1083" height="320" key="GridCell.Tab.0.right" timestamp="1614919531436">
+    <state width="787" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614930462859" />
+    <state width="787" height="281" key="GridCell.Tab.0.right" timestamp="1614930462860">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1083" height="320" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614919531436" />
+    <state width="787" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614930462860" />
     <state x="312" y="165" key="SettingsEditor" timestamp="1614834722371">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>

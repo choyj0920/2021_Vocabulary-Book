@@ -21,7 +21,7 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 
-class WordfindImgActivity : AppCompatActivity(), UploadRequestBody.UploadCallback {
+class WordfindImgActivity : AppCompatActivity(){
     lateinit var api:ServiceKakaoApi
     lateinit var filePartImage:  MultipartBody.Part
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,24 +98,29 @@ class WordfindImgActivity : AppCompatActivity(), UploadRequestBody.UploadCallbac
         Log.d("TAG", "파일 저장 완료")
 
         file = File(filepath+"/"+fileName)
-        val requestFile: RequestBody = UploadRequestBody(file,"image",this)
-        val body = MultipartBody.Part.createFormData("image", file.name, requestFile)
+        var body =MultipartBody.Part.createFormData("image", file.getPath(), RequestBody.create(MediaType.parse("imgae/png"), file));
+
+//        MultipartBody.Part.createFormData("file", Urls.encode(fileName));
+        var  map:HashMap<String, RequestBody> = hashMapOf()
+
+        var fileBody = RequestBody.create(MediaType.parse("image/png"), file); //파일에 맞는 mime 값을 설정 합니다.
+        map.put("Filedata\"; filename=\"boxlist.display", fileBody)
+
+
 
         Log.d("TAG", "body 출력 ${body}")
 
 
-        api.ImagetoText(KakaoRestApiKey= RetrofitClientkakao.kakaoRestapiKey, KakaoRestApiCt= RetrofitClientkakao.kakaoContentType,image =  body)
+        api.ImagetoText(KakaoRestApiKey= RetrofitClientkakao.kakaoRestapiKey, KakaoRestApiCt= RetrofitClientkakao.kakaoContentType,image =  map)
             .enqueue(object : Callback<responseimgtotxt?> {
             override fun onResponse(call: Call<responseimgtotxt?>, response: Response<responseimgtotxt?>) {
                 val result = response.body()
                 Log.d("TAG", "code : ${response.code().toString()} ,message : ${response.message()}, ${response.errorBody()} ")
                 if (result != null) {
                     var resultarr= result.result
-                    if (resultarr != null) {
-                        for (i in resultarr){
-                            for (j in i.recognition_words!!){
-                                resulttext +="${j}\n"
-                            }
+                    for (i in resultarr){
+                        for (j in i.recognition_words!!){
+                            resulttext +="${j}\n"
                         }
                     }
                     tv_wordfind_result.text=resulttext
@@ -140,11 +145,4 @@ class WordfindImgActivity : AppCompatActivity(), UploadRequestBody.UploadCallbac
         }
     }
 
-    override fun onProgressUpdate(percentage: Int) {
-        //]progress_bar.progress = percentage
-    }
-
-    companion object {
-        const val REQUEST_CODE_PICK_IMAGE = 101
-    }
 }
