@@ -1,35 +1,27 @@
 package com.example.VocabularyBook
 
-import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
-import android.text.TextUtils
 import android.util.Log
 import android.widget.ImageView
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_wordfind_img.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-
 import retrofit2.Call
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.lang.Exception
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.ByteArrayOutputStream
+import java.io.File
 
-class WordfindImgActivity : AppCompatActivity() {
+
+class WordfindImgActivity : AppCompatActivity(), UploadRequestBody.UploadCallback {
     lateinit var api:ServiceKakaoApi
     lateinit var filePartImage:  MultipartBody.Part
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,49 +69,42 @@ class WordfindImgActivity : AppCompatActivity() {
                 }
             }
 
-            if (data != null) {
-
-                val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data.data)
-                iv_wordfindimg.setImageBitmap(bitmap)
-
-                val imageType = contentResolver.getType(data.data!!)
-
-                val extension = imageType!!.substring(imageType.indexOf("/") + 1)
-
-                data.data!!.let {
-                    application.contentResolver.openInputStream(it)?.use { inputStream ->
-                        var temparr=inputStream.readBytes()
-                        filePartImage = MultipartBody.Part.createFormData(
-                            "image",
-                            "image.$extension",
-                            RequestBody.create(MediaType.parse("imgage/*"),temparr)
-                                    //inputStream.readBytes().toRequestBody("*/*".toMediaType())
-                        )
-                    }
-                }
-
-            } else {
-
-            }
         }
 
 
     }
 
-    private fun imageToBitmap(image: ImageView): ByteArray {
+    private fun imageToBitmap(image: ImageView): Bitmap {
         val bitmap = (image.drawable as BitmapDrawable).bitmap
         val stream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 40, stream)
 
-        return stream.toByteArray()
+        return bitmap
     }
 
-    private fun imgtoText(imgbytearr: ByteArray): String{
+    private fun imgtoText(bitmap: Bitmap): String{
         var resulttext=""
         Log.d("TAG", "img to text 실행")
 
+        var filepath= getExternalFilesDir(null).toString() +"/wordbook"
+        var dir=File(filepath)
+        if(!dir.exists())
+            dir.mkdirs()
+        var fileName="temp.png"
+        File(dir,fileName).writeBitmap(bitmap,Bitmap.CompressFormat.PNG,80)
+        var file=File(filepath+"/"+fileName)
+        Log.d("DEBUG","$filepath")
 
-        api.ImagetoText(KakaoRestApiKey= RetrofitClientkakao.kakaoRestapiKey, KakaoRestApiCt= RetrofitClientkakao.kakaoContentType,image =  filePartImage)
+        Log.d("TAG", "파일 저장 완료")
+
+        file = File(filepath+"/"+fileName)
+        val requestFile: RequestBody = UploadRequestBody(file,"image",this)
+        val body = MultipartBody.Part.createFormData("image", file.name, requestFile)
+
+        Log.d("TAG", "body 출력 ${body}")
+
+
+        api.ImagetoText(KakaoRestApiKey= RetrofitClientkakao.kakaoRestapiKey, KakaoRestApiCt= RetrofitClientkakao.kakaoContentType,image =  body)
             .enqueue(object : Callback<responseimgtotxt?> {
             override fun onResponse(call: Call<responseimgtotxt?>, response: Response<responseimgtotxt?>) {
                 val result = response.body()
@@ -145,5 +130,21 @@ class WordfindImgActivity : AppCompatActivity() {
 
 
         return resulttext
+    }
+
+    private fun File.writeBitmap(bitmap: Bitmap, format: Bitmap.CompressFormat, quality: Int) {
+        outputStream().use { out ->
+            bitmap.compress(format, quality, out)
+            out.flush()
+            out.close()
+        }
+    }
+
+    override fun onProgressUpdate(percentage: Int) {
+        //]progress_bar.progress = percentage
+    }
+
+    companion object {
+        const val REQUEST_CODE_PICK_IMAGE = 101
     }
 }

@@ -2,8 +2,10 @@ package com.example.VocabularyBook
 
 import com.google.gson.annotations.SerializedName
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
+import java.io.File
 
 
 data class LoginData(
@@ -160,14 +162,14 @@ class ImgtoTextResponse{
 }
 
 interface ServiceKakaoApi {
-    @FormUrlEncoded
+    @Multipart
     @POST("v2/vision/text/ocr")
     fun ImagetoText(
-        @Field("image") image: MultipartBody.Part,
-        @Header("Authorization") KakaoRestApiKey: String,
-        @Header("Content-Type") KakaoRestApiCt: String
+            @Header("Authorization") KakaoRestApiKey: String,
+            @Header("Content-Type") KakaoRestApiCt: String,
+            @Part image: MultipartBody.Part
 
-    ): Call<responseimgtotxt?>
+            ): Call<responseimgtotxt?>
 
 }
 

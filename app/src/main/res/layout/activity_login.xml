@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:layout_marginTop="70dp"
-        tools:srcCompat="@drawable/background" />
+        android:src="@drawable/background" />
     <AutoCompleteTextView
         android:id="@+id/email_edittext"
         android:layout_gravity="center"
