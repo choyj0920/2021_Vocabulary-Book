@@ -28,12 +28,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity 아무리해도 안돼~~~~~~~~">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/UploadRequestBody.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" afterDir="false" />
-    </list>
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity ㅍㄱ" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -322,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614921943328</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="WordfindImgActivity ㅍㄱ">
+      <created>1614931257403</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1614931257403</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +359,8 @@
     <MESSAGE value="WordfindImgActivity 미완 권한은 되나, 이미지 전송이 되지않는듯" />
     <MESSAGE value="WordfindImgActivity 아무리해도 안되~~~~~~~~" />
     <MESSAGE value="WordfindImgActivity 아무리해도 안돼~~~~~~~~" />
-    <option name="LAST_COMMIT_MESSAGE" value="WordfindImgActivity 아무리해도 안돼~~~~~~~~" />
+    <MESSAGE value="WordfindImgActivity ㅍㄱ" />
+    <option name="LAST_COMMIT_MESSAGE" value="WordfindImgActivity ㅍㄱ" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="139" key="#PSD" timestamp="1614243238654">
