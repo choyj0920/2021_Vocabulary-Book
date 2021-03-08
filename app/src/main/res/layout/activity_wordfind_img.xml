@@ -6,33 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".WordfindImgActivity">
 
+    <Button
+        android:id="@+id/btn_wordfindimgtrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginBottom="20dp"
+        android:text="번역"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/iv_wordfindimg"
-        android:layout_width="270dp"
-        android:layout_height="381dp"
-        android:layout_marginTop="75dp"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/man"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/man" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_wordfindimgselect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Select"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="20dp"
+        android:text="->텍스트"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_wordfindimg" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_wordfind_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_wordfindimgselect" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_wordfindimg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

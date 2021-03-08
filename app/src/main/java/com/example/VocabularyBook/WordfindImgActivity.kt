@@ -115,9 +115,55 @@ class WordfindImgActivity : AppCompatActivity(){
         //file = File(filepath+"/"+fileName)
 
         CoroutineScope(IO).launch {
-            boxarray = getTextFromImage(filepath,api)
+            boxarray= arrayListOf()
+            var isfinish=false
 
+            val requestBody: RequestBody
+            val body: MultipartBody.Part
+            val mapRequestBody =
+                    LinkedHashMap<String, RequestBody>()
+            val arrBody: ArrayList<MultipartBody.Part> = ArrayList()
+
+            requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file)
+            mapRequestBody["file\"; filename=\"" + file.name] = requestBody
+            mapRequestBody["test"] = RequestBody.create(MediaType.parse("text/plain"), "gogogogogogogog")
+
+            body = MultipartBody.Part.createFormData("image", file.name, requestBody)
+            arrBody.add(body)
+
+            api.ImagetoText(mapRequestBody,arrBody)
+                    .enqueue(object : Callback<responseimgtotxt?> {
+                        override fun onResponse(call: Call<responseimgtotxt?>, response: Response<responseimgtotxt?>) {
+                            val result = response.body()
+                            Log.d("TAG", "code : ${response.code().toString()} ,message : ${response.message()}, ${response.errorBody()} ")
+                            if (result != null) {
+                                var resultarr= result.result
+                                for (i in resultarr){
+                                    var temp=""
+                                    for (j in i.recognition_words!!){
+                                        temp +="$j "
+                                    }
+                                    boxarray.add(box(i.boxes.get(0).get(1),i.boxes.get(0).get(0),temp))
+                                    Log.d("TAG","box 생성 $temp")
+
+
+                                }
+                                //tv_wordfind_result.text=resulttext
+                                Log.d("TAG", "-----------------------성공! ")
+                                isfinish=true
+                            }
+                        }
+                        override fun onFailure(call: Call<responseimgtotxt?>, t: Throwable) {
+
+                            Log.d("TAG", "-----------------------실패 : 이미지 -> text $t")
+                            isfinish=true
+                        }
+                    })
             withContext(Main) {
+                while (!isfinish){
+                    delay(100)
+                }
+                Log.d("TAG","-------------MAIN 박스업데이트 수행중")
                 boxarray.sort()
                 var text=""
                 for ( i in boxarray){
@@ -138,60 +184,6 @@ class WordfindImgActivity : AppCompatActivity(){
             out.flush()
             out.close()
         }
-    }
-
-    suspend fun getTextFromImage(filepath:String, api:ServiceKakaoApi):ArrayList<box> {
-        var boxarray:ArrayList<box> = arrayListOf()
-
-        var file=File(filepath)
-
-        val requestBody: RequestBody
-        val body: MultipartBody.Part
-        val mapRequestBody =
-            LinkedHashMap<String, RequestBody>()
-        val arrBody: ArrayList<MultipartBody.Part> = ArrayList()
-
-        requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file)
-        mapRequestBody["file\"; filename=\"" + file.name] = requestBody
-        mapRequestBody["test"] = RequestBody.create(MediaType.parse("text/plain"), "gogogogogogogog")
-
-        body = MultipartBody.Part.createFormData("image", file.name, requestBody)
-        arrBody.add(body)
-
-        boxarray= arrayListOf()
-        var isfinish=false
-
-        api.ImagetoText(mapRequestBody,arrBody)
-            .enqueue(object : Callback<responseimgtotxt?> {
-                override fun onResponse(call: Call<responseimgtotxt?>, response: Response<responseimgtotxt?>) {
-                    val result = response.body()
-                    Log.d("TAG", "code : ${response.code().toString()} ,message : ${response.message()}, ${response.errorBody()} ")
-                    if (result != null) {
-                        var resultarr= result.result
-                        for (i in resultarr){
-                            var temp=""
-                            for (j in i.recognition_words!!){
-                                temp +="$j "
-                            }
-                            boxarray.add(box(i.boxes.get(0).get(1),i.boxes.get(0).get(0),temp))
-                            Log.d("TAG","box 생성 $temp")
-
-                        }
-                        //tv_wordfind_result.text=resulttext
-                        Log.d("TAG", "-----------------------성공! ")
-                        isfinish=true
-                    }
-                }
-                override fun onFailure(call: Call<responseimgtotxt?>, t: Throwable) {
-
-                    Log.d("TAG", "-----------------------실패 : 이미지 -> text $t")
-                    isfinish=true
-                }
-            })
-
-        return boxarray
-
-
     }
 
 }
