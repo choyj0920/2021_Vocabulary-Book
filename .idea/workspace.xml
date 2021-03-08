@@ -28,7 +28,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity ㅍㄱ" />
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity ㅍㄱ">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/KakaoApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/JoinData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +92,7 @@
         <option value="valueResourceFile" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -375,10 +383,10 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="265" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1614044997986" />
-    <state x="601" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1614921695413">
+    <state x="601" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1615188714881">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="601" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1620.1040@0.0.1620.1040" timestamp="1614921695413" />
+    <state x="601" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1620.1040@0.0.1620.1040" timestamp="1615188714881" />
     <state x="541" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1614924875276">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
@@ -403,22 +411,22 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614818575533" />
-    <state width="787" height="281" key="GridCell.Tab.0.bottom" timestamp="1614930462860">
+    <state width="1575" height="396" key="GridCell.Tab.0.bottom" timestamp="1615184020761">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1614930462860" />
-    <state width="787" height="281" key="GridCell.Tab.0.center" timestamp="1614930462860">
+    <state width="1575" height="396" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1615184020761" />
+    <state width="1575" height="396" key="GridCell.Tab.0.center" timestamp="1615184020761">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1614930462860" />
-    <state width="787" height="281" key="GridCell.Tab.0.left" timestamp="1614930462859">
+    <state width="1575" height="396" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1615184020761" />
+    <state width="1575" height="396" key="GridCell.Tab.0.left" timestamp="1615184020761">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1614930462859" />
-    <state width="787" height="281" key="GridCell.Tab.0.right" timestamp="1614930462860">
+    <state width="1575" height="396" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1615184020761" />
+    <state width="1575" height="396" key="GridCell.Tab.0.right" timestamp="1615184020761">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="787" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1614930462860" />
+    <state width="1575" height="396" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1615184020761" />
     <state x="312" y="165" key="SettingsEditor" timestamp="1614834722371">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
@@ -439,13 +447,13 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="616" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1620.1040@0.0.1620.1040" timestamp="1613359015159" />
-    <state x="466" y="239" width="672" height="677" key="run.anything.popup" timestamp="1614241620996">
+    <state x="465" y="238" width="672" height="677" key="run.anything.popup" timestamp="1615191049454">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="466" y="239" width="672" height="677" key="run.anything.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1614241620996" />
-    <state x="469" y="222" width="672" height="678" key="search.everywhere.popup" timestamp="1614243272332">
+    <state x="465" y="238" width="672" height="677" key="run.anything.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1615191049454" />
+    <state x="468" y="221" width="672" height="678" key="search.everywhere.popup" timestamp="1615190828272">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="469" y="222" width="672" height="678" key="search.everywhere.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1614243272332" />
+    <state x="468" y="221" width="672" height="678" key="search.everywhere.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1615190828272" />
   </component>
 </project>

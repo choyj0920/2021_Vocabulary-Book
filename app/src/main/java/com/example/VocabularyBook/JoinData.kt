@@ -165,19 +165,32 @@ interface ServiceKakaoApi {
     @Multipart
     @POST("v2/vision/text/ocr")
     fun ImagetoText(
-            @Header("Authorization") KakaoRestApiKey: String,
-            @Header("Content-Type") KakaoRestApiCt: String,
-            @PartMap image: HashMap<String, RequestBody>
-
+        @PartMap()  partMap:LinkedHashMap<String, RequestBody>,
+        @Part name: List<MultipartBody.Part>
             ): Call<responseimgtotxt?>
 
 }
 
-
 data class Result(
-    val boxes: List<List<Int>>,
-    val recognition_words: List<String>
+    val boxes: ArrayList<ArrayList<Int>>,
+    val recognition_words: ArrayList<String>
 )
-data class responseimgtotxt(
-    val result: List<Result>
+class responseimgtotxt(
+    val result: ArrayList<Result>
 )
+
+class box(val y:Int,val x:Int,val text:String):Comparable<box>{
+
+    override fun compareTo(other: box): Int {
+        if (this.y>other.y){
+            return 1
+        }
+        else if(this.y==other.y){
+            if(this.x>other.y){
+                return 1
+            }
+        }
+        return -1
+    }
+}
+
