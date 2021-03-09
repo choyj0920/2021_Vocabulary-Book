@@ -9,6 +9,10 @@ import com.example.VocabularyBook.Fragment.MemorizedwordFragment
 import com.example.VocabularyBook.Fragment.MemorizedwordFragment.Companion.memorizedwordfragment
 import com.example.VocabularyBook.Fragment.WordFragment.Companion.wordFragment
 import kotlinx.android.synthetic.main.activity_wordbook.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -142,6 +146,7 @@ class WordbookActivity:AppCompatActivity() {
     fun checkword(wordid: Int): Boolean {
 
         var isSucess: Boolean=false
+        var isFail=false
         service!!.Checkword(checkwordinputdata(LoginActivity.Useruid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
             override fun onResponse(
                     call: Call<NormalResponse?>,
@@ -166,18 +171,27 @@ class WordbookActivity:AppCompatActivity() {
                 Toast.makeText(wordbookact, "암기한 단어를 체크하던 중 에러 발생", Toast.LENGTH_SHORT).show()
 
                 Log.e("암기한 단어를 체크하던 중 에러 발생", t.message!!)
-
+                isFail=true
 
             }
         })
-        if(isSucess){
-            updatedata()
+        CoroutineScope(Dispatchers.Main).launch {
+            while(!isSucess){
+                delay(50)
+                if(isFail)
+                    break
+            }
+            if(isSucess)
+                updatedata()
+
         }
         return isSucess
     }
     fun uncheckword(wordid :Int):Boolean {
 
         var isSucess: Boolean=false
+        var isFail=false
+
         service!!.Uncheckword(checkwordinputdata(LoginActivity.Useruid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
             override fun onResponse(
                     call: Call<NormalResponse?>,
@@ -204,19 +218,29 @@ class WordbookActivity:AppCompatActivity() {
                 Toast.makeText(wordbookact, "암기한 단어를 체크해제 하던 중 에러 발생", Toast.LENGTH_SHORT).show()
 
                 Log.e("암기한 단어를 체크해제하던 중 에러 발생", t.message!!)
-
+                isFail=true
 
             }
         })
-        if(isSucess){
-            updatedata()
+        CoroutineScope(Dispatchers.Main).launch {
+            while(!isSucess){
+                delay(50)
+                if(isFail)
+
+                    break
+            }
+            if(isSucess)
+                updatedata()
+
         }
+
 
         return isSucess
     }
     private fun updatedata(){
+
         loaddata(bookid)
-        memorizedwordfragment?.loaddata()
+        MemorizedwordFragment.memorizedwordfragment?.loaddata()
         wordFragment?.loaddata()
     }
 
