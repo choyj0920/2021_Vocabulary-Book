@@ -167,3 +167,11 @@ app/src/main/java/com/example/VocabularyBook/RetrofitClientkakao.kt
 app/src/main/java/com/example/VocabularyBook/RetrofitClientPapago.kt
 
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,androidstudio
+sampledata/
+src/main/res/drawable/wordfinddefault.png
+src/main/res/layout/font/
+src/main/res/layout/items/
+app/src/main/res/drawable/wordfinddefault.png
+app/src/main/res/layout/font/
+app/src/main/res/layout/items/
+

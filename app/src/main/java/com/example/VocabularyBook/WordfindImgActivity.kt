@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -48,6 +49,8 @@ class WordfindImgActivity : AppCompatActivity(){
         }
 
         btn_wordfindimgselect.setOnClickListener {
+
+            showProgress(true)
 
             var text=imgtoText(imageToBitmap(iv_wordfindimg))
            // Log.d("TAG", "결과 : $text ")
@@ -151,7 +154,7 @@ class WordfindImgActivity : AppCompatActivity(){
                                     }
                                     if(lastboxint!=-1 && lastboxint<((i.boxes.get(0).get(1)+i.boxes.get(2).get(1))/2) )
                                         temp="\n"+temp
-                                    else
+                                    else if(lastboxint!=-1)
                                         temp=" "+temp
                                     lastboxint=i.boxes.get(2).get(1)
 
@@ -182,6 +185,8 @@ class WordfindImgActivity : AppCompatActivity(){
                     Log.d("TAG","텍스트 출력--------"+i.text)
                 }
                 tv_wordfind_result.text=text
+                showProgress(false)
+
             }
         }
 
@@ -195,6 +200,10 @@ class WordfindImgActivity : AppCompatActivity(){
             out.flush()
             out.close()
         }
+    }
+
+    private fun showProgress(show: Boolean) {
+        pb_wordfindimage!!.visibility = if (show) View.VISIBLE else View.GONE
     }
 
 }

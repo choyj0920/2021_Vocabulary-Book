@@ -171,6 +171,8 @@ interface ServiceKakaoApi {
 
 }
 
+
+
 data class Result(
     val boxes: ArrayList<ArrayList<Int>>,
     val recognition_words: ArrayList<String>
@@ -194,3 +196,41 @@ class box(val y:Int,val x:Int,val text:String):Comparable<box>{
     }
 }
 
+
+class TranslateResponse {
+    @SerializedName("message")
+    val message : Translatemessage? =null
+
+}
+class Translatemessage{
+
+    @SerializedName("type")
+    val type : String? =null
+    @SerializedName("service")
+    val service: String? = null
+    @SerializedName("version")
+    val version: String? = null
+    @SerializedName("result")
+    val result:Messageresult? =null
+
+}
+
+class Messageresult{
+    @SerializedName("srcLangType")
+    val srcLangType : String? =null
+    @SerializedName("tarLangType")
+    val tarLangType: String? = null
+    @SerializedName("translatedText")
+    val translatedText: String? = null
+}
+
+interface ServicePapagoApi{
+    @FormUrlEncoded
+    @POST("v1/papago/n2mt")
+    fun transferPapago(
+
+        @Field("source") source: String,
+        @Field("target") target: String,
+        @Field("text") text: String
+    ): Call<TranslateResponse?>
+}
