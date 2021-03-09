@@ -53,6 +53,11 @@ class WordfindImgActivity : AppCompatActivity(){
            // Log.d("TAG", "결과 : $text ")
 
            // tv_wordfind_result.text=text
+        }
+        btn_wordfindimgtrans.setOnClickListener {
+            var intent=Intent(applicationContext, WordfindTextActivity::class.java)
+            intent.putExtra("text",tv_wordfind_result.text)
+            startActivity(intent)
 
         }
 
@@ -106,7 +111,7 @@ class WordfindImgActivity : AppCompatActivity(){
         var file =File(dir,fileName)
         filepath=file.absolutePath
 
-        file.writeBitmap(bitmap,Bitmap.CompressFormat.PNG,80)
+        file.writeBitmap(bitmap,Bitmap.CompressFormat.PNG,50)
         //var file = File(filepath+"/"+fileName)
         Log.d("DEBUG","$filepath")
         file=File(filepath)
@@ -138,14 +143,20 @@ class WordfindImgActivity : AppCompatActivity(){
                             Log.d("TAG", "code : ${response.code().toString()} ,message : ${response.message()}, ${response.errorBody()} ")
                             if (result != null) {
                                 var resultarr= result.result
+                                var lastboxint=-1
                                 for (i in resultarr){
                                     var temp=""
                                     for (j in i.recognition_words!!){
-                                        temp +="$j "
+                                        temp +="$j"
                                     }
+                                    if(lastboxint!=-1 && lastboxint<((i.boxes.get(0).get(1)+i.boxes.get(2).get(1))/2) )
+                                        temp="\n"+temp
+                                    else
+                                        temp=" "+temp
+                                    lastboxint=i.boxes.get(2).get(1)
+
                                     boxarray.add(box(i.boxes.get(0).get(1),i.boxes.get(0).get(0),temp))
                                     Log.d("TAG","box 생성 $temp")
-
 
                                 }
                                 //tv_wordfind_result.text=resulttext
@@ -164,10 +175,10 @@ class WordfindImgActivity : AppCompatActivity(){
                     delay(100)
                 }
                 Log.d("TAG","-------------MAIN 박스업데이트 수행중")
-                boxarray.sort()
+                //boxarray.sort() //sort 안하고 카카오에서 준대로 하는게 더 효과가 좋은듯
                 var text=""
                 for ( i in boxarray){
-                    text +="${i.text}\n"
+                    text +="${i.text}"
                     Log.d("TAG","텍스트 출력--------"+i.text)
                 }
                 tv_wordfind_result.text=text

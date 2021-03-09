@@ -28,8 +28,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity 구현!! , 값가져오는 것 확인 ,통신부 코루틴으로 , 하지만 ui에는 업데이트가 되지않는 버그가 존재">
+    <list default="true" id="95369bb9-9867-43c3-a729-9486280b35fc" name="Default Changelist" comment="WordfindImgActivity 업데이트 되지않는 버그 수정 코루틴안에 약간 차선책으로 해결">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindTextActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordfind_text.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/KakaoApi.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/VocabularyBook/WordfindImgActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordfind_img.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wordfind_img.xml" afterDir="false" />
     </list>
@@ -120,14 +124,17 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\choyj\coding\2021_Vocabulary-Book\app\src\main\java\com\example\VocabularyBook\Adapter" />
+    <key name="android.template.745205661">
+      <recent name="com.example.VocabularyBook" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.example.VocabularyBook" />
     </key>
-    <key name="android.template.745205661">
+    <key name="android.template.-587804556">
       <recent name="com.example.VocabularyBook" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\choyj\coding\2021_Vocabulary-Book\app\src\main\java\com\example\VocabularyBook\Adapter" />
     </key>
   </component>
   <component name="RunManager">
@@ -336,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615192400445</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="WordfindImgActivity 업데이트 되지않는 버그 수정 코루틴안에 약간 차선책으로 해결">
+      <created>1615194465517</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1615194465517</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -373,7 +387,8 @@
     <MESSAGE value="WordfindImgActivity 아무리해도 안돼~~~~~~~~" />
     <MESSAGE value="WordfindImgActivity ㅍㄱ" />
     <MESSAGE value="WordfindImgActivity 구현!! , 값가져오는 것 확인 ,통신부 코루틴으로 , 하지만 ui에는 업데이트가 되지않는 버그가 존재" />
-    <option name="LAST_COMMIT_MESSAGE" value="WordfindImgActivity 구현!! , 값가져오는 것 확인 ,통신부 코루틴으로 , 하지만 ui에는 업데이트가 되지않는 버그가 존재" />
+    <MESSAGE value="WordfindImgActivity 업데이트 되지않는 버그 수정 코루틴안에 약간 차선책으로 해결" />
+    <option name="LAST_COMMIT_MESSAGE" value="WordfindImgActivity 업데이트 되지않는 버그 수정 코루틴안에 약간 차선책으로 해결" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="139" key="#PSD" timestamp="1614243238654">
@@ -416,30 +431,30 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="590" y="274" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1614818575533" />
-    <state width="1575" height="396" key="GridCell.Tab.0.bottom" timestamp="1615184020761">
+    <state width="1575" height="281" key="GridCell.Tab.0.bottom" timestamp="1615250664073">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="396" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1615184020761" />
-    <state width="1575" height="396" key="GridCell.Tab.0.center" timestamp="1615184020761">
+    <state width="1575" height="281" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1615250664073" />
+    <state width="1575" height="281" key="GridCell.Tab.0.center" timestamp="1615250664073">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="396" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1615184020761" />
-    <state width="1575" height="396" key="GridCell.Tab.0.left" timestamp="1615184020761">
+    <state width="1575" height="281" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1615250664073" />
+    <state width="1575" height="281" key="GridCell.Tab.0.left" timestamp="1615250664073">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="396" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1615184020761" />
-    <state width="1575" height="396" key="GridCell.Tab.0.right" timestamp="1615184020761">
+    <state width="1575" height="281" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1615250664073" />
+    <state width="1575" height="281" key="GridCell.Tab.0.right" timestamp="1615250664073">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state width="1575" height="396" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1615184020761" />
+    <state width="1575" height="281" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1615250664073" />
     <state x="312" y="165" key="SettingsEditor" timestamp="1614834722371">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="312" y="165" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1614834722371" />
-    <state x="403" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614844492095">
+    <state x="403" y="253" key="Vcs.Push.Dialog.v2" timestamp="1615194474006">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="403" y="253" key="Vcs.Push.Dialog.v2/0.0.1620.1040@0.0.1620.1040" timestamp="1614844492095" />
+    <state x="403" y="253" key="Vcs.Push.Dialog.v2/0.0.1620.1040@0.0.1620.1040" timestamp="1615194474006" />
     <state x="611" y="298" key="chooseDestDirectoryDialog" timestamp="1614819138562">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>

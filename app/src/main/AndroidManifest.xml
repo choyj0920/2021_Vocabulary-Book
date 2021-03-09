@@ -7,25 +7,17 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-<!--    <provider-->
-<!--        android:name="androidx.core.content.FileProvider"-->
-<!--        android:authorities="${applicationId}.provider"-->
-<!--        android:exported="false"-->
-<!--        android:grantUriPermissions="true">-->
-<!--        <meta-data-->
-<!--            android:name="android.support.FILE_PROVIDER_PATHS"-->
-<!--            android:resource="@xml/provider_paths" /> </provider>-->
-
     <application
         android:allowBackup="true"
-        android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".WordfindImgActivity"></activity>
+        <activity android:name=".WordfindTextActivity"></activity>
+        <activity android:name=".WordfindImgActivity" />
         <activity
             android:name=".WordfindSelectActivity"
             android:theme="@style/MyTheme.noTitle.Dialog" />
