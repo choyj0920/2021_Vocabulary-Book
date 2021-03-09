@@ -15,8 +15,9 @@ class WordfindSelectActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btn_wordfindsellecttxt.setOnClickListener {
-//            val intent= Intent(this, MywordbooklistActivity::class.java)
-//            startActivity(intent)
+            val intent= Intent(this, WordfindTextActivity::class.java)
+            intent.putExtra("text","text")
+            startActivity(intent)
         }
 
 

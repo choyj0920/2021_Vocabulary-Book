@@ -34,7 +34,7 @@ import java.io.File
 
 class WordfindImgActivity : AppCompatActivity(){
     lateinit var api:ServiceKakaoApi
-    lateinit var filePartImage:  MultipartBody.Part
+
     lateinit var boxarray:ArrayList<box>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
