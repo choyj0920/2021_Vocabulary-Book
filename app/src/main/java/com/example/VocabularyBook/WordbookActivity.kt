@@ -59,11 +59,21 @@ class WordbookActivity:AppCompatActivity() {
             startActivity(intent)
         }
         tv_wordmemorize.setOnClickListener {
+            if(wordlistarray.size<= memorizedwordlist.size){
+                Toast.makeText(this, "외우실 단어가 없습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val intent= Intent(this, WordmemoryActivity::class.java)
             intent.putExtra("useruid",UserUid)
             startActivity(intent)
         }
         tv_wordtest.setOnClickListener {
+            if(wordlistarray.size<= memorizedwordlist.size){
+                Toast.makeText(this, "외우실 단어가 없습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val intent= Intent(this, WordtestActivity::class.java)
             intent.putExtra("useruid",UserUid)
             startActivity(intent)
