@@ -76,24 +76,18 @@ class AddwordActivity : AppCompatActivity() {
                             val result = response.body()
                             if (result != null) {
                                 if (result.code == 200) {
-                                    Log.d(
-                                        "TAG",
-                                        "성공 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 성공"
-                                    )
+                                    Toastmsg("단어 추가 완료")
+                                    Log.d("TAG", "성공 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 성공")
                                 } else {
-                                    Log.d(
-                                        "TAG",
-                                        "오류 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 실패"
-                                    )
+                                    Toastmsg("단어 추가 실패...")
+                                    Log.d("TAG", "오류 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 실패")
                                 }
                             }
                             isFinish = true
                         }
                         override fun onFailure(call: Call<NormalResponse?>, t: Throwable) {
-                            Log.d(
-                                "TAG",
-                                "오류 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 실패"
-                            )
+                            Toastmsg("단어 추가 실패...")
+                            Log.d("TAG", "오류 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 실패")
                             isFinish = true
 
                         }
@@ -113,6 +107,10 @@ class AddwordActivity : AppCompatActivity() {
     }
     private fun showProgress(show: Boolean) {
         pb_addword!!.visibility = if (show) View.VISIBLE else View.GONE
+    }
+    private fun Toastmsg(text:String){
+        Toast.makeText( this,text ,Toast.LENGTH_SHORT).show()
+
     }
 
 }
