@@ -98,7 +98,7 @@ DB구조
 - [x]  "1. " 단어장 리스트 액티비티
 
 
-<img src="_markdown/login.gif" alt="login" width="400" height="600"/>    <img src="_markdown/내단어장리스트.gif" alt="내단어장리스트" width="400" height="600" />
+<img src="_markdown/login.gif" alt="login" width="300" height="600"/>    <img src="_markdown/내단어장리스트.gif" alt="내단어장리스트" width="300" height="600" />
 
 
 

@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 private const val NUM_PAGES = 3
 
 class WordlistActivity: FragmentActivity() {
+    var UserUid=-1
 
 
     /**
@@ -26,7 +27,7 @@ class WordlistActivity: FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordlist)
-
+        UserUid=intent.getIntExtra("useruid",-1)
         // Instantiate a ViewPager2 and a PagerAdapter.
         viewPager = findViewById(R.id.pager)
 

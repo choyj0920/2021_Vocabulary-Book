@@ -34,11 +34,15 @@ import java.io.File
 
 class WordfindImgActivity : AppCompatActivity(){
     lateinit var api:ServiceKakaoApi
+    var UserUid=-1
 
     lateinit var boxarray:ArrayList<box>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordfind_img)
+        UserUid=intent.getIntExtra("useruid",-1)
+        if(UserUid==-1)
+            finish()
 
         val retrofit = RetrofitClientkakao.client
 
@@ -60,6 +64,7 @@ class WordfindImgActivity : AppCompatActivity(){
         btn_wordfindimgtrans.setOnClickListener {
             var intent=Intent(applicationContext, WordfindTextActivity::class.java)
             intent.putExtra("text",tv_wordfind_result.text)
+            intent.putExtra("useruid",UserUid)
             startActivity(intent)
 
         }

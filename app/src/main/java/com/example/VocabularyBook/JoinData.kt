@@ -117,7 +117,11 @@ data class checkwordinputdata(
         @field:SerializedName("bookId") private val bookId: Int?
 
 )
-
+data class addwordinputdata(
+    @field:SerializedName("word_eng") private val word_eng: String?,
+    @field:SerializedName("mean") private val mean: String?,
+    @field:SerializedName("bookid") private val bookid: Int?
+)
 
 interface ServiceApi {
     @POST("/user/login")
@@ -140,6 +144,9 @@ interface ServiceApi {
 
     @POST("/user/wordbook/uncheckword")
     fun Uncheckword(@Body data: checkwordinputdata): Call<NormalResponse?>?
+
+    @POST("/user/wordbook/addword")
+    fun AddWord(@Body data :addwordinputdata): Call<NormalResponse?>?
 
 }
 class BoxPoint{

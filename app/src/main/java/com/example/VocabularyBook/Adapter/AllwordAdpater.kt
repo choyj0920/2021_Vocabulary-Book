@@ -43,6 +43,7 @@ class AllwordAdpater(var context: Context, val wordlist: ArrayList<worddata>,val
             if (!isChecked){  //외운 단어 였으면
                 holder.cb_wordmemorize.isChecked = WordbookActivity.wordbookact.uncheckword(wordlist.get(position).Wordid)
 
+
             }else{
                 holder.cb_wordmemorize.isChecked = !WordbookActivity.wordbookact.checkword(wordlist.get(position).Wordid)
 

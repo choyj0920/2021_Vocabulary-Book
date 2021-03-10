@@ -109,6 +109,7 @@ class LoginActivity : AppCompatActivity() {
                         LoginActivity.Useruid=result.Uid
                         Log.d("debug","${result.Uid}")
                         val intent= Intent(loginactivity,MainActivity::class.java)
+                        intent.putExtra("useruid",result.Uid)
                         startActivity(intent)
                     }
                     else{

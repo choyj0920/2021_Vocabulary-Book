@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".WordfindTextActivity"></activity>
+        <activity android:name=".AddwordActivity"
+            android:theme="@style/MyTheme.noTitle.Dialog" />
+        <activity android:name=".WordfindTextActivity" />
         <activity android:name=".WordfindImgActivity" />
         <activity
             android:name=".WordfindSelectActivity"

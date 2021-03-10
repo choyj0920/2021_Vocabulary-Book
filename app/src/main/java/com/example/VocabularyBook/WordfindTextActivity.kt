@@ -1,5 +1,6 @@
 package com.example.VocabularyBook
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,14 +16,16 @@ class WordfindTextActivity : AppCompatActivity() {
     var koToen:Boolean=true
     lateinit var api:ServicePapagoApi
     var Translated_text=""
-
+    var UserUid=-1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordfind_text)
         var beforetext=intent.getStringExtra("text").toString()
         tv_wordfind_before.setText(beforetext)
-
+        UserUid=intent.getIntExtra("useruid",-1)
+        if(UserUid==-1)
+            finish()
         val retrofit = RetrofitClientPapago.client
         api = retrofit.create(ServicePapagoApi::class.java)
 
@@ -41,6 +44,19 @@ class WordfindTextActivity : AppCompatActivity() {
                 showProgress(false)
             }
         }
+
+        btn_wordfindaddbook.setOnClickListener {
+            val intent= Intent(this,AddwordActivity::class.java)
+            intent.putExtra("useruid",UserUid)
+            intent.putExtra("wordeng",if(!koToen) tv_wordfind_before.text.toString() else tv_wordfind_after.text.toString())
+            intent.putExtra("wordmean",if(koToen) tv_wordfind_before.text.toString() else tv_wordfind_after.text.toString())
+            startActivity(intent)
+
+        }
+
+
+
+
 
     }
 

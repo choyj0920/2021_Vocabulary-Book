@@ -18,10 +18,15 @@ class MywordbooklistActivity:AppCompatActivity() {
     lateinit var wordbooklist: ArrayList<Wordbook>
     lateinit var mywordbooklistact: MywordbooklistActivity
     private var service: ServiceApi? = null
+    var UserUid:Int =-1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mywordbooklist)
 
+        UserUid=intent.getIntExtra("useruid",-1)
+        if (UserUid==-1){
+            finish()
+        }
         val retrofit = RetrofitClient.client
         service = retrofit.create(ServiceApi::class.java)
 
@@ -33,14 +38,12 @@ class MywordbooklistActivity:AppCompatActivity() {
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         //rv_profile.setHasFixedSize((true)) // 성능개선
 
-        rvwordbooklist.adapter = WordbookAdapter(this, wordbooklist)
-
+        rvwordbooklist.adapter = WordbookAdapter(this, wordbooklist,UserUid)
     }
-
     private fun loadData() {
         wordbooklist = arrayListOf<Wordbook>()
 
-        service!!.findFriend(UserData(LoginActivity.Useruid))!!.enqueue(object : Callback<wordbooklistResponse?> {
+        service!!.findFriend(UserData(UserUid))!!.enqueue(object : Callback<wordbooklistResponse?> {
             override fun onResponse(
                     call: Call<wordbooklistResponse?>,
                     response: Response<wordbooklistResponse?>
@@ -58,24 +61,20 @@ class MywordbooklistActivity:AppCompatActivity() {
                             wordbooklist.add(Wordbook(i.bookid, i.Rid, i.Uid, i.bookname))
 
                         }
-                        rvwordbooklist.adapter = WordbookAdapter(mywordbooklistact, wordbooklist)
+                        rvwordbooklist.adapter = WordbookAdapter(mywordbooklistact, wordbooklist,UserUid)
 
                     }
                 }
             }
-
             override fun onFailure(
                     call: Call<wordbooklistResponse?>,
                     t: Throwable
             ) {
-                Toast.makeText(mywordbooklistact, "로그인 에러 발생", Toast.LENGTH_SHORT).show()
 
-                Log.e("로그인 에러 발생", t.message!!)
+                Log.e("TAG", t.message!!)
 
             }
         })
 
     }
-
-
 }

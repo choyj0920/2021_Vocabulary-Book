@@ -20,9 +20,10 @@ import retrofit2.Response
 class WordbookActivity:AppCompatActivity() {
     var bookid:Int?=null
     var Rid:Int?=null
-    var Uid:Int?=null
+    var Uid:Int?=null //단어장 uid
     var wordbookname:String?=null
     var wordbookact:WordbookActivity?=null
+    var UserUid:Int=-1
     private var service: ServiceApi? = null
     companion object{
         var wordlistarray:ArrayList<worddata> = arrayListOf<worddata>()
@@ -33,7 +34,10 @@ class WordbookActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordbook)
-
+        UserUid=intent.getIntExtra("useruid",-1)
+        if (UserUid==-1){
+            finish()
+        }
         wordbookact=this
         WordbookActivity.wordbookact=this
         val retrofit = RetrofitClient.client
@@ -51,19 +55,25 @@ class WordbookActivity:AppCompatActivity() {
 
         tv_wordlist.setOnClickListener {
             val intent= Intent(this, WordlistActivity::class.java)
+            intent.putExtra("useruid",UserUid)
             startActivity(intent)
         }
         tv_wordmemorize.setOnClickListener {
             val intent= Intent(this, WordmemoryActivity::class.java)
+            intent.putExtra("useruid",UserUid)
             startActivity(intent)
         }
         tv_wordtest.setOnClickListener {
             val intent= Intent(this, WordtestActivity::class.java)
+            intent.putExtra("useruid",UserUid)
             startActivity(intent)
         }
-        if (Uid==LoginActivity.Useruid){ // 내 단어장일 때만 수정 가능
+        if (Uid==UserUid){ // 내 단어장일 때만 수정 가능
             tv_wordbookedit.setOnClickListener {
 //            val intent= Intent(this, WordlistActivity::class.java)
+//            intent.putExtra("useruid",UserUid)
+
+
 //            startActivity(intent)
             }
         }
@@ -107,7 +117,7 @@ class WordbookActivity:AppCompatActivity() {
 
         var checkset= hashSetOf<Int>()
         
-        service!!.getCheckword(getcheckwordinputdata(LoginActivity.Useruid,bookid))!!.enqueue(object : Callback<checkwordResponse?> {
+        service!!.getCheckword(getcheckwordinputdata(UserUid,bookid))!!.enqueue(object : Callback<checkwordResponse?> {
             override fun onResponse(
                     call: Call<checkwordResponse?>,
                     response: Response<checkwordResponse?>
@@ -147,7 +157,7 @@ class WordbookActivity:AppCompatActivity() {
 
         var isSucess: Boolean=false
         var isFail=false
-        service!!.Checkword(checkwordinputdata(LoginActivity.Useruid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
+        service!!.Checkword(checkwordinputdata(UserUid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
             override fun onResponse(
                     call: Call<NormalResponse?>,
                     response: Response<NormalResponse?>
@@ -192,7 +202,7 @@ class WordbookActivity:AppCompatActivity() {
         var isSucess: Boolean=false
         var isFail=false
 
-        service!!.Uncheckword(checkwordinputdata(LoginActivity.Useruid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
+        service!!.Uncheckword(checkwordinputdata(UserUid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
             override fun onResponse(
                     call: Call<NormalResponse?>,
                     response: Response<NormalResponse?>
