@@ -43,7 +43,7 @@ class MywordbooklistActivity:AppCompatActivity() {
     private fun loadData() {
         wordbooklist = arrayListOf<Wordbook>()
 
-        service!!.findFriend(UserData(UserUid))!!.enqueue(object : Callback<wordbooklistResponse?> {
+        service!!.getmyWordbook(UserData(UserUid))!!.enqueue(object : Callback<wordbooklistResponse?> {
             override fun onResponse(
                     call: Call<wordbooklistResponse?>,
                     response: Response<wordbooklistResponse?>

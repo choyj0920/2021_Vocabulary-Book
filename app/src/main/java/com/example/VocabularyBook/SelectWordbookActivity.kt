@@ -16,12 +16,13 @@ import kotlinx.android.synthetic.main.activity_selectwordbook.*
 class SelectWordbookActivity:AppCompatActivity() {
     lateinit var rvwordbooklist: RecyclerView
     lateinit var wordbooklist: ArrayList<Wordbook>
-    lateinit var mywordbooklistact: MywordbooklistActivity
+    lateinit var mywordbooklistact: SelectWordbookActivity
     private var service: ServiceApi? = null
     var UserUid:Int =-1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_selectwordbook)
+        mywordbooklistact=this
 
         UserUid=intent.getIntExtra("useruid",-1)
         if (UserUid==-1){
@@ -29,7 +30,6 @@ class SelectWordbookActivity:AppCompatActivity() {
         }
         val retrofit = RetrofitClient.client
         service = retrofit.create(ServiceApi::class.java)
-
         loadData()
         rvwordbooklist = rv_selectwordbook as RecyclerView
         rvwordbooklist.layoutManager =
@@ -40,7 +40,7 @@ class SelectWordbookActivity:AppCompatActivity() {
     private fun loadData() {
         wordbooklist = arrayListOf<Wordbook>()
 
-        service!!.findFriend(UserData(UserUid))!!.enqueue(object : Callback<wordbooklistResponse?> {
+        service!!.getmyWordbook(UserData(UserUid))!!.enqueue(object : Callback<wordbooklistResponse?> {
             override fun onResponse(
                 call: Call<wordbooklistResponse?>,
                 response: Response<wordbooklistResponse?>
@@ -54,7 +54,7 @@ class SelectWordbookActivity:AppCompatActivity() {
                         for (i in result.booklist) {
                             wordbooklist.add(Wordbook(i.bookid, i.Rid, i.Uid, i.bookname))
                         }
-                        rvwordbooklist.adapter = WordbookAdapter(mywordbooklistact, wordbooklist,UserUid)
+                        rvwordbooklist.adapter = WordbookAdapter(mywordbooklistact, wordbooklist,UserUid,true,mywordbooklistact)
                     }
                 }
             }

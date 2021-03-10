@@ -31,9 +31,9 @@ class AddwordActivity : AppCompatActivity() {
         tv_addword_wordeng.setText(intent.getStringExtra("wordeng"))
         tv_addword_wordmean.setText(intent.getStringExtra("wordmean"))
 
-        val retrofit = RetrofitClientPapago.client
+        val retrofit = RetrofitClient.client
         api = retrofit.create(ServiceApi::class.java)
-
+        isFinish=true
 
         btn_addword_selectwordbook.setOnClickListener {
             bookid=-1
@@ -46,30 +46,29 @@ class AddwordActivity : AppCompatActivity() {
 
         btn_addword_finish.setOnClickListener {
             if(!isFinish){
+                Log.d("TAG","이전 작업 중 ")
                 return@setOnClickListener
             }else{
+                Log.d("TAG","addword작업")
                 isFinish=false
             }
 
             if(tv_addword_wordeng.text.toString().length>45 || tv_addword_wordmean.text.toString().length > 45){
-                Toast.makeText( WordmemoryActivity.wordmemoryact,"단어와 뜻은 45자를 넘을 수 없습니다." ,Toast.LENGTH_SHORT).show()
+                Log.d("TAG","단어 길이 제한----------")
+                Toast.makeText( this,"단어와 뜻은 45자를 넘을 수 없습니다." ,Toast.LENGTH_SHORT).show()
+                isFinish=true
                 return@setOnClickListener
             }
             else if(bookid==-1){
-                Toast.makeText( WordmemoryActivity.wordmemoryact,"단어장을 선택해주세요" ,Toast.LENGTH_SHORT).show()
+                Log.d("TAG","단어장을 골라주세요----------")
+                Toast.makeText( this,"단어장을 선택해주세요" ,Toast.LENGTH_SHORT).show()
+                isFinish=true
                 return@setOnClickListener
             }
             else {
                 showProgress(true)
 
-                api.AddWord(
-                    addwordinputdata(
-                        tv_addword_wordeng.text.toString(),
-                        tv_addword_wordmean.text.toString(),
-                        bookid
-                    )
-                )
-                    ?.enqueue(object : Callback<NormalResponse?> {
+                api.AddWord(addwordinputdata(tv_addword_wordeng.text.toString(), tv_addword_wordmean.text.toString(), bookid))!!.enqueue(object : Callback<NormalResponse?> {
                         override fun onResponse(
                             call: Call<NormalResponse?>,
                             response: Response<NormalResponse?>
@@ -90,7 +89,6 @@ class AddwordActivity : AppCompatActivity() {
                             }
                             isFinish = true
                         }
-
                         override fun onFailure(call: Call<NormalResponse?>, t: Throwable) {
                             Log.d(
                                 "TAG",

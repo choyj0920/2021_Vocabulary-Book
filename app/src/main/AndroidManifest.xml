@@ -23,6 +23,9 @@
         <activity
             android:name=".WordfindSelectActivity"
             android:theme="@style/MyTheme.noTitle.Dialog" />
+        <activity
+            android:name=".SelectWordbookActivity"
+            android:theme="@style/MyTheme.noTitle.Dialog" />
         <activity android:name=".JoinActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".MywordbooklistActivity" />

@@ -118,9 +118,9 @@ data class checkwordinputdata(
 
 )
 data class addwordinputdata(
-    @field:SerializedName("word_eng") private val word_eng: String?,
-    @field:SerializedName("mean") private val mean: String?,
-    @field:SerializedName("bookid") private val bookid: Int?
+    @field:SerializedName("word_eng")  val word_eng: String?,
+    @field:SerializedName("mean") val mean: String?,
+    @field:SerializedName("bookid") val bookid: Int?
 )
 
 interface ServiceApi {
@@ -131,7 +131,7 @@ interface ServiceApi {
     fun userJoin(@Body data: JoinData?): Call<JoinResponse?>?
 
     @POST("/user/wordbook")
-    fun findFriend(@Body data: UserData): Call<wordbooklistResponse?>?
+    fun getmyWordbook(@Body data: UserData): Call<wordbooklistResponse?>?
 
     @POST("/user/wordbook/word")
     fun getWordlist(@Body data: wordbookiddata): Call<wordlistResponse?>?
