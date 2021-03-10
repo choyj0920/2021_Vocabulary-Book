@@ -25,6 +25,7 @@ class AddwordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addword)
+        bookid=-1
 
         UserUid= intent.getIntExtra("useruid",-1)
         if(UserUid==-1) finish()
@@ -60,9 +61,11 @@ class AddwordActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             else if(bookid==-1){
-                Log.d("TAG","단어장을 골라주세요----------")
+                Log.d("TAG","단어장을 선택해주세요----------")
                 Toast.makeText( this,"단어장을 선택해주세요" ,Toast.LENGTH_SHORT).show()
                 isFinish=true
+                btn_addword_selectwordbook.callOnClick()
+
                 return@setOnClickListener
             }
             else {

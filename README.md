@@ -30,6 +30,9 @@
   1. 단어장 리스트
      1. 단어장
         1. 단어 리스트
+           1. 전체단어
+           2. 모르는단어
+           3. 암기한 단어
         2. 단어 암기 (구형 형태로 랜덤하게 보여줌 터치 시 뜻 출력)
         3. 단어 테스트
         4. 단어장 편집
@@ -39,8 +42,8 @@
         2. 단어장 가져오기
            - 링크, 파일, 스터디 단어장, 공개 단어장
   2. 단어 찾기
-     1. 카메라 (api로 번역해서)
-     2. 자판
+     1. 이미지를 OCR API로 텍스트화 -> 2.1 수행
+     2. 텍스트 번역
         1. 앞의 1,2에서 번역한 단어를 내 단어장에 추가 기능
   3. 스터디 
      1. 내 스터디 리스트 
@@ -96,7 +99,6 @@ DB구조
 
 - [x] 로그인, 회원 가입 추가
 - [x]  "1. " 단어장 리스트 액티비티
-
 
 <img src="_markdown/login.gif" alt="login" width="300" height="600"/>    <img src="_markdown/내단어장리스트.gif" alt="내단어장리스트" width="300" height="600" />
 
@@ -159,8 +161,7 @@ DB구조
   - recyclerview + checkbox 사용 시 자주 발생하는 버그,
   - checkbox의 리스너를 null한번 초기화 해준 뒤 원하는 리스너 함수를 넣으면 해결
 
-
-<img src="_markdown/단어테스트.gif" alt="단어테스트"  width="400" height="600" />
+<img src="_markdown/단어테스트.gif" alt="단어테스트"  width="400" height="600"  />
 
 - ### 21-03-03 ~ 05 구현 6 ~ 8일차
 
@@ -176,17 +177,19 @@ DB구조
 
 
 
+<img src="_markdown/단어찾기선택.gif" alt="단어찾기선택" width="400" height="600" />
+
 - ### 21-03-08 구현 9일차
 
 #### do
 
-- [x] 
+
 
 #### @bug
 
 - [x] Kakao OCR rest api 통신 에러 "Bad Request"
 
-  결국 리스트& 해쉬맵 형태로 해결
+  결국 다음형태의  리스트& 해쉬맵 형태로 해결 -결과 출력성공
 
   ```kotlin
   @Multipart
@@ -197,5 +200,46 @@ DB구조
               ): Call<responseimgtotxt?>
   ```
 
-  
+
+
+
+
+
+- ### 21-03-09 구현 10일차
+
+#### do
+
+- [x] "2.1" 이미지 텍스트인식 (OCR) 구현 - KAKAO API 사용 
+- [x] wordfindimage, text progressbar 추가
+- [ ] Markdown정리
+
+#### @bug
+
+- [x] "1.1.1" 단어 리스트 단어의 개수가 많아지니 체크/ 체크해제의 동기화 문제 발생
+
+  코루틴으로 retrofit2 통신 완료 후 업데이트 하게 추가 
+
+
+
+<img src="_markdown/단어찾기이미지.gif" alt="단어찾기이미지" width="300" height="500" /><img src="_markdown/단어찾기텍스트.gif" alt="단어찾기텍스트" width="300" height="500" />
+
+
+
+
+
+- ### 21-03-10 구현 11일차
+
+#### do
+
+- [x] Markdown정리
+
+- [x] "2.2.1" 단어 추가 완성
+
+  -"1."을 가져와 단어장을 선택 하게 한 후 해당 단어장에 추가
+
+#### @bug
+
+- [x] 모르는 단어가 없을 시 -"1.1.2":wordmemory,"1.1.3": wordtest 에서  에러(모르는 단어가 없으므로..) - 모르는 단어가 없을 시에 wordmemory, wordtest로의 진입을 막아 해결
+
+<img src="_markdown/addword.gif" alt="addword" width="300" height="500" /><img src="_markdown/addword2.gif" alt="addword2" width="300" height="500" />
 
