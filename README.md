@@ -98,8 +98,7 @@ DB구조
 - [x]  "1. " 단어장 리스트 액티비티
 
 
-
-<img src="_markdown/login.gif" alt="login" style="zoom:40%;"/>  <img src="_markdown/내단어장리스트.gif" alt="내단어장리스트" style="zoom:40%;" />
+<img src="_markdown/login.gif" alt="login" width="400" height="600"/>    <img src="_markdown/내단어장리스트.gif" alt="내단어장리스트" width="400" height="600" />
 
 
 
@@ -112,7 +111,7 @@ DB구조
 - [x]  "1.1. " 단어장 액티비티
 - [ ] "1.1.1." 단어리스트 구현
 
-<img src="_markdown/단어장메뉴.gif" alt="단어장메뉴" style="zoom:40%;" />
+<img src="_markdown/단어장메뉴.gif" alt="단어장메뉴" width="400" height="600" />
 
 - ### 21-02-25 ㄱㅎ 3일차
 
@@ -124,7 +123,7 @@ DB구조
 
 - [x] "1.1.1" 전체단어, 모르는단어, 외운단어 세 fragment 구현
 
-<img src="_markdown/단어리스트.gif" alt="단어리스트" style="zoom:40%;" />
+<img src="_markdown/단어리스트.gif" alt="단어리스트" width="400" height="600" />
 
 
 
@@ -142,7 +141,7 @@ DB구조
 
 
 
-<img src="_markdown/단어암기.gif" alt="단어암기" style="zoom:40%;" />
+<img src="_markdown/단어암기.gif" alt="단어암기" width="400" height="600" />
 
 - ### 21-03-02 구현 5일차
 
@@ -161,7 +160,7 @@ DB구조
   - checkbox의 리스너를 null한번 초기화 해준 뒤 원하는 리스너 함수를 넣으면 해결
 
 
-<img src="_markdown/단어테스트.gif" alt="단어테스트" style="zoom:40%;" />
+<img src="_markdown/단어테스트.gif" alt="단어테스트"  width="400" height="600" />
 
 - ### 21-03-03 ~ 05 구현 6 ~ 8일차
 
