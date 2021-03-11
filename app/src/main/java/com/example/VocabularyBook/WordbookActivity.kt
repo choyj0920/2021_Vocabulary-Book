@@ -3,6 +3,7 @@ package com.example.VocabularyBook
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.VocabularyBook.Fragment.MemorizedwordFragment
@@ -41,12 +42,12 @@ class WordbookActivity:AppCompatActivity() {
         wordbookact=this
         WordbookActivity.wordbookact=this
         val retrofit = RetrofitClient.client
-        service = retrofit.create(ServiceApi::class.java);
+        service = retrofit.create(ServiceApi::class.java)
 
         bookid= intent.getIntExtra("bookid",0)
         // Rid= intent.getIntExtra("Rid",1)
         Uid= intent.getIntExtra("Uid",1)
-        wordbookname= intent.getStringExtra("wordbookname")?.toString()
+        wordbookname= intent.getStringExtra("wordbookname")
 
         loaddata(bookid)
 
@@ -82,15 +83,15 @@ class WordbookActivity:AppCompatActivity() {
             tv_wordbookedit.setOnClickListener {
 //            val intent= Intent(this, WordlistActivity::class.java)
 //            intent.putExtra("useruid",UserUid)
-
-
 //            startActivity(intent)
             }
+        }else{
+            tv_wordbookedit.visibility = View.GONE
         }
     }
 
     private fun loaddata(bookid : Int?) { // 단어장 단어리스트 , 외운 단어 가져오는 함수
-        var wordlist = arrayListOf<worddata>()
+        val wordlist = arrayListOf<worddata>()
         service!!.getWordlist(wordbookiddata(bookid))!!.enqueue(object : Callback<wordlistResponse?> {
             override fun onResponse(
                     call: Call<wordlistResponse?>,
@@ -125,7 +126,7 @@ class WordbookActivity:AppCompatActivity() {
         // set 초기화 -DD 외운 단어 가져오기
         //memorizedwordlist
 
-        var checkset= hashSetOf<Int>()
+        val checkset= hashSetOf<Int>()
         
         service!!.getCheckword(getcheckwordinputdata(UserUid,bookid))!!.enqueue(object : Callback<checkwordResponse?> {
             override fun onResponse(
@@ -165,7 +166,7 @@ class WordbookActivity:AppCompatActivity() {
 
     fun checkword(wordid: Int): Boolean {
 
-        var isSucess: Boolean=false
+        var isSucess=false
         var isFail=false
         service!!.Checkword(checkwordinputdata(UserUid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
             override fun onResponse(
@@ -179,7 +180,7 @@ class WordbookActivity:AppCompatActivity() {
                     Log.d("debug","${result.message}")
 
                     if (result.code == 200){
-                        WordbookActivity.memorizedwordlist.add(wordid)
+                        memorizedwordlist.add(wordid)
                         isSucess=true
                     }
                 }
@@ -209,7 +210,7 @@ class WordbookActivity:AppCompatActivity() {
     }
     fun uncheckword(wordid :Int):Boolean {
 
-        var isSucess: Boolean=false
+        var isSucess=false
         var isFail=false
 
         service!!.Uncheckword(checkwordinputdata(UserUid,wordid,bookid))!!.enqueue(object : Callback<NormalResponse?> {
@@ -226,7 +227,7 @@ class WordbookActivity:AppCompatActivity() {
                     if (result.code == 200){
 
                         isSucess=true
-                        WordbookActivity.memorizedwordlist.remove(wordid)
+                        memorizedwordlist.remove(wordid)
 
                     }
                 }
@@ -260,7 +261,7 @@ class WordbookActivity:AppCompatActivity() {
     private fun updatedata(){
 
         loaddata(bookid)
-        MemorizedwordFragment.memorizedwordfragment?.loaddata()
+        memorizedwordfragment?.loaddata()
         wordFragment?.loaddata()
     }
 

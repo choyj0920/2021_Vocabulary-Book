@@ -20,12 +20,13 @@ class AddwordActivity : AppCompatActivity() {
     var isFinish=true
     lateinit var api:ServiceApi
     companion object{
-        var bookid=-1
+        var bookid = -1
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addword)
-        bookid=-1
+        bookid=intent.getIntExtra("bookid",-1)
 
         UserUid= intent.getIntExtra("useruid",-1)
         if(UserUid==-1) finish()
@@ -36,13 +37,15 @@ class AddwordActivity : AppCompatActivity() {
         api = retrofit.create(ServiceApi::class.java)
         isFinish=true
 
+        if(bookid != -1){
+            btn_addword_selectwordbook.visibility=View.GONE
+        }
+
         btn_addword_selectwordbook.setOnClickListener {
             bookid=-1
             val intent= Intent(this, SelectWordbookActivity::class.java)
             intent.putExtra("useruid",UserUid)
             startActivity(intent)
-
-
         }
 
         btn_addword_finish.setOnClickListener {
