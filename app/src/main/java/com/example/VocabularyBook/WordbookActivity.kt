@@ -25,11 +25,13 @@ class WordbookActivity:AppCompatActivity() {
     var wordbookname:String?=null
     var wordbookact:WordbookActivity?=null
     var UserUid:Int=-1
+
     private var service: ServiceApi? = null
     companion object{
         var wordlistarray:ArrayList<worddata> = arrayListOf<worddata>()
         lateinit var wordbookact: WordbookActivity
         var memorizedwordlist: HashSet<Int> = hashSetOf()
+        var isfinish=2
 
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,7 +99,8 @@ class WordbookActivity:AppCompatActivity() {
         }
     }
 
-    private fun loaddata(bookid : Int?) { // 단어장 단어리스트 , 외운 단어 가져오는 함수
+    fun loaddata(bookid : Int?) { // 단어장 단어리스트 , 외운 단어 가져오는 함수
+        isfinish=0
         val wordlist = arrayListOf<worddata>()
         service!!.getWordlist(wordbookiddata(bookid))!!.enqueue(object : Callback<wordlistResponse?> {
             override fun onResponse(
@@ -119,6 +122,7 @@ class WordbookActivity:AppCompatActivity() {
                         wordlistarray=wordlist
                     }
                 }
+                isfinish +=1
             }
             override fun onFailure(
                     call: Call<wordlistResponse?>,
@@ -127,8 +131,9 @@ class WordbookActivity:AppCompatActivity() {
                 Toast.makeText(wordbookact, "단어를 불러오던중 에러 발생", Toast.LENGTH_SHORT).show()
 
                 Log.e("단어리스트를 가져오던 중 에러 발생", t.message!!)
-
+                isfinish+=1
             }
+
         })
         // set 초기화 -DD 외운 단어 가져오기
         //memorizedwordlist
@@ -155,6 +160,8 @@ class WordbookActivity:AppCompatActivity() {
                         memorizedwordlist= checkset
                     }
                 }
+                isfinish+=1
+
             }
             override fun onFailure(
                     call: Call<checkwordResponse?>,
@@ -163,11 +170,9 @@ class WordbookActivity:AppCompatActivity() {
                 Toast.makeText(wordbookact, "암기한 단어를 불러오던중 에러 발생", Toast.LENGTH_SHORT).show()
 
                 Log.e("암기 단어리스트를 가져오던 중 에러 발생", t.message!!)
-
+                isfinish+=1
             }
         })
-
-
 
     }
 

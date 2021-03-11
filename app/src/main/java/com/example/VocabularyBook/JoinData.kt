@@ -122,6 +122,16 @@ data class addwordinputdata(
     @field:SerializedName("mean") val mean: String?,
     @field:SerializedName("bookid") val bookid: Int?
 )
+data class editwordinputdata(
+        @field:SerializedName("word_eng")  val word_eng: String?,
+        @field:SerializedName("mean") val mean: String?,
+        @field:SerializedName("bookid") val bookid: Int?,
+        @field:SerializedName("wordid") val wordid: Int?
+)
+data class delwordinputdata(
+        @field:SerializedName("bookid") val bookid: Int?,
+        @field:SerializedName("wordid") val wordid: Int?
+)
 
 interface ServiceApi {
     @POST("/user/login")
@@ -147,6 +157,12 @@ interface ServiceApi {
 
     @POST("/user/wordbook/addword")
     fun AddWord(@Body data :addwordinputdata): Call<NormalResponse?>?
+
+    @POST("/user/wordbook/editword")
+    fun EditWord(@Body data :editwordinputdata): Call<NormalResponse?>?
+
+    @POST("/user/wordbook/delword")
+    fun DelWord(@Body data :delwordinputdata): Call<NormalResponse?>?
 
 }
 class BoxPoint{

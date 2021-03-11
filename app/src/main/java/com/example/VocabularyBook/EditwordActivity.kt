@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_addword.*
+import kotlinx.android.synthetic.main.activity_editword.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -15,9 +15,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AddwordActivity : AppCompatActivity() {
+class EditwordActivity : AppCompatActivity() {
     var UserUid=-1
     var isFinish=true
+    var WordId=-1
+    var pos =-1
     lateinit var api:ServiceApi
     companion object{
         var bookid = -1
@@ -25,63 +27,46 @@ class AddwordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_addword)
+        setContentView(R.layout.activity_editword)
         bookid=intent.getIntExtra("bookid",-1)
-
         UserUid= intent.getIntExtra("useruid",-1)
-        if(UserUid==-1) finish()
-        tv_addword_wordeng.setText(intent.getStringExtra("wordeng"))
-        tv_addword_wordmean.setText(intent.getStringExtra("wordmean"))
+        WordId=intent.getIntExtra("wordid",-1)
+        pos=intent.getIntExtra("position",-1)
+        if(UserUid==-1 || bookid==-1) finish()
+
+        tv_editword_wordeng.setText(intent.getStringExtra("wordeng"))
+        tv_editword_wordmean.setText(intent.getStringExtra("wordmean"))
 
         val retrofit = RetrofitClient.client
         api = retrofit.create(ServiceApi::class.java)
         isFinish=true
 
-        if(bookid != -1){
-            btn_addword_selectwordbook.visibility=View.GONE
-        }
-
-        btn_addword_selectwordbook.setOnClickListener {
-            bookid=-1
-            val intent= Intent(this, SelectWordbookActivity::class.java)
-            intent.putExtra("useruid",UserUid)
-            startActivity(intent)
-        }
-
-        btn_addword_finish.setOnClickListener {
+        btn_editword_finish.setOnClickListener {
             if(!isFinish){
                 Log.d("TAG","이전 작업 중 ")
                 return@setOnClickListener
             }else{
-                Log.d("TAG","addword작업")
+                Log.d("TAG","editword 작업 시작")
                 isFinish=false
             }
-
-            if(tv_addword_wordeng.text.toString().length==0 || tv_addword_wordmean.text.toString().length==0) {
+            
+            if(tv_editword_wordeng.text.toString().length==0 || tv_editword_wordmean.text.toString().length==0) {
                 Log.d("TAG", "단어 길이 제한----------")
                 Toast.makeText(this, "단어 혹은 뜻이 비어 있습니다.", Toast.LENGTH_SHORT).show()
                 isFinish = true
                 return@setOnClickListener
             }
-            if(tv_addword_wordeng.text.toString().length>45 || tv_addword_wordmean.text.toString().length > 45){
+            if(tv_editword_wordeng.text.toString().length>45 || tv_editword_wordmean.text.toString().length > 45){
                 Log.d("TAG","단어 길이 제한----------")
                 Toast.makeText( this,"단어와 뜻은 45자를 넘을 수 없습니다." ,Toast.LENGTH_SHORT).show()
                 isFinish=true
-                return@setOnClickListener
-            }
-            else if(bookid==-1){
-                Log.d("TAG","단어장을 선택해주세요----------")
-                Toast.makeText( this,"단어장을 선택해주세요" ,Toast.LENGTH_SHORT).show()
-                isFinish=true
-                btn_addword_selectwordbook.callOnClick()
-
                 return@setOnClickListener
             }
             else {
                 showProgress(true)
                 var isSuccess=false
 
-                api.AddWord(addwordinputdata(tv_addword_wordeng.text.toString(), tv_addword_wordmean.text.toString(), bookid))!!.enqueue(object : Callback<NormalResponse?> {
+                api.EditWord(editwordinputdata(tv_editword_wordeng.text.toString(), tv_editword_wordmean.text.toString(), bookid,WordId))!!.enqueue(object : Callback<NormalResponse?> {
                         override fun onResponse(
                             call: Call<NormalResponse?>,
                             response: Response<NormalResponse?>
@@ -89,19 +74,19 @@ class AddwordActivity : AppCompatActivity() {
                             val result = response.body()
                             if (result != null) {
                                 if (result.code == 200) {
-                                    Toastmsg("단어 추가 완료")
+                                    Toastmsg("단어 수정 완료")
                                     isSuccess=true
-                                    Log.d("TAG", "성공 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 성공")
+                                    Log.d("TAG", "성공 : 단어 :${tv_editword_wordeng.text.toString()},뜻 : ${tv_editword_wordmean.text.toString()} 단어장:${bookid}에 수정 성공")
                                 } else {
-                                    Toastmsg("단어 추가 실패...")
-                                    Log.d("TAG", "오류 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 실패")
+                                    Toastmsg("단어 수정 실패...")
+                                    Log.d("TAG", "오류 : 단어 :${tv_editword_wordeng.text.toString()},뜻 : ${tv_editword_wordmean.text.toString()} 단어장:${bookid}에 수정 실패")
                                 }
                             }
                             isFinish = true
                         }
                         override fun onFailure(call: Call<NormalResponse?>, t: Throwable) {
-                            Toastmsg("단어 추가 실패...")
-                            Log.d("TAG", "오류 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 실패")
+                            Toastmsg("단어 수정 실패...")
+                            Log.d("TAG", "오류 : 단어 :${tv_editword_wordeng.text.toString()},뜻 : ${tv_editword_wordmean.text.toString()} 단어장:${bookid}에 수정 실패")
                             isFinish = true
 
                         }
@@ -112,19 +97,15 @@ class AddwordActivity : AppCompatActivity() {
                     }
                     showProgress(false)
                     if(isSuccess){
-                        EditWordbookActivity.editwordbookact.UpdateData(1)
+                        EditWordbookActivity.editwordbookact.UpdateData(pos)
                         finish()
                     }
-
                 }
-
             }
-
         }
-
     }
     private fun showProgress(show: Boolean) {
-        pb_addword!!.visibility = if (show) View.VISIBLE else View.GONE
+        pb_editword!!.visibility = if (show) View.VISIBLE else View.GONE
     }
     private fun Toastmsg(text:String){
         Toast.makeText( this,text ,Toast.LENGTH_SHORT).show()

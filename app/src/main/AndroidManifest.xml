@@ -20,6 +20,9 @@
         <activity
             android:name=".AddwordActivity"
             android:theme="@style/MyTheme.noTitle.Dialog" />
+        <activity
+            android:name=".EditwordActivity"
+            android:theme="@style/MyTheme.noTitle.Dialog" />
         <activity android:name=".WordfindTextActivity" />
         <activity android:name=".WordfindImgActivity" />
         <activity

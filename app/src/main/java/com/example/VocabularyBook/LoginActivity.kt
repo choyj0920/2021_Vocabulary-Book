@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         mJoinButton = findViewById<View>(R.id.register_button) as TextView
         mProgressView = findViewById<View>(R.id.login_progress) as ProgressBar
         val retrofit = RetrofitClient.client
-        service = retrofit.create(ServiceApi::class.java);
+        service = retrofit.create(ServiceApi::class.java)
 
         maincontext=this@LoginActivity
 
