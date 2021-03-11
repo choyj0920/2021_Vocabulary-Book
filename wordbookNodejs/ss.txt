@@ -1,0 +1,2 @@
+cd C:\Users\choyj\coding\wordbook\bin
+nodemon main.js

@@ -20,6 +20,15 @@ var connection = mysql.createConnection({
     port: 3306
 });
 
+var multiconnection = mysql.createConnection({
+    host: "192.168.43.178",
+    user: "root",
+    database: "wordbook1",
+    password: "1234",
+    port: 3306,
+    multipleStatements: true
+});
+
 /*
 
 insert into Study (room_name, host) VALUES (?,?)
@@ -67,7 +76,7 @@ app.post('/user/wordbook', function (req, res) {
     var UserUid = req.body.UserUid; // 요청 변수 하나
 
     // 유저의 단어장 목록을 받아오는 select sql문 -응답 클래스-booklist 배열(bookid,bookname) 구성
-    var sql = 'SELECT bookid,bookname from Wordbook where Uid = ? ';
+    var sql = 'SELECT bookid,Rid,Uid,bookname from Wordbook where Uid = ? ';
     var params = UserUid;
     
     // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
@@ -122,6 +131,38 @@ app.post('/user/wordbook/word', function (req, res) {
         });
     });
 });
+
+//단어장에 단어 추가 - 요청 변수는 word_eng,mean,bookid  응답 변수는 code, message (Normalresponse)로 구성
+app.post('/user/wordbook/addword', function (req, res) {
+    console.log(req.body);  //
+    var word_eng = req.body.word_eng; // 
+    var mean = req.body.mean; // 
+    var bookid = req.body.bookid; // 
+
+    // 단어장에 단어 추가 INSERT sql문 -응답 클래스 normal- 배열(Wordid,word_eng,mean) 구성
+    var sql = 'INSERT INTO word (word_eng,mean,bookid) VALUES(?,?,?)';
+    var params = [word_eng,mean,bookid];
+
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, params, function (err, result) {
+        var resultCode = 404;
+        var message = '에러가 발생했습니다';
+
+        if (err) {
+            console.log(err);
+            resultCode=400;
+            message='단어를 추가하던중 오류 발생';
+        } else {
+            resultCode = 200;
+            message = '단어를 성공적으로 추가';
+        }
+        res.json({
+            'code': resultCode,
+            'message': message,
+        });
+    });
+});
+
 
 //외운 단어 목록  - 요청 변수는 bookId,Uid  응답 변수는 code, message, wordlist(단어장의 단어들)로 구성
 app.post('/user/wordbook/getcheckword', function (req, res) {

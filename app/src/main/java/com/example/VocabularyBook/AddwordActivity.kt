@@ -57,6 +57,12 @@ class AddwordActivity : AppCompatActivity() {
                 isFinish=false
             }
 
+            if(tv_addword_wordeng.text.toString().length==0 || tv_addword_wordmean.text.toString().length==0) {
+                Log.d("TAG", "단어 길이 제한----------")
+                Toast.makeText(this, "단어 혹은 뜻이 비어 있습니다.", Toast.LENGTH_SHORT).show()
+                isFinish = true
+                return@setOnClickListener
+            }
             if(tv_addword_wordeng.text.toString().length>45 || tv_addword_wordmean.text.toString().length > 45){
                 Log.d("TAG","단어 길이 제한----------")
                 Toast.makeText( this,"단어와 뜻은 45자를 넘을 수 없습니다." ,Toast.LENGTH_SHORT).show()
@@ -73,6 +79,7 @@ class AddwordActivity : AppCompatActivity() {
             }
             else {
                 showProgress(true)
+                var isSuccess=false
 
                 api.AddWord(addwordinputdata(tv_addword_wordeng.text.toString(), tv_addword_wordmean.text.toString(), bookid))!!.enqueue(object : Callback<NormalResponse?> {
                         override fun onResponse(
@@ -83,6 +90,7 @@ class AddwordActivity : AppCompatActivity() {
                             if (result != null) {
                                 if (result.code == 200) {
                                     Toastmsg("단어 추가 완료")
+                                    isSuccess=true
                                     Log.d("TAG", "성공 : 단어 :${tv_addword_wordeng.text.toString()},뜻 : ${tv_addword_wordmean.text.toString()} 단어장:${bookid}에 추가 성공")
                                 } else {
                                     Toastmsg("단어 추가 실패...")
@@ -103,6 +111,9 @@ class AddwordActivity : AppCompatActivity() {
                         delay(100)
                     }
                     showProgress(false)
+                    if(isSuccess){
+                        finish()
+                    }
 
                 }
 
