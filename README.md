@@ -249,8 +249,10 @@ DB구조
 
 #### do
 
-- [ ] "1.1.4." 단어장 편집 구현 
-  - [ ] 단어 추가, 삭제 수정 구현
+- [x] "1.1.4." 단어장 편집 구현 
+  - [x] 단어 추가,
+  - [ ] 단어 삭제 
+  - [ ] 단어 수정
 - [ ] "3.1" 스터디 구상
 
 #### @bug
@@ -259,6 +261,7 @@ DB구조
 
    js 파일의 쿼리 문제, 수정
 
+<img src="_markdown/addeditword.gif" alt="addeditword" width="300" height="500" />        <img src="_markdown/delword.gif" alt="addword2" width="300" height="500" />
 
 
 
