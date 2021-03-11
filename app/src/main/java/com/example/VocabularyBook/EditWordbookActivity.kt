@@ -27,7 +27,6 @@ class EditWordbookActivity : AppCompatActivity() {
             val intent= Intent(this, AddwordActivity::class.java)
             intent.putExtra("useruid",UserUid)
             intent.putExtra("bookid", bookid)
-            
             startActivity(intent)
         }
     }
