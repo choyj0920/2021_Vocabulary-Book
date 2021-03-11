@@ -221,7 +221,7 @@ DB구조
 
 
 
-<img src="_markdown/단어찾기이미지.gif" alt="단어찾기이미지" width="300" height="500" /><img src="_markdown/단어찾기텍스트.gif" alt="단어찾기텍스트" width="300" height="500" />
+<img src="_markdown/단어찾기이미지.gif" alt="단어찾기이미지" width="300" height="500" />        <img src="_markdown/단어찾기텍스트.gif" alt="단어찾기텍스트" width="300" height="500" />
 
 
 
@@ -241,5 +241,5 @@ DB구조
 
 - [x] 모르는 단어가 없을 시 -"1.1.2":wordmemory,"1.1.3": wordtest 에서  에러(모르는 단어가 없으므로..) - 모르는 단어가 없을 시에 wordmemory, wordtest로의 진입을 막아 해결
 
-<img src="_markdown/addword.gif" alt="addword" width="300" height="500" /><img src="_markdown/addword2.gif" alt="addword2" width="300" height="500" />
+<img src="_markdown/addword.gif" alt="addword" width="300" height="500" />        <img src="_markdown/addword2.gif" alt="addword2" width="300" height="500" />
 
