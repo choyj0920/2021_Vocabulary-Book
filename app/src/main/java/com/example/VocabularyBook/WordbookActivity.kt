@@ -19,7 +19,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class WordbookActivity:AppCompatActivity() {
-    var bookid:Int?=null
+    var bookid = -1
     var Rid:Int?=null
     var Uid:Int?=null //단어장 uid
     var wordbookname:String?=null
@@ -35,20 +35,24 @@ class WordbookActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordbook)
-        UserUid=intent.getIntExtra("useruid",-1)
-        if (UserUid==-1){
-            finish()
-        }
+
         wordbookact=this
         WordbookActivity.wordbookact=this
         val retrofit = RetrofitClient.client
         service = retrofit.create(ServiceApi::class.java)
 
-        bookid= intent.getIntExtra("bookid",0)
-        // Rid= intent.getIntExtra("Rid",1)
-        Uid= intent.getIntExtra("Uid",1)
+        bookid= intent.getIntExtra("bookid",-1)
+        if(bookid==-1){
+            finish()
+        }
+        Rid= intent.getIntExtra("Rid",-1)
+        Uid= intent.getIntExtra("Uid",-1)
         wordbookname= intent.getStringExtra("wordbookname")
 
+        UserUid=intent.getIntExtra("useruid",-1)
+        if (UserUid==-1){
+            finish()
+        }
         loaddata(bookid)
 
         tv_wordbookname.text=wordbookname
@@ -80,12 +84,15 @@ class WordbookActivity:AppCompatActivity() {
             startActivity(intent)
         }
         if (Uid==UserUid){ // 내 단어장일 때만 수정 가능
+            tv_wordbookedit.visibility = View.VISIBLE
             tv_wordbookedit.setOnClickListener {
-//            val intent= Intent(this, WordlistActivity::class.java)
-//            intent.putExtra("useruid",UserUid)
-//            startActivity(intent)
+                val intent= Intent(this, EditWordbookActivity::class.java)
+                intent.putExtra("useruid",UserUid)
+                intent.putExtra("bookid", bookid)
+                startActivity(intent)
             }
         }else{
+            Log.d("TAG"," 사용자 id:$UserUid 단어장 uid : $Uid 가 달라 편집을 사용 할 수없습니다/")
             tv_wordbookedit.visibility = View.GONE
         }
     }
