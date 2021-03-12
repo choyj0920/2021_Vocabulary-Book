@@ -157,6 +157,9 @@ class studydata{
     val host: Int?=null
     @field:SerializedName("notice")
     val notice: String=""
+    @field:SerializedName("msg")
+    val msg: String?=null
+
 }
 class studylistResponse{
     @SerializedName("code")
@@ -181,6 +184,26 @@ class addStudyResponse{
     @SerializedName("Rid")
     val Rid : Int =0
 }
+
+// getstudybookid 인풋 아웃풋 데이터
+data class studybookidinput(
+    @field:SerializedName("Rid") val Rid: Int?
+)
+class studybookidResponse{
+    @SerializedName("code")
+    val code = 0
+    @SerializedName("message")
+    val message: String? = null
+    @SerializedName("bookid")
+    val bookid : Int =0
+}
+
+data class participatestudy(
+    @field:SerializedName("Rid") val Rid: Int?,
+    @field:SerializedName("Uid") val Uid: Int?,
+    @field:SerializedName("ishost") val ishost: Boolean
+)
+
 
 interface ServiceApi {
     @POST("/user/login")
@@ -222,6 +245,11 @@ interface ServiceApi {
     @POST("/user/addstudy")
     fun addStudy(@Body data: addStudyinput) : Call<addStudyResponse?>?
 
+    @POST("/study/wordbook")
+    fun getStudybookid(@Body data: studybookidinput) : Call<studybookidResponse?>?
+
+    @POST("/study/participate")
+    fun particiapateStudy(@Body data: participatestudy): Call<NormalResponse?>?
 }
 
 

@@ -25,8 +25,9 @@ class MainActivity :AppCompatActivity() {
             startActivity(intent)
         }
         tv_study.setOnClickListener {
-//            val intent= Intent(this,MainActivity::class.java)
-//            startActivity(intent)
+            val intent= Intent(this,MystudylistActivity::class.java)
+            intent.putExtra("useruid",UserUid)
+            startActivity(intent)
         }
 
 

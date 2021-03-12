@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_mystudylist.*
 class MystudylistActivity:AppCompatActivity() {
     lateinit var rvstudylist: RecyclerView
     lateinit var studylist: ArrayList<Study>
-    lateinit var mywordbooklistact: MystudylistActivity
+    lateinit var mystudylistact: MystudylistActivity
     private var service: ServiceApi? = null
     var UserUid:Int =-1
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class MystudylistActivity:AppCompatActivity() {
         val retrofit = RetrofitClient.client
         service = retrofit.create(ServiceApi::class.java)
 
-        mywordbooklistact = this
+        mystudylistact = this
 
         loadData()
         rvstudylist = rv_studylist as RecyclerView
@@ -44,7 +44,7 @@ class MystudylistActivity:AppCompatActivity() {
         rvstudylist.adapter = StudyAdapter(this, studylist,UserUid)
 
         btn_studylist_addstudy.setOnClickListener{
-            val intent= Intent(this, AddWordbookActivity::class.java)
+            val intent= Intent(this, AddStudyActivity::class.java)
             intent.putExtra("useruid",UserUid)
             startActivity(intent)
 
@@ -69,10 +69,10 @@ class MystudylistActivity:AppCompatActivity() {
                         result.studylist as Array<studydata>
                         for (i in result.studylist) {
 
-                            studylist.add(Study(i.Rid, i.room_name, i.host, i.notice))
+                            studylist.add(Study(i.Rid, i.room_name, i.host, i.notice,i.msg != null))
 
                         }
-                        rvstudylist.adapter = StudyAdapter(mywordbooklistact, studylist,UserUid)
+                        rvstudylist.adapter = StudyAdapter(mystudylistact, studylist,UserUid)
 
                     }
                 }

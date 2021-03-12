@@ -18,7 +18,6 @@ import retrofit2.Response
 
 class AddStudyActivity : AppCompatActivity() {
     var UserUid =-1
-    var bookid:Int?=null
     lateinit var api:ServiceApi
     lateinit var addstudyact:AddStudyActivity
     var isFinish=true
@@ -90,6 +89,35 @@ class AddStudyActivity : AppCompatActivity() {
                     var isFinish2=false
                     var isSucess2=false
 
+                    api.particiapateStudy(participatestudy(newstudyid,UserUid,ishost = true))!!.enqueue(object : Callback<NormalResponse?> {
+                        override fun onResponse(
+                            call: Call<NormalResponse?>,
+                            response: Response<NormalResponse?>
+                        ) {
+                            val result = response.body()
+                            if (result != null) {
+                                if (result.code == 200) {
+                                    //Toastmsg(" 추가 완료")
+
+                                    isSucess2 = true
+                                    Log.d(
+                                        "TAG","host 스터디 추가 완료  "
+                                    )
+                                } else {
+                                    Toastmsg("host 스터디 추가 실패 ...")
+                                    Log.d("TAG","오류 . host 스터디 추가 실패, ${result.message}")
+                                }
+                            }
+                            isFinish2 = true
+                        }
+                        override fun onFailure(call: Call<NormalResponse?>, t: Throwable) {
+                            Toastmsg("단어장 추가 실패...")
+                            Log.d(
+                                "TAG","단어장 추가 실패,  $t")
+                            isFinish2 = true
+                        }
+                    })
+
 
                     api.AddWordbook(AddWordbookInput(UserUid,newstudyid,studyname+"단어장"))!!.enqueue(object : Callback<AddwordbookResponse?> {
                         override fun onResponse(
@@ -99,23 +127,23 @@ class AddStudyActivity : AppCompatActivity() {
                             val result = response.body()
                             if (result != null) {
                                 if (result.code == 200) {
-                                    Toastmsg("스터디 단어장 추가 완료")
+                                    //Toastmsg("스터디 단어장 추가 완료")
 
                                     isSucess2 = true
                                     Log.d(
-                                            "TAG","스터디 추가 완료  "
+                                            "TAG","스터디단어장 추가 완료  "
                                     )
                                 } else {
-                                    Toastmsg("스터디 추가 실패 ...")
+                                    Toastmsg("스터디단어장 추가 실패 ...")
                                     Log.d("TAG","오류 . 스터디 추가 실패, ${result.message}")
                                 }
                             }
                             isFinish2 = true
                         }
                         override fun onFailure(call: Call<AddwordbookResponse?>, t: Throwable) {
-                            Toastmsg("단어장 추가 실패...")
+                            Toastmsg("스터디단어장 추가 실패...")
                             Log.d(
-                                    "TAG","단어장 추가 실패,  $t")
+                                    "TAG","스터디단어장 추가 실패,  $t")
                             isFinish2 = true
                         }
                     })
@@ -126,11 +154,11 @@ class AddStudyActivity : AppCompatActivity() {
                     showProgress(false)
 
                     if(isSucess2){
-                        val intent= Intent(addstudyact, WordbookActivity::class.java)
-                        intent.putExtra("bookid", bookid!!)
+                        val intent= Intent(addstudyact, StudyActivity::class.java)
                         intent.putExtra("Rid",newstudyid)
-                        intent.putExtra("Uid",UserUid)
-                        intent.putExtra("studyname",studyname)
+                        intent.putExtra("host",UserUid)
+                        intent.putExtra("notice","아직 공지를 생성하지 않았습니다.")
+                        intent.putExtra("room_name",studyname)
                         intent.putExtra("useruid",UserUid)
                         addstudyact.startActivity(intent)
                         finish()

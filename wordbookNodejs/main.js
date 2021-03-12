@@ -43,7 +43,7 @@ app.post('/user/study', function (req, res) {
     var UserUid = req.body.UserUid; // 요청 변수 하나
 
     // 유저의 스터디 정보를 불러오는 select sql문 -응답 클래스studylist- 배열(Rid, room_name,host) 구성
-    var sql = 'SELECT Rid,room_name,host,notice from Study where Rid =(SELECT Rid from Studyrelation where Uid=?)';
+    var sql = 'SELECT Rid,study.room_name,study.host,study.notice,studyrelation.msg FROM study  JOIN studyrelation USING(Rid) WHERE studyrelation.Uid=?;';
     var params = UserUid;
 
     // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
@@ -67,6 +67,8 @@ app.post('/user/study', function (req, res) {
         });
     });
 });
+
+
 
 // 스터디 추가  - 요청 변수는 room_name,host  응답 변수는 code, message, rid 구성
 app.post('/user/addstudy', function (req, res) {
@@ -103,6 +105,72 @@ app.post('/user/addstudy', function (req, res) {
     });
 });
 
+// 스터디에 사람 추가  - 요청 변수는 Rid,Uid,ishost  응답 변수는 code, message(Normalresponse) 구성
+app.post('/study/participate', function (req, res) {
+    console.log("스터디 생성\n"+req.body);
+    var Rid = req.body.Rid;
+    var Uid=req.body.Uid;
+    var msg= req.body.ishost ? "" :null // msg로 스터디에 수락 여부를 결정하기 때문에 
+
+    // 단어장을 추가 후 추가된 단어장의 PK bookid출력
+    var sql = 'INSERT INTO studyrelation (Rid,Uid,msg) VALUES(?,?,?);';
+    var params = [Rid,Uid,msg];
+    
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, params, function (err, result) {
+        var resultCode = 404;
+        var Rid = -1;
+        var message = '에러가 발생했습니다';
+
+        if (err) {
+            console.log(err);
+            resultCode=400;
+            message='스터디에 추가하던 중 오류 발생';
+        } else {
+            resultCode = 200;
+            message = '스터디에 추가 성공';
+            
+        }
+        res.json({
+            'code': resultCode,
+            'message': message
+        });
+    });
+});
+
+
+//스터디 단어장-  - 요청 변수는 Rid 하나  응답 변수는 code, message, bookid 구성
+app.post('/study/wordbook', function (req, res) {
+    console.log("스터디단어장\n"+req.body);  //
+    var Rid = req.body.Rid; // 요청 변수 하나
+
+    // 유저의 단어장 목록을 받아오는 select sql문 -응답 클래스-booklist 배열(bookid,bookname) 구성
+    var sql = 'SELECT bookid from Wordbook where Rid = ?';
+    var params = Rid;
+    
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, params, function (err, result) {
+        var resultCode = 404;
+        var message = '에러가 발생했습니다';
+        var bookid=-1;
+
+        if (err | result.length != 1) {
+            console.log(err);
+            resultCode=400;
+            message='스터디의 단어장 id를 불러오던중 오류 발생';
+        } else {
+            resultCode = 200;
+            bookid=result[0].bookid
+            message = '스터디의 단어장 id를 불러왔습니다.';
+        }
+
+        res.json({
+            'code': resultCode,
+            'message': message,
+            'bookid':bookid
+        });
+    });
+});
 
 
 // 단어장 추가  - 요청 변수는 Rid,Uid,bookname  응답 변수는 code, message, bookid로 구성
