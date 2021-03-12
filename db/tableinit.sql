@@ -63,53 +63,53 @@ ALTER TABLE `Studyrelation` ADD CONSTRAINT `FK_User_TO_Studyrelation_1` FOREIGN 
 )
 REFERENCES `User` (
 	`Uid`
-);
+)ON DELETE cascade;
 
 ALTER TABLE `Studyrelation` ADD CONSTRAINT `FK_Study_TO_Studyrelation_1` FOREIGN KEY (
 	`Rid`
 )
 REFERENCES `Study` (
 	`Rid`
-);
+)ON DELETE cascade;
 
 ALTER TABLE `Wordbook` ADD CONSTRAINT `FK_Study_TO_Wordbook_1` FOREIGN KEY (
 	`Rid`
 )
 REFERENCES `Study` (
 	`Rid`
-);
+)ON DELETE cascade;
 
 ALTER TABLE `Wordbook` ADD CONSTRAINT `FK_User_TO_Wordbook_1` FOREIGN KEY (
 	`Uid`
 )
 REFERENCES `User` (
 	`Uid`
-);
+)ON DELETE cascade;
 
 ALTER TABLE `Word` ADD CONSTRAINT `FK_Wordbook_TO_Word_1` FOREIGN KEY (
 	`bookid`
 )
 REFERENCES `Wordbook` (
 	`bookid`
-);
+)ON DELETE cascade;
 
 ALTER TABLE `Checkword` ADD CONSTRAINT `FK_User_TO_Checkword_1` FOREIGN KEY (
 	`Uid`
 )
 REFERENCES `User` (
 	`Uid`
-);
+)ON DELETE cascade;
 
 ALTER TABLE `Checkword` ADD CONSTRAINT `FK_Word_TO_Checkword_1` FOREIGN KEY (
 	`Wordid`
 )
 REFERENCES `Word` (
 	`Wordid`
-);
+)ON DELETE cascade;
 
 ALTER TABLE `Checkword` ADD CONSTRAINT `FK_Wordbook_TO_Checkword_1` FOREIGN KEY (
 	`bookid`
 )
 REFERENCES `Wordbook` (
 	`bookid`
-);
+) ON DELETE cascade;
