@@ -38,9 +38,6 @@
         4. 단어장 편집
         5. 단어장 공유, 설정
      2. 단어장 추가
-        1. 단어장 구성 ( 직접 입력 하여)
-        2. 단어장 가져오기
-           - 스터디 단어장, 공개 단어장
   2. 단어 찾기
      1. 이미지를 OCR API로 텍스트화 -> 2.1 수행
      2. 텍스트 번역
@@ -58,7 +55,7 @@
         1. 링크코드 qr코드
   4. 알림 (스터디 테스트 알림? ) -- 더 고민
   5. 프로필 설정
-
+  
 - #### Resource estimation
 
   - human Resource : 
@@ -264,4 +261,19 @@ DB구조
 <img src="_markdown/addeditword.gif" alt="addeditword" width="300" height="500" />        <img src="_markdown/delword.gif" alt="addword2" width="300" height="500" />
 
 
+
+
+
+- ### 21-03-12 구현 13일차
+
+#### do
+
+- [x] "1.2." 단어장 추가 구현
+- [ ] "3.1" 스터디 구상
+
+#### @bug
+
+- [ ]  
+
+<img src="_markdown/addwordbook.gif" alt="addwordbook" width="300" height="500" />
 
