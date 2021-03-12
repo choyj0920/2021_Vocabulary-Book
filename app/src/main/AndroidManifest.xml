@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditWordbookActivity"/>
+        <activity android:name=".AddWordbookActivity"
+            android:theme="@style/MyTheme.noTitle.Dialog"/>
+        <activity android:name=".EditWordbookActivity" />
         <activity
             android:name=".AddwordActivity"
             android:theme="@style/MyTheme.noTitle.Dialog" />

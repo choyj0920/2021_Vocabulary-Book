@@ -128,7 +128,6 @@ class AddwordActivity : AppCompatActivity() {
     }
     private fun Toastmsg(text:String){
         Toast.makeText( this,text ,Toast.LENGTH_SHORT).show()
-
     }
 
 }

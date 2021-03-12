@@ -133,12 +133,30 @@ data class delwordinputdata(
         @field:SerializedName("wordid") val wordid: Int?
 )
 
+data class AddWordbookInput(
+        @field:SerializedName("Uid") val Uid: Int?,
+        @field:SerializedName("Rid") val Rid: Int?,
+        @field:SerializedName("bookname") val bookname: String?
+)
+class AddwordbookResponse{
+    @SerializedName("code")
+    var code =0
+    @SerializedName("message")
+    var message: String? = null
+    @SerializedName("bookid")
+    var bookid: Int = 0
+}
+
+
 interface ServiceApi {
     @POST("/user/login")
     fun userLogin(@Body data: LoginData?): Call<LoginResponse?>?
 
     @POST("/user/join")
     fun userJoin(@Body data: JoinData?): Call<JoinResponse?>?
+
+    @POST("/user/addwordbook")
+    fun AddWordbook(@Body data: AddWordbookInput) : Call<AddwordbookResponse?>?
 
     @POST("/user/wordbook")
     fun getmyWordbook(@Body data: UserData): Call<wordbooklistResponse?>?

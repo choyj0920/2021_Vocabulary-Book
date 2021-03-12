@@ -66,8 +66,42 @@ app.post('/user/study', function (req, res) {
             'studylist':result
         });
     });
+});
 
+// 단어장 추가  - 요청 변수는 Rid,Uid,bookname  응답 변수는 code, message, bookid로 구성
+app.post('/user/addwordbook', function (req, res) {
+    console.log("내 단어장 추가\n"+req.body);
+    var Uid = req.body.Uid;
+    var Rid=req.body.Rid;
+    var bookname=req.body.bookname;
 
+    // 단어장을 추가 후 추가된 단어장의 PK bookid출력
+    var sql = 'INSERT INTO wordbook (Rid,Uid,bookname) VALUES(?,?,?);';
+    var params = [Rid,Uid,bookname];
+    
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, params, function (err, result) {
+        var resultCode = 404;
+        var bookid = -1;
+        var message = '에러가 발생했습니다';
+
+        if (err) {
+            console.log(err);
+            resultCode=400;
+            message='단어장 목록을 불러오던중 오류 발생';
+        } else {
+            resultCode = 200;
+            message = '단어장 목록을 성공적으로 불러왔습니다.';
+            bookid=result.insertId            
+            
+        }
+
+        res.json({
+            'code': resultCode,
+            'message': message,
+            'bookid': bookid
+        });
+    });
 });
 
 //내 단어장 목록  - 요청 변수는 UserUid 하나  응답 변수는 code, message, booklist(User의 단어장들)로 구성
@@ -76,7 +110,7 @@ app.post('/user/wordbook', function (req, res) {
     var UserUid = req.body.UserUid; // 요청 변수 하나
 
     // 유저의 단어장 목록을 받아오는 select sql문 -응답 클래스-booklist 배열(bookid,bookname) 구성
-    var sql = 'SELECT bookid,Rid,Uid,bookname from Wordbook where Uid = ? ';
+    var sql = 'SELECT bookid,Rid,Uid,bookname from Wordbook where Uid = 4 and Rid IS null';
     var params = UserUid;
     
     // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.

@@ -1,5 +1,6 @@
 package com.example.VocabularyBook
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -39,6 +40,14 @@ class MywordbooklistActivity:AppCompatActivity() {
         //rv_profile.setHasFixedSize((true)) // 성능개선
 
         rvwordbooklist.adapter = WordbookAdapter(this, wordbooklist,UserUid)
+
+        btn_wordbooklist_addwordbook.setOnClickListener{
+            val intent= Intent(this, AddWordbookActivity::class.java)
+            intent.putExtra("useruid",UserUid)
+            startActivity(intent)
+
+        }
+
     }
     private fun loadData() {
         wordbooklist = arrayListOf<Wordbook>()
