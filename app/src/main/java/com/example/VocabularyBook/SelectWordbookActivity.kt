@@ -14,11 +14,13 @@ import com.example.VocabularyBook.Adapter.WordbookAdapter
 import kotlinx.android.synthetic.main.activity_selectwordbook.*
 
 class SelectWordbookActivity:AppCompatActivity() {
+
     lateinit var rvwordbooklist: RecyclerView
     lateinit var wordbooklist: ArrayList<Wordbook>
     lateinit var mywordbooklistact: SelectWordbookActivity
     private var service: ServiceApi? = null
     var UserUid:Int =-1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_selectwordbook)

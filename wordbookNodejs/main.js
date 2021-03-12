@@ -43,7 +43,7 @@ app.post('/user/study', function (req, res) {
     var UserUid = req.body.UserUid; // 요청 변수 하나
 
     // 유저의 스터디 정보를 불러오는 select sql문 -응답 클래스studylist- 배열(Rid, room_name,host) 구성
-    var sql = 'SELECT Rid,room_name,host from Study where Rid =(SELECT Rid from Studyrelation where Uid=?)';
+    var sql = 'SELECT Rid,room_name,host,notice from Study where Rid =(SELECT Rid from Studyrelation where Uid=?)';
     var params = UserUid;
 
     // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
@@ -67,6 +67,43 @@ app.post('/user/study', function (req, res) {
         });
     });
 });
+
+// 스터디 추가  - 요청 변수는 room_name,host  응답 변수는 code, message, rid 구성
+app.post('/user/addstudy', function (req, res) {
+    console.log("스터디 생성\n"+req.body);
+    var room_name = req.body.room_name;
+    var host=req.body.host;
+    var notice="아직 공지를 생성하지 않았습니다."
+
+    // 단어장을 추가 후 추가된 단어장의 PK bookid출력
+    var sql = 'INSERT INTO study (room_name,host,notice) VALUES(?,?,?);';
+    var params = [room_name,host,notice];
+    
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, params, function (err, result) {
+        var resultCode = 404;
+        var Rid = -1;
+        var message = '에러가 발생했습니다';
+
+        if (err) {
+            console.log(err);
+            resultCode=400;
+            message='스터디를 생성하던 중 오류 발생';
+        } else {
+            resultCode = 200;
+            message = '스터디를 성공적으로 생성';
+            Rid=result.insertId            
+            
+        }
+        res.json({
+            'code': resultCode,
+            'message': message,
+            'Rid': Rid
+        });
+    });
+});
+
+
 
 // 단어장 추가  - 요청 변수는 Rid,Uid,bookname  응답 변수는 code, message, bookid로 구성
 app.post('/user/addwordbook', function (req, res) {
@@ -95,7 +132,6 @@ app.post('/user/addwordbook', function (req, res) {
             bookid=result.insertId            
             
         }
-
         res.json({
             'code': resultCode,
             'message': message,

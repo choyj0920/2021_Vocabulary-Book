@@ -1,13 +1,11 @@
 package com.example.VocabularyBook
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add_wordbook.*
-import kotlinx.android.synthetic.main.activity_addword.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -42,6 +40,11 @@ class AddWordbookActivity : AppCompatActivity() {
                 Toastmsg("단어장의 이름을 입력해 주세요")
                 return@setOnClickListener
             }
+            if(tv_addwordbook.text.toString().length>50){
+                Toastmsg("스터디의 이름은 50자를 넘을 수 없습니다.")
+                return@setOnClickListener
+            }
+
             isFinish=false
             var isSuccess = false
             api.AddWordbook(AddWordbookInput(UserUid,RId,tv_addwordbook.text.toString()))!!.enqueue(object : Callback<AddwordbookResponse?> {
@@ -86,10 +89,8 @@ class AddWordbookActivity : AppCompatActivity() {
                     intent.putExtra("useruid",UserUid)
                     addwordbookact.startActivity(intent)
                     finish()
-
                 }
             }
-
         }
     }
     private fun Toastmsg(text:String){

@@ -7,7 +7,6 @@ import retrofit2.Call
 import retrofit2.http.*
 import java.io.File
 
-
 data class LoginData(
     @field:SerializedName("email") private val email: String,
     @field:SerializedName("password") private val password: String
@@ -136,7 +135,7 @@ data class delwordinputdata(
 data class AddWordbookInput(
         @field:SerializedName("Uid") val Uid: Int?,
         @field:SerializedName("Rid") val Rid: Int?,
-        @field:SerializedName("bookname") val bookname: String?
+        @field:SerializedName("bookname") val bookname: String  ?
 )
 class AddwordbookResponse{
     @SerializedName("code")
@@ -147,6 +146,41 @@ class AddwordbookResponse{
     var bookid: Int = 0
 }
 
+// getstudy input output
+class studydata{
+
+    @field:SerializedName("Rid")
+    val Rid: Int=0
+    @field:SerializedName("room_name")
+    val room_name: String=""
+    @field:SerializedName("host")
+    val host: Int?=null
+    @field:SerializedName("notice")
+    val notice: String=""
+}
+class studylistResponse{
+    @SerializedName("code")
+    val code = 0
+    @SerializedName("message")
+    val message: String? = null
+    @SerializedName("studylist")
+    val studylist : Array<studydata>? =null
+}
+
+
+// add study 인풋 아웃풋 데이터
+data class addStudyinput(
+        @field:SerializedName("room_name") val room_name: String,
+        @field:SerializedName("host") val host: Int?
+)
+class addStudyResponse{
+    @SerializedName("code")
+    val code = 0
+    @SerializedName("message")
+    val message: String? = null
+    @SerializedName("Rid")
+    val Rid : Int =0
+}
 
 interface ServiceApi {
     @POST("/user/login")
@@ -182,7 +216,15 @@ interface ServiceApi {
     @POST("/user/wordbook/delword")
     fun DelWord(@Body data :delwordinputdata): Call<NormalResponse?>?
 
+    @POST("/user/study")
+    fun getmyStudy(@Body data: UserData): Call<studylistResponse?>?
+
+    @POST("/user/addstudy")
+    fun addStudy(@Body data: addStudyinput) : Call<addStudyResponse?>?
+
 }
+
+
 class BoxPoint{
     @field:SerializedName("0")
     val boxpoint0: Int=0

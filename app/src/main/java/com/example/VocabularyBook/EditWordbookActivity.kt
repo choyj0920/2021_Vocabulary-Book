@@ -45,12 +45,8 @@ class EditWordbookActivity : AppCompatActivity() {
             intent.putExtra("bookid", bookid)
             startActivity(intent)
         }
-
-
         rv_editwordbook.layoutManager= LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
         rv_editwordbook.adapter =  EditWordbookAdapter( this, WordbookActivity.wordlistarray)
-
-
 
     }
 

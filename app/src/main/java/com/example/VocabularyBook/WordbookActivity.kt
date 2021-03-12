@@ -59,7 +59,6 @@ class WordbookActivity:AppCompatActivity() {
 
         tv_wordbookname.text=wordbookname
 
-
         tv_wordlist.setOnClickListener {
             val intent= Intent(this, WordlistActivity::class.java)
             intent.putExtra("useruid",UserUid)
@@ -117,7 +116,6 @@ class WordbookActivity:AppCompatActivity() {
                         result.wordlist as Array<worddata>
                         for (i in result.wordlist ) {
                             wordlist.add(i)
-
                         }
                         wordlistarray=wordlist
                     }
