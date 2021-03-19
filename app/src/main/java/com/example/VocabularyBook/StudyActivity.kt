@@ -52,6 +52,13 @@ class StudyActivity : AppCompatActivity() {
         updateRank()
 
         tv_study_notice.setOnClickListener {
+            val intent= Intent(this, StudyNoticeActivity::class.java)
+            intent.putExtra("Rid",Rid)
+            intent.putExtra("host",host)
+            intent.putExtra("notice",notice)
+            intent.putExtra("room_name",room_name)
+            intent.putExtra("useruid", UserUid)
+            startActivity(intent)
 
         }
         tv_study_part.setOnClickListener {

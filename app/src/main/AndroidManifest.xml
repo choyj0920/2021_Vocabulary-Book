@@ -16,8 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".StudyActivity"/>
+        <activity android:name=".StudyNoticeActivity"></activity>
+        <activity android:name=".StudyActivity" />
         <activity
             android:name=".AddWordbookActivity"
             android:theme="@style/MyTheme.noTitle.Dialog" />

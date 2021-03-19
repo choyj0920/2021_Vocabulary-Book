@@ -68,6 +68,37 @@ app.post('/user/study', function (req, res) {
     });
 });
 
+// 스터디 msg 가져오기 요청변수 Rid , 응답변수 code ,message, msglist(username, msg 배열)
+app.post('/study/getmsg', function (req, res) {
+    console.log("스터디 getmsg\n"+req.body);  //
+    var Rid = req.body.Rid; // 요청 변수 하나
+
+    // 유저의 스터디 정보를 불러오는 select sql문 -응답 클래스studylist- 배열(Rid, room_name,host) 구성
+    var sql = 'SELECT username,Uid, msg FROM studyrelation JOIN user USING (Uid) WHERE Rid = ? AND msg IS NOT null;'
+   
+
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, Rid, function (err, result) {
+        var resultCode = 404;
+        var message = '에러가 발생했습니다';
+
+        if (err) {
+            console.log(err);
+            resultCode=400;
+            message='스터디 msg 가져오던 중 오류 발생';
+        } else {
+            resultCode = 200;
+            message = '스터디 msg 성공적으로 불러왔습니다.';
+        }
+
+        res.json({
+            'code': resultCode,
+            'message': message,
+            'msglist':result
+        });
+    });
+});
+
 
 // 스터디 외운단어 랭크 가져오기  - 요청 변수는 bookid   응답 변수는 code, message,result (Username, count)배열 구성
 app.post('/study/getrank', function (req, res) {
@@ -207,12 +238,12 @@ app.post('/study/reject', function (req, res) {
     var Rid = req.body.Rid;
     var Uid=req.body.Uid; 
 
-    // 단어장을 추가 후 추가된 단어장의 PK bookid출력
-    var sql = 'DELETE FROM studyrelation  WHERE Rid= ? AND Uid=?;';
+    // 
+    var sql = 'DELETE FROM studyrelation  WHERE Rid= ? AND Uid=?; DELETE FROM checkword WHERE Uid = ? AND bookid= (SELECT bookid FROM wordbook WHERE Rid=?);';
     var params = [Rid,Uid];
     
     // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
-    connection.query(sql, params, function (err, result) {
+    multiconnection.query(sql, params, function (err, result) {
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 

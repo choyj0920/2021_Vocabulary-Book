@@ -260,6 +260,31 @@ interface ServiceApi {
     @POST("/study/getrank")
     fun getstudyRank(@Body data :getStudyRankinputdata): Call<getStudyRankResponse?>?
 
+    @POST("/study/getmsg")
+    fun getstudymsg(@Body data :getstudymsginputdata): Call<getStudyMsgResponse?>?
+
+}
+
+data class getstudymsginputdata(
+    @field:SerializedName("Rid") val Rid: Int?
+)
+
+class studymsg{
+    @field:SerializedName("username")
+    val username: String=""
+    @field:SerializedName("Uid")
+    val Uid: Int=-1
+    @field:SerializedName("msg")
+    val msg: String?=null
+}
+
+class getStudyMsgResponse{
+    @SerializedName("code")
+    val code = 0
+    @SerializedName("message")
+    val message: String? = null
+    @SerializedName("msglist")
+    val msglist : Array<studymsg>? =null
 }
 //
 data class Updatestudymsginputdata(
