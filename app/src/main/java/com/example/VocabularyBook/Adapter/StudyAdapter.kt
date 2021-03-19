@@ -20,7 +20,6 @@ class Study(val Rid : Int, val room_name :String, val host :Int?, val notice:Str
 
 class StudyAdapter(var context: MystudylistActivity, val studylist: ArrayList<Study>,var UserUid:Int) : RecyclerView.Adapter<StudyAdapter.CustomViewHolder>(){
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val view = LayoutInflater.from(context).inflate( if(viewType==1 )R.layout.study_item else R.layout.study_unparticipate_item ,parent,false)
         return if(viewType==1) CustomViewHolder(view) else CustomViewHoder2(view) // inflater -> 부착

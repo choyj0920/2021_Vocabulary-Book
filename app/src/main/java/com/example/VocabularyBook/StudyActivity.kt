@@ -3,6 +3,7 @@ package com.example.VocabularyBook
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -10,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.VocabularyBook.Adapter.Study
 import com.example.VocabularyBook.Adapter.StudyAdapter
 import kotlinx.android.synthetic.main.activity_study.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,6 +26,8 @@ class StudyActivity : AppCompatActivity() {
     var room_name=""
     var bookid:Int?=null
     lateinit var service:ServiceApi
+    lateinit var rankviewarray :ArrayList<TextView>
+    val rankstr :ArrayList<String> = arrayListOf("1st","2nd","3rd")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,11 +43,13 @@ class StudyActivity : AppCompatActivity() {
             Log.d("TAG","getExtra error UserUid=$UserUid,  host=$host,  Rid=$Rid")
             finish()
         }
+        rankviewarray= arrayListOf(tv_name1,tv_cnt1,tv_1st,tv_name2,tv_cnt2,tv_2nd,tv_name3,tv_cnt3,tv_3rd)
 
         val retrofit = RetrofitClient.client
         service = retrofit.create(ServiceApi::class.java)
 
         loadWordboookdata()
+        updateRank()
 
         tv_study_notice.setOnClickListener {
 
@@ -49,6 +57,7 @@ class StudyActivity : AppCompatActivity() {
         tv_study_part.setOnClickListener {
 
         }
+
 
 
     }
@@ -80,6 +89,7 @@ class StudyActivity : AppCompatActivity() {
                         bookid=result.bookid
                         addWordlistlistener()
 
+
                     }
                 }
             }
@@ -92,6 +102,42 @@ class StudyActivity : AppCompatActivity() {
         })
     }
 
+    fun updateRank(){
+
+        service!!.getstudyRank(getStudyRankinputdata(bookid))!!.enqueue(object : Callback<getStudyRankResponse?> {
+            override fun onResponse(
+                    call: Call<getStudyRankResponse?>,
+                    response: Response<getStudyRankResponse?>
+            ) {
+                val result = response.body()
+
+                if (result != null) {
+                    // Toast.makeText(MainActivity.maincontext, "${result.message}", Toast.LENGTH_SHORT).show()
+                    Log.d("debug", "${result.message}")
+
+                    if (result.code == 200) {
+                        if (result.rank != null) {
+                            GlobalScope.launch(Dispatchers.Main) {
+                                for (i in result.rank.indices) {
+                                    rankviewarray[i * 3].setText(result.rank[i].username)
+                                    rankviewarray[i * 3 + 1].setText(result.rank[i].count.toString())
+                                    rankviewarray[i*3+2].setText(rankstr[i].toString())
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            override fun onFailure(
+                    call: Call<getStudyRankResponse?>,
+                    t: Throwable
+            ) {
+                Log.e("TAG", t.message!!)
+            }
+        })
+    }
 
 
 

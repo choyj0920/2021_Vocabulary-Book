@@ -257,7 +257,11 @@ interface ServiceApi {
     @POST("/study/reject")
     fun rejectstudy(@Body data: Rejectstudyinputdata): Call<NormalResponse?>?
 
+    @POST("/study/getrank")
+    fun getstudyRank(@Body data :getStudyRankinputdata): Call<getStudyRankResponse?>?
+
 }
+//
 data class Updatestudymsginputdata(
         @field:SerializedName("Rid") val Rid: Int?,
         @field:SerializedName("Uid") val Uid: Int?,
@@ -268,6 +272,26 @@ data class Rejectstudyinputdata(
         @field:SerializedName("Uid") val Uid: Int?
 )
 
+// 스터디랭크
+data class getStudyRankinputdata(
+        @field:SerializedName("bookid") val bookid: Int?
+)
+
+class studyrank{
+    @field:SerializedName("username")
+    val username: String=""
+    @field:SerializedName("count")
+    val count: Int=0
+}
+
+class getStudyRankResponse{
+    @SerializedName("code")
+    val code = 0
+    @SerializedName("message")
+    val message: String? = null
+    @SerializedName("rank")
+    val rank : Array<studyrank>? =null
+}
 
 
 

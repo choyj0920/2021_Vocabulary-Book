@@ -68,6 +68,37 @@ app.post('/user/study', function (req, res) {
     });
 });
 
+
+// 스터디 외운단어 랭크 가져오기  - 요청 변수는 bookid   응답 변수는 code, message,result (Username, count)배열 구성
+app.post('/study/getrank', function (req, res) {
+    console.log("스터디랭크\n"+req.body);
+    var bookid = req.body.bookid;
+
+    // 단어장을 추가 후 추가된 단어장의 PK bookid출력
+    var sql = 'SELECT username,COUNT(*) AS count  FROM checkword JOIN user USING (uid) WHERE bookid= 34 GROUP by Uid ORDER BY COUNT DESC LIMIT 3;'
+
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, bookid, function (err, result) {
+        var resultCode = 404;
+        var message = '에러가 발생했습니다';
+
+        if (err) {
+            console.log(err);
+            resultCode=400;
+            message='스터디 랭크를 가져오던 중 오류 발생';
+        } else {
+            resultCode = 200;
+            message = '스터디랭크를 성공적으로 가져옴생성';
+            
+        }
+        res.json({
+            'code': resultCode,
+            'message': message,
+            'rank' : result
+        });
+    });
+});
+
 // 스터디 추가  - 요청 변수는 room_name,host  응답 변수는 code, message, rid 구성
 app.post('/user/addstudy', function (req, res) {
     console.log("스터디 생성\n"+req.body);
@@ -107,7 +138,7 @@ app.post('/user/addstudy', function (req, res) {
 
 // 스터디에 사람 추가  - 요청 변수는 Rid,Uid,ishost  응답 변수는 code, message(Normalresponse) 구성
 app.post('/study/participate', function (req, res) {
-    console.log("스터디 생성\n"+req.body);
+    console.log("스터디 사람 추가\n"+req.body);
     var Rid = req.body.Rid;
     var Uid=req.body.Uid;
     var msg= req.body.ishost ? "" :null // msg로 스터디에 수락 여부를 결정하기 때문에 
@@ -140,7 +171,7 @@ app.post('/study/participate', function (req, res) {
 
 // 스터디에 유저 msg변경 , null->""로 스터디 초대 수락에도 사용  - 요청 변수는 Rid,Uid,msg  응답 변수는 code, message(Normalresponse) 구성
 app.post('/study/updatemsg', function (req, res) {
-    console.log("스터디 생성\n"+req.body);
+    console.log("스터디 msg 업데이트\n"+req.body);
     var Rid = req.body.Rid;
     var Uid=req.body.Uid;
     var msg= req.body.msg  //  
@@ -172,7 +203,7 @@ app.post('/study/updatemsg', function (req, res) {
 
 // 스터디 초대 거절  요청 변수는 Rid,Uid  응답 변수는 code, message(Normalresponse) 구성
 app.post('/study/reject', function (req, res) {
-    console.log("스터디 생성\n"+req.body);
+    console.log("스터디 초대 거절\n"+req.body);
     var Rid = req.body.Rid;
     var Uid=req.body.Uid; 
 
