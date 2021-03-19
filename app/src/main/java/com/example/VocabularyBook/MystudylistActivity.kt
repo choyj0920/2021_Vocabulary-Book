@@ -15,6 +15,10 @@ import com.example.VocabularyBook.Adapter.StudyAdapter
 import com.example.VocabularyBook.Adapter.Wordbook
 import com.example.VocabularyBook.Adapter.WordbookAdapter
 import kotlinx.android.synthetic.main.activity_mystudylist.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MystudylistActivity:AppCompatActivity() {
     lateinit var rvstudylist: RecyclerView
@@ -49,6 +53,7 @@ class MystudylistActivity:AppCompatActivity() {
             startActivity(intent)
 
         }
+
 
     }
     private fun loadData() {
@@ -86,6 +91,87 @@ class MystudylistActivity:AppCompatActivity() {
 
             }
         })
+    }
+
+    fun rejectStudy(Rid:Int){
+        var isFinish=false
+        var isSuccess=false
+        service!!.rejectstudy(Rejectstudyinputdata(Rid,UserUid))!!.enqueue(object : Callback<NormalResponse?> {
+            override fun onResponse(
+                    call: Call<NormalResponse?>,
+                    response: Response<NormalResponse?>
+            ) {
+                val result = response.body()
+                if (result != null) {
+                    // Toast.makeText(MainActivity.maincontext, "${result.message}", Toast.LENGTH_SHORT).show()
+                    Log.d("debug", "${result.message}")
+                    if (result.code == 200) {
+                        isSuccess=true
+                    }
+                }
+                isFinish=true
+            }
+            override fun onFailure(
+                    call: Call<NormalResponse?>,
+                    t: Throwable
+            ) {
+
+                Log.e("TAG", t.message!!)
+                isFinish=true
+            }
+        })
+        GlobalScope.launch(Dispatchers.Main) {
+            while(!isFinish){
+                delay(100)
+            }
+            if(isSuccess){
+                loadData()
+            }
+        }
 
     }
+
+
+    fun aceptStudy(Rid:Int){
+        var isFinish=false
+        var isSuccess=false
+        service!!.updatestudymsg(Updatestudymsginputdata(Rid,UserUid,""))!!.enqueue(object : Callback<NormalResponse?> {
+            override fun onResponse(
+                    call: Call<NormalResponse?>,
+                    response: Response<NormalResponse?>
+            ) {
+                val result = response.body()
+                if (result != null) {
+                    // Toast.makeText(MainActivity.maincontext, "${result.message}", Toast.LENGTH_SHORT).show()
+                    Log.d("debug", "${result.message}")
+                    if (result.code == 200) {
+                        isSuccess=true
+                    }
+                }
+                isFinish=true
+            }
+            override fun onFailure(
+                    call: Call<NormalResponse?>,
+                    t: Throwable
+            ) {
+
+                Log.e("TAG", t.message!!)
+                isFinish=true
+            }
+        })
+        GlobalScope.launch(Dispatchers.Main) {
+            while(!isFinish){
+                delay(100)
+            }
+            if(isSuccess){
+                loadData()
+            }
+        }
+
+    }
+
+
+
+
+
 }

@@ -250,7 +250,26 @@ interface ServiceApi {
 
     @POST("/study/participate")
     fun particiapateStudy(@Body data: participatestudy): Call<NormalResponse?>?
+
+    @POST("/study/updatemsg")
+    fun updatestudymsg(@Body data: Updatestudymsginputdata): Call<NormalResponse?>?
+
+    @POST("/study/reject")
+    fun rejectstudy(@Body data: Rejectstudyinputdata): Call<NormalResponse?>?
+
 }
+data class Updatestudymsginputdata(
+        @field:SerializedName("Rid") val Rid: Int?,
+        @field:SerializedName("Uid") val Uid: Int?,
+        @field:SerializedName("msg") val msg: String  ?=null
+)
+data class Rejectstudyinputdata(
+        @field:SerializedName("Rid") val Rid: Int?,
+        @field:SerializedName("Uid") val Uid: Int?
+)
+
+
+
 
 
 class BoxPoint{

@@ -68,8 +68,6 @@ app.post('/user/study', function (req, res) {
     });
 });
 
-
-
 // 스터디 추가  - 요청 변수는 room_name,host  응답 변수는 code, message, rid 구성
 app.post('/user/addstudy', function (req, res) {
     console.log("스터디 생성\n"+req.body);
@@ -105,6 +103,8 @@ app.post('/user/addstudy', function (req, res) {
     });
 });
 
+
+
 // 스터디에 사람 추가  - 요청 변수는 Rid,Uid,ishost  응답 변수는 code, message(Normalresponse) 구성
 app.post('/study/participate', function (req, res) {
     console.log("스터디 생성\n"+req.body);
@@ -137,6 +137,70 @@ app.post('/study/participate', function (req, res) {
         });
     });
 });
+
+// 스터디에 유저 msg변경 , null->""로 스터디 초대 수락에도 사용  - 요청 변수는 Rid,Uid,msg  응답 변수는 code, message(Normalresponse) 구성
+app.post('/study/updatemsg', function (req, res) {
+    console.log("스터디 생성\n"+req.body);
+    var Rid = req.body.Rid;
+    var Uid=req.body.Uid;
+    var msg= req.body.msg  //  
+
+    // 단어장을 추가 후 추가된 단어장의 PK bookid출력
+    var sql = 'UPDATE studyrelation SET msg=? WHERE Rid=? AND Uid = ?;';
+    var params = [msg,Rid,Uid];
+    
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, params, function (err, result) {
+        var resultCode = 404;
+        var message = '에러가 발생했습니다';
+
+        if (err) {
+            console.log(err);
+            resultCode=400;
+            message='스터디 msg 업데이트중 에러 발생';
+        } else {
+            resultCode = 200;
+            message = '스터디 msg 업데이트 성공';
+            
+        }
+        res.json({
+            'code': resultCode,
+            'message': message
+        });
+    });
+});
+
+// 스터디 초대 거절  요청 변수는 Rid,Uid  응답 변수는 code, message(Normalresponse) 구성
+app.post('/study/reject', function (req, res) {
+    console.log("스터디 생성\n"+req.body);
+    var Rid = req.body.Rid;
+    var Uid=req.body.Uid; 
+
+    // 단어장을 추가 후 추가된 단어장의 PK bookid출력
+    var sql = 'DELETE FROM studyrelation  WHERE Rid= ? AND Uid=?;';
+    var params = [Rid,Uid];
+    
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, params, function (err, result) {
+        var resultCode = 404;
+        var message = '에러가 발생했습니다';
+
+        if (err) {
+            console.log(err);
+            resultCode=400;
+            message='스터디 초대 거절 중 에러 발생';
+        } else {
+            resultCode = 200;
+            message = '스터디 초대 거절 완료';
+            
+        }
+        res.json({
+            'code': resultCode,
+            'message': message
+        });
+    });
+});
+
 
 
 //스터디 단어장-  - 요청 변수는 Rid 하나  응답 변수는 code, message, bookid 구성
