@@ -57,9 +57,11 @@ class StudyAdapter(var context: MystudylistActivity, val studylist: ArrayList<St
         }else{
             holder as CustomViewHoder2
             holder.aceptbtn.setOnClickListener{
+                context.aceptStudy(studylist.get(position).Rid)
 
             }
             holder.rejectbtn.setOnClickListener{
+                context.rejectStudy(studylist.get(position).Rid)
 
             }
 
