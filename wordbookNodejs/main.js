@@ -279,7 +279,7 @@ app.post('/study/reject', function (req, res) {
 
     // 
     var sql = 'DELETE FROM studyrelation  WHERE Rid= ? AND Uid=?; DELETE FROM checkword WHERE Uid = ? AND bookid= (SELECT bookid FROM wordbook WHERE Rid=?);';
-    var params = [Rid,Uid];
+    var params = [Rid,Uid,uid,rid];
     
     // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
     multiconnection.query(sql, params, function (err, result) {

@@ -196,6 +196,7 @@ class StudyMemberActivity : AppCompatActivity() {
     fun OutStudy(uid:Int){
         if(host == uid && memberlist.size > 1){
             Toast.makeText(this, "스터디 개설자는 멤버가 모두 탈퇴 할 떄까지 탈퇴하실수 없습니다.", Toast.LENGTH_SHORT).show()
+            return
         }
 
         var isFinish=false
