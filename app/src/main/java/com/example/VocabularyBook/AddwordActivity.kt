@@ -112,7 +112,8 @@ class AddwordActivity : AppCompatActivity() {
                     }
                     showProgress(false)
                     if(isSuccess){
-                        EditWordbookActivity.editwordbookact.UpdateData(1)
+                        if (btn_addword_selectwordbook.visibility== View.GONE)
+                            EditWordbookActivity.editwordbookact.UpdateData(1)
                         finish()
                     }
 
