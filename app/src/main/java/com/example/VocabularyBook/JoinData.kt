@@ -266,14 +266,31 @@ interface ServiceApi {
     @POST("/study/updatenotice")
     fun updatenotice(@Body data : updatenoticeinputdata) : Call<NormalResponse?>?
 
+    @POST("/user/getuid")
+    fun getUid(@Body data : getuidinputdata) : Call<getuidResponse?>?
+
 }
+data class getuidinputdata(
+    @field:SerializedName("email") val email: String
+)
+
+class getuidResponse{
+    @SerializedName("code")
+    val code = 0
+    @SerializedName("message")
+    val message: String? = null
+    @SerializedName("Uid")
+    val Uid : Int? =null
+}
+
 data class updatenoticeinputdata(
         @field:SerializedName("notice") val notice: String,
         @field:SerializedName("Rid") val Rid:Int?
 )
 
 data class getstudymsginputdata(
-    @field:SerializedName("Rid") val Rid: Int?
+    @field:SerializedName("Rid") val Rid: Int?,
+    @field:SerializedName("flag") val flag: Boolean=false
 )
 
 class studymsg{

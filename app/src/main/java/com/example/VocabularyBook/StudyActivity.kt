@@ -63,7 +63,12 @@ class StudyActivity : AppCompatActivity() {
 
         }
         tv_study_part.setOnClickListener {
-
+            val intent= Intent(this, StudyMemberActivity::class.java)
+            intent.putExtra("Rid",Rid)
+            intent.putExtra("host",host)
+            intent.putExtra("room_name",room_name)
+            intent.putExtra("useruid", UserUid)
+            startActivity(intent)
         }
 
 

@@ -15,9 +15,6 @@ import com.example.VocabularyBook.R
 import com.example.VocabularyBook.StudyActivity
 import com.example.VocabularyBook.WordbookActivity
 
-
-class Study(val Rid : Int, val room_name :String, val host :Int?, val notice:String, val isaccept:Boolean)
-
 class StudyAdapter(var context: MystudylistActivity, val studylist: ArrayList<Study>,var UserUid:Int) : RecyclerView.Adapter<StudyAdapter.CustomViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
@@ -77,3 +74,5 @@ class StudyAdapter(var context: MystudylistActivity, val studylist: ArrayList<St
         val rejectbtn=itemView.findViewById<Button>(R.id.btn_studylist_reject)
     }
 }
+class Study(val Rid : Int, val room_name :String, val host :Int?, val notice:String, val isaccept:Boolean)
+

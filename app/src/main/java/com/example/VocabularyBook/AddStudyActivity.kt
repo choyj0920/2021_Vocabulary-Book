@@ -111,9 +111,9 @@ class AddStudyActivity : AppCompatActivity() {
                             isFinish2 = true
                         }
                         override fun onFailure(call: Call<NormalResponse?>, t: Throwable) {
-                            Toastmsg("단어장 추가 실패...")
+                            Toastmsg("host 스터디 추가 실패...")
                             Log.d(
-                                "TAG","단어장 추가 실패,  $t")
+                                "TAG","host 스터디 추가 실패,  $t")
                             isFinish2 = true
                         }
                     })

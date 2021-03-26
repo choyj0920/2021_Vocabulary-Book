@@ -50,7 +50,6 @@ class StudyNoticeActivity : AppCompatActivity() {
             }
         }
 
-
         tv_studynotice_title.setText(room_name)
         if(host != UserUid){
             tv_Studynotice_notice.isEnabled=false
@@ -59,8 +58,6 @@ class StudyNoticeActivity : AppCompatActivity() {
         rv_studynotice.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         loaddata()
-
-
 
 
     }

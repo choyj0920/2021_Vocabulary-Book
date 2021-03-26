@@ -72,9 +72,15 @@ app.post('/user/study', function (req, res) {
 app.post('/study/getmsg', function (req, res) {
     console.log("스터디 getmsg\n"+req.body);  //
     var Rid = req.body.Rid; // 요청 변수 하나
+    var containInvited =req.body.flag
+
 
     // 유저의 스터디 정보를 불러오는 select sql문 -응답 클래스studylist- 배열(Rid, room_name,host) 구성
     var sql = 'SELECT username,Uid, msg FROM studyrelation JOIN user USING (Uid) WHERE Rid = ? AND msg IS NOT null;'
+    var sql2 = 'SELECT username,Uid, msg FROM studyrelation JOIN user USING (Uid) WHERE Rid = ?'
+    if(containInvited){
+        sql=sql2
+    }
    
 
     // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
@@ -231,6 +237,8 @@ app.post('/study/updatenotice', function (req, res) {
     });
 });
 
+
+
 // 스터디에 유저 msg변경 , null->""로 스터디 초대 수락에도 사용  - 요청 변수는 Rid,Uid,msg  응답 변수는 code, message(Normalresponse) 구성
 app.post('/study/updatemsg', function (req, res) {
     console.log("스터디 msg 업데이트\n"+req.body);
@@ -263,7 +271,7 @@ app.post('/study/updatemsg', function (req, res) {
     });
 });
 
-// 스터디 초대 거절  요청 변수는 Rid,Uid  응답 변수는 code, message(Normalresponse) 구성
+// 스터디 초대 거절- 스터디 탈퇴에도 사용  요청 변수는 Rid,Uid  응답 변수는 code, message(Normalresponse) 구성
 app.post('/study/reject', function (req, res) {
     console.log("스터디 초대 거절\n"+req.body);
     var Rid = req.body.Rid;
@@ -655,7 +663,6 @@ app.post('/user/login', function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
     var sql = 'select * from User where email = ?';
-    
     connection.query(sql,email, function (err, result) {
         var resultCode = 404;
         var message = '에러가 발생했습니다';
@@ -675,7 +682,35 @@ app.post('/user/login', function (req, res) {
                 userId=result[0].Uid;
             }
         }
+        res.json({
+            'code': resultCode,
+            'message': message,
+            'Uid' : userId
+        });
+    })
+});
 
+// 이메일로 uid   - 요청 변수는 email  - 응답 변수는 code, message, Uid 로 구성
+app.post('/user/getuid', function (req, res) {
+    var email = req.body.email;
+    
+    var sql = 'select * from User where email = ?';
+    connection.query(sql,email, function (err, result) {
+        var resultCode = 404;
+        var message = '에러가 발생했습니다';
+        var userId="error"
+        if (err) {
+            console.log(err);
+        } else {
+            if (result.length === 0) {
+                resultCode = 204;
+                message = '존재하지 않는 계정입니다!';
+            } else {
+                resultCode = 200;
+                message = 'uid를 성공적으로 가져왔습니다.';
+                userId=result[0].Uid;
+            }
+        }
         res.json({
             'code': resultCode,
             'message': message,

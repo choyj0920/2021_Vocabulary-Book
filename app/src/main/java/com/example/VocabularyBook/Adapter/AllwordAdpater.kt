@@ -29,6 +29,7 @@ class AllwordAdpater(var context: Context, val wordlist: ArrayList<worddata>,val
 
     override fun getItemCount(): Int {
         return wordlist.size
+        
     }
     //
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {

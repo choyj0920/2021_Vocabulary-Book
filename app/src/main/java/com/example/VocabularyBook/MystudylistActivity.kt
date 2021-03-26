@@ -43,8 +43,6 @@ class MystudylistActivity:AppCompatActivity() {
         rvstudylist = rv_studylist as RecyclerView
         rvstudylist.layoutManager =
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        //rv_profile.setHasFixedSize((true)) // 성능개선
-
         rvstudylist.adapter = StudyAdapter(this, studylist,UserUid)
 
         btn_studylist_addstudy.setOnClickListener{

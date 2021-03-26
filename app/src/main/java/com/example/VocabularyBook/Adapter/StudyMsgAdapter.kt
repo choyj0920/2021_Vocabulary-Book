@@ -37,6 +37,7 @@ class StudyMsgAdapter(var context: StudyNoticeActivity, val studylist: ArrayList
             holder.btn.setOnClickListener(null)
             holder.btn.setOnClickListener{
                 context.updateMsg(UserUid,holder.msg.text.toString())
+
             }
         }
 
