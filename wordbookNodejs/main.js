@@ -200,6 +200,37 @@ app.post('/study/participate', function (req, res) {
     });
 });
 
+// 스터디에 notice수정 , 요청 변수는 Rid,notice  응답 변수는 code, message(Normalresponse) 구성
+app.post('/study/updatenotice', function (req, res) {
+    console.log("스터디 notice 업데이트\n"+req.body);
+    var Rid = req.body.Rid;
+    var notice= req.body.notice  //  
+
+    // 단어장을 추가 후 추가된 단어장의 PK bookid출력
+    var sql = 'UPDATE study SET notice= ? WHERE Rid= ?;';
+    var params = [notice,Rid];
+    
+    // sql 문의 ?는 두번째 매개변수로 넘겨진 params의 값으로 치환된다.
+    connection.query(sql, params, function (err, result) {
+        var resultCode = 404;
+        var message = '에러가 발생했습니다';
+
+        if (err) {
+            console.log(err);
+            resultCode=400;
+            message='스터디 notice 업데이트중 에러 발생';
+        } else {
+            resultCode = 200;
+            message = '스터디 notice 업데이트 성공';
+            
+        }
+        res.json({
+            'code': resultCode,
+            'message': message
+        });
+    });
+});
+
 // 스터디에 유저 msg변경 , null->""로 스터디 초대 수락에도 사용  - 요청 변수는 Rid,Uid,msg  응답 변수는 code, message(Normalresponse) 구성
 app.post('/study/updatemsg', function (req, res) {
     console.log("스터디 msg 업데이트\n"+req.body);

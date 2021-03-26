@@ -51,6 +51,7 @@ class StudyActivity : AppCompatActivity() {
         loadWordboookdata()
         updateRank()
 
+
         tv_study_notice.setOnClickListener {
             val intent= Intent(this, StudyNoticeActivity::class.java)
             intent.putExtra("Rid",Rid)

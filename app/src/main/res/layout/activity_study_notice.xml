@@ -42,5 +42,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_Studynotice_notice" />
 
+    <Button
+        android:id="@+id/btn_studynotice_editnotice"
+        android:layout_width="59dp"
+        android:layout_height="42dp"
+        android:text="수정"
+        app:layout_constraintBottom_toTopOf="@+id/rv_studynotice"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

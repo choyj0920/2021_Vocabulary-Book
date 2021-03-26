@@ -3,6 +3,7 @@ package com.example.VocabularyBook
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.VocabularyBook.Adapter.Study
 import com.example.VocabularyBook.Adapter.StudyAdapter
@@ -39,6 +40,15 @@ class StudyNoticeActivity : AppCompatActivity() {
         }
         val retrofit = RetrofitClient.client
         service = retrofit.create(ServiceApi::class.java)
+
+        if (host != UserUid){
+            btn_studynotice_editnotice.visibility=View.GONE
+        }
+        else{
+            btn_studynotice_editnotice.setOnClickListener{
+                updateNotice(tv_Studynotice_notice.text.toString())
+            }
+        }
 
 
         tv_studynotice_title.setText(room_name)
@@ -87,6 +97,31 @@ class StudyNoticeActivity : AppCompatActivity() {
         })
 
 
+    }
+
+    fun updateNotice(notice: String) {
+        if(host != UserUid)
+            return
+        service!!.updatenotice(updatenoticeinputdata(notice,Rid))!!.enqueue(object : Callback<NormalResponse?> {
+            override fun onResponse(
+                    call: Call<NormalResponse?>,
+                    response: Response<NormalResponse?>
+            ) {
+                val result = response.body()
+
+                if (result != null) {
+                    Log.d("debug", "${result.message}")
+                    if (result.code == 200) {
+                    }
+                }
+            }
+            override fun onFailure(
+                    call: Call<NormalResponse?>,
+                    t: Throwable
+            ) {
+                Log.e("TAG", t.message!!)
+            }
+        })
     }
 
     fun updateMsg(userUid: Int, msg: String) {

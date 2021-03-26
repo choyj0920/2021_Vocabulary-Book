@@ -263,7 +263,14 @@ interface ServiceApi {
     @POST("/study/getmsg")
     fun getstudymsg(@Body data :getstudymsginputdata): Call<getStudyMsgResponse?>?
 
+    @POST("/study/updatenotice")
+    fun updatenotice(@Body data : updatenoticeinputdata) : Call<NormalResponse?>?
+
 }
+data class updatenoticeinputdata(
+        @field:SerializedName("notice") val notice: String,
+        @field:SerializedName("Rid") val Rid:Int?
+)
 
 data class getstudymsginputdata(
     @field:SerializedName("Rid") val Rid: Int?
