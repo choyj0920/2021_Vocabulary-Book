@@ -229,7 +229,12 @@ class StudyMemberActivity : AppCompatActivity() {
                 delay(100)
             }
             if(isSuccess){
-                //loadData()
+                if(UserUid==uid){
+                    finish()
+                }else{
+                    loaddata()
+                }
+
             }
         }
 

@@ -47,7 +47,7 @@
     <EditText
         android:id="@+id/tv_studymember_invite"
         android:layout_width="322dp"
-        android:layout_height="44dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:fontFamily="@font/bmhannapro"
         android:hint="초대하실 분의 이메일 입력"
