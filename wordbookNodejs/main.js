@@ -19,7 +19,7 @@ var connection = mysql.createConnection({
     password: "1234",
     port: 3306
 });
-
+// db연결- 다중쿼리시 사용
 var multiconnection = mysql.createConnection({
     host: "192.168.43.178",
     user: "root",
