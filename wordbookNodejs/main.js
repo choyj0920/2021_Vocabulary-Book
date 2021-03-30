@@ -29,14 +29,6 @@ var multiconnection = mysql.createConnection({
     multipleStatements: true
 });
 
-/*
-
-insert into Study (room_name, host) VALUES (?,?)
-insert into Studyrelation ()
-insert into Word select word_eng,mean,newbookid from word where bookid=oldbookid;  //
-
-*/
-
 //내 스터디 목록  - 요청 변수는 UserUid 하나  응답 변수는 code, message, studylist(User가 속한 스터디 정보 배열)로 구성
 app.post('/user/study', function (req, res) {
     console.log("내 스터디 목록\n"+req.body);  //
@@ -59,7 +51,6 @@ app.post('/user/study', function (req, res) {
             resultCode = 200;
             message = '스터디 목록을 성공적으로 불러왔습니다.';
         }
-
         res.json({
             'code': resultCode,
             'message': message,
